@@ -14,14 +14,16 @@ a {
 }
 
 .app {
-
-  h1, h2, h3 {
-    color: #B22222; 
+  h1,
+  h2,
+  h3 {
+    // color: #B22222;
     font-weight: bold;
   }
-  
+
   // Description text
-  p, span {
+  p,
+  span {
     color: #654321;
   }
 }

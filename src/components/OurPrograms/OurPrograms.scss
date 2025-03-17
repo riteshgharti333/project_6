@@ -4,70 +4,134 @@
   max-width: 1200px;
   margin: auto;
   width: 100%;
-  .programs {
-    &:first-child {
-      margin-bottom: 70px;
-    }
-    .ourPrograms-top {
-      margin-bottom: 30px;
-    }
+  // overflow: hidden;
 
-    .ourPrograms-cards {
-      display: flex;
-      gap: 10px;
-      justify-content: space-between;
-      .ourPrograms-card {
-        width: 250px;
-        height: 400px;
+  @include xl {
+    padding: 0px 10px;
+  }
+  .ourPrograms-top {
+    p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  }
+  .ourPrograms-cards {
+    margin-top: 30px;
+    position: relative;
+    // overflow: hidden;
 
-        border-radius: 10px;
-        background-image: url("../../assets/images/rotate.jpeg");
-        background-position: center;
-        background-size: cover;
-        position: relative;
-        transition: all 0.3s ease-in-out;
+    .ourPrograms-card {
+      width: 250px;
+      height: 400px;
+      border-radius: 10px;
+      background-image: url("../../assets/images/rotate.jpeg");
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      margin: auto;
+
+      &:hover {
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-        &:hover {
-          transform: translateY(6px);
-          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-          border-radius: 10px 10px 30px 10px;
-
-          .ourPrograms-card-desc {
-            width: 100%;
-
-            h3 {
-              text-align: center;
-              color: $primary-color;
-            }
-          }
-        }
-
-        &::after {
-          height: 100%;
-          width: 100%;
-          content: "";
-          position: absolute;
-          background-color: #00000056;
-          border-radius: inherit;
-        }
+        border-radius: 10px 10px 30px 10px;
 
         .ourPrograms-card-desc {
-          position: absolute;
-          bottom: 0;
-          z-index: 10;
           background: #fff;
-          width: 0%;
-          transition: all 0.3s ease-in-out;
-          border-radius: 30px 0px 30px 0px;
+          width: 100%;
 
           h3 {
-            padding: 10px;
-            font-size: 30px;
-            color: #fff;
+            color: $primary-color;
           }
+        }
+      }
+
+      &::after {
+        height: 100%;
+        width: 100%;
+        content: "";
+        position: absolute;
+        background-color: #00000056;
+        border-radius: inherit;
+      }
+
+      .ourPrograms-card-desc {
+        position: absolute;
+        bottom: 0px;
+        z-index: 10;
+
+        width: 100%;
+        transition: all 0.3s ease-in-out;
+        border-radius: 30px 0px 30px 0px;
+
+        h3 {
+          padding: 20px 10px;
+          font-size: 25px;
+          color: #fff;
         }
       }
     }
   }
+}
+
+.program-swiper {
+  overflow: hidden;
+  .swiper-slide {
+    padding: 10px 10px 60px 10px;
+  }
+}
+
+.swiper-pagination {
+  z-index: 1 !important;
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: $primary-color;
+    opacity: 1;
+    transition: 0.3s ease-in-out;
+    margin: 0px 10px;
+
+    &.swiper-pagination-bullet-active {
+      border: 2px solid $primary-color;
+      transform: scale(1.2);
+      background: #fff;
+    }
+  }
+}
+
+.program-swiper-prev,
+.program-swiper-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $primary-color;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100;
+  font-size: 20px;
+  transition: background 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 5px 13px;
+
+  @include sm {
+    display: none;
+  }
+}
+
+.program-swiper-prev {
+  left: 10px;
+}
+
+.program-swiper-next {
+  right: 10px;
+}
+
+.taxi-swiper-prev:hover,
+.taxi-swiper-next:hover {
+  background: $primary-color;
+  color: #fff;
 }

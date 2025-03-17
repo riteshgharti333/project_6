@@ -26,49 +26,55 @@ export const services = [
 ];
 
 export const programs = [
-  {
-    title: "Undergraduate Programs (UG)",
-
-    courses: [
-      {
-        img: course_img,
-        title: "B.A",
-      },
-      {
-        img: course_img,
-        title: "B.Com",
-      },
-      {
-        img: course_img,
-        title: "B.Sc",
-      },
-      {
-        img: course_img,
-        title: "B.B.A",
-      },
-    ],
+  {img : course_img , 
+    title : "Architecture & Interior Design"
   },
   {
-    title: "Postgraduate Programs (PG)",
+    img : course_img,
+    title : "Web Design & Development"
+  },
 
-    courses: [
-      {
-        img: course_img,
-        title: "M.A",
-      },
-      {
-        img: course_img,
-        title: "M.Com",
-      },
-      {
-        img: course_img,
-        title: "M.Sc",
-      },
-      {
-        img: course_img,
-        title: "M.B.A",
-      },
-    ],
+  {
+    img : course_img,
+    title : "Graphic Design"
+  },
+
+  {
+    img : course_img,
+    title : "Fashion Design"
+  },
+  {
+    img: course_img,
+    title: "B.A",
+  },
+  {
+    img: course_img,
+    title: "B.Com",
+  },
+  {
+    img: course_img,
+    title: "B.Sc",
+  },
+  {
+    img: course_img,
+    title: "B.B.A",
+  },
+
+  {
+    img: course_img,
+    title: "M.A",
+  },
+  {
+    img: course_img,
+    title: "M.Com",
+  },
+  {
+    img: course_img,
+    title: "M.Sc",
+  },
+  {
+    img: course_img,
+    title: "M.B.A",
   },
 ];
 
@@ -105,7 +111,7 @@ export const chooseUs = [
   },
 ];
 
-////////// about 
+////////// about
 
 export const aboutContent = [
   "At International Academy of Design, we believe in the power of creativity and innovation to transform lives. As a premier institution, we are committed to nurturing talent and equipping students with the skills needed to excel in the ever-evolving world of design. Our academy serves as a hub for aspiring designers, providing them with a platform to explore, create, and innovate.",
@@ -113,5 +119,5 @@ export const aboutContent = [
   "At the heart of our academy is a commitment to fostering a culture of excellence. We believe that design is more than just aesthetics—it is a powerful tool for problem-solving and communication. Our curriculum is carefully designed to inspire critical thinking, creativity, and innovation, preparing students to meet the demands of the industry with confidence.",
   "We take pride in our state-of-the-art facilities and a learning environment that promotes collaboration and exploration. Our students have access to modern design studios, advanced technology, and industry-relevant resources that empower them to bring their ideas to life. We continuously adapt to the latest trends and advancements to ensure our students stay ahead in their fields.",
   "Beyond academics, we are dedicated to shaping well-rounded professionals ready to make an impact. Through industry partnerships, workshops, and real-world projects, we provide our students with invaluable exposure and networking opportunities. Our goal is to bridge the gap between education and professional success, helping our graduates secure rewarding careers.",
-  "At International Academy of Design, we don’t just teach design—we inspire the designers of tomorrow. Join us on this creative journey and unlock your potential in a world where innovation knows no bounds."
-]
+  "At International Academy of Design, we don’t just teach design—we inspire the designers of tomorrow. Join us on this creative journey and unlock your potential in a world where innovation knows no bounds.",
+];

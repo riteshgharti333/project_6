@@ -1,9 +1,16 @@
-.smallContent{
-    max-width: 1000px;
-    margin: auto;
-    text-align: center;
+@use "../../styles/responsive.scss" as *;
 
-    h3{
-        line-height: 1.5;
+.smallContent {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+
+  h3 {
+    line-height: 1.5;
+
+    @include sm {
+      font-size: 18px;
+      padding: 0px 10px;
     }
+  }
 }

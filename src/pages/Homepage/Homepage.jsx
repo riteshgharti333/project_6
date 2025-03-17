@@ -12,7 +12,7 @@ const Homepage = () => {
     <div className="homepage">
       <HomeBanner />
       <HomeContent />
-      <OurServices />
+      {/* <OurServices />/ */}
       <OurPrograms />
       <ChooseUs />
       <Founder />

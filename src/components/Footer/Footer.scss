@@ -5,9 +5,20 @@
   justify-content: space-between;
   background: #f8f1d7;
   padding: 50px;
+  overflow: hidden;
+  
+
+  @include lg {
+    flex-direction: column;
+    gap: 30px;
+  }
   .footer-left {
     img {
       width: 300px;
+
+      @include sm{
+        width: 250px;
+      }
     }
     .footer-icons {
       margin-top: 20px;
@@ -53,6 +64,11 @@
   .footer-right {
     display: flex;
     gap: 20px;
+
+    @include md {
+      flex-direction: column;
+
+    }
     .footer-right-item {
       ul {
         list-style-position: inside;

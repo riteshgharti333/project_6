@@ -51,9 +51,18 @@ $transition-speed: 0.3s;
     flex-direction: column;
     gap: 30px;
 
+    @include lg {
+      padding: 0px 10px;
+    }
+
     p {
       font-size: 20px;
       line-height: 1.5;
+
+      @include sm {
+        font-size: 18px;
+        text-align: justify;
+      }
     }
   }
 
@@ -69,7 +78,9 @@ $transition-speed: 0.3s;
     margin: 60px auto;
     border: 1px solid $primary-color;
 
-
+    @include md {
+      width: 95%;
+    }
     h1 {
       text-align: center;
       color: $primary-color;
