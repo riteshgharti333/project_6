@@ -66,7 +66,10 @@ const Footer = () => {
         <div className="footer-right-item">
           <h3>About</h3>
           <ul>
-            <li> About Us </li>
+            <li>
+              {" "}
+              <Link to={"/about-us"}>About Us</Link>{" "}
+            </li>
             <li>Founding Member </li>
             <li>Our Staff </li>
           </ul>
