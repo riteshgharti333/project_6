@@ -1,0 +1,74 @@
+@use "../../styles/responsive.scss" as *;
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background: #f8f1d7;
+  padding: 50px;
+  .footer-left {
+    img {
+      width: 300px;
+    }
+    .footer-icons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+
+      .footer-icon {
+        font-size: 40px;
+        background: $primary-color;
+        color: #fff;
+        padding: 5px;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+        border: 1px solid transparent;
+
+        &:hover {
+          background: #fff;
+          color: $primary-color;
+          transform: translateY(-2px);
+          border: 1px solid $primary-color;
+        }
+      }
+    }
+  }
+  .footer-center {
+    .footer-center-items {
+      .footer-center-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        .footer-center-icon {
+          font-size: 25px;
+          color: $primary-color;
+          flex-shrink: 0;
+        }
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .footer-right {
+    display: flex;
+    gap: 20px;
+    .footer-right-item {
+      ul {
+        list-style-position: inside;
+        margin-top: 10px;
+        li {
+          color: $secondary-color;
+          margin-top: 15px;
+          transition: all 0.3s ease-in-out;
+          cursor: pointer;
+
+          &:hover {
+            transform: translateX(5px);
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}

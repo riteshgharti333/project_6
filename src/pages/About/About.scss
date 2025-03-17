@@ -1,0 +1,158 @@
+@use "../../styles/responsive.scss" as *;
+
+$background-color: #f9f9f9;
+$border-color: #ddd;
+$box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+$transition-speed: 0.3s;
+
+.about {
+  .img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    z-index: -1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    h1 {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 70px;
+      color: #fff;
+      z-index: 10;
+    }
+  }
+
+  .about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    p {
+      font-size: 20px;
+      line-height: 1.5;
+    }
+  }
+
+  .about-form {
+    max-width: 600px;
+    width: 100%;
+    padding: 30px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: $box-shadow;
+    transition: transform $transition-speed ease,
+      box-shadow $transition-speed ease;
+    margin: 60px auto;
+    border: 1px solid $primary-color;
+
+
+    h1 {
+      text-align: center;
+      color: $primary-color;
+      margin-bottom: 30px;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 40px;
+
+      input,
+      textarea {
+        font-size: 20px;
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid #ccc;
+        padding: 5px 0;
+        background-color: transparent;
+        outline: none;
+
+        &:focus ~ label,
+        &:valid ~ label {
+          top: -20px;
+          font-size: 16px;
+          color: $primary-color;
+        }
+
+        &:focus ~ .underline,
+        &:valid ~ .underline {
+          transform: scaleX(1);
+        }
+      }
+
+      textarea {
+        &:focus ~ .underline,
+        &:valid ~ .underline {
+          transform: scaleX(0);
+        }
+      }
+
+      label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: $secondary-color;
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+
+      .underline {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background-color: $primary-color;
+        transform: scaleX(0);
+        transition: all 0.3s ease;
+      }
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: #8b0000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color $transition-speed ease,
+        transform $transition-speed ease;
+
+      &:hover {
+        transform: translateY(-3px);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+}

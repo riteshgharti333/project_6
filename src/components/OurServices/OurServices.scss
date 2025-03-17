@@ -1,0 +1,62 @@
+.ourServices {
+  max-width: 1200px;
+  margin: auto;
+  .ourServices-top {
+    margin-bottom: 30px;
+    p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  }
+  .ourServices-cards {
+    .ourServices-card {
+      display: flex;
+      background: #fcd9d0;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      &:nth-child(2),
+      &:nth-child(4) {
+        background: #f8f1d7;
+      }
+
+      &:hover {
+        background: #242424;
+
+        .ourServices-card-desc{
+          p{
+            color: #fff;
+          }
+        }
+      }
+
+      .ourServices-card-img {
+        flex: 1;
+        img {
+          width: 100%;
+          object-fit: cover;
+          display: block;
+        }
+      }
+
+      .ourServices-card-desc {
+        flex: 1;
+        text-align: center;
+
+        h3 {
+          font-size: 40px;
+        }
+
+        p {
+          font-size: 18px;
+          transition: all .3s ease-in-out;
+        }
+      }
+    }
+  }
+}
