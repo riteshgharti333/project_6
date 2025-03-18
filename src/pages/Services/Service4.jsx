@@ -2,7 +2,7 @@ import "./Service.scss";
 
 import service_banner from "../../assets/images/card.jpg";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import { fashion } from "../../assets/serviceData";
+import { webDesignDevelopment } from "../../assets/serviceData";
 
 const Service4 = () => {
   return (
@@ -14,8 +14,23 @@ const Service4 = () => {
 
       <div className="service-content">
         <div className="service-content-left">
-        <h2>Course overview</h2>
-        <p>Immerse yourself in the world of UX/UI design with our Diploma in UX/UI Design. This program offers hands-on experience with industry-leading tools like Photoshop, Illustrator, Figma, and Adobe XD. Perfect for aspiring designers, tech enthusiasts, and creative minds, our course is designed to prepare you for a thriving career in UX/UI design. Join us to turn your creative ideas into professional digital experiences. With 87% of companies prioritizing user-friendly interfaces, your skills will be in high demand.</p>
+          <h2 className="web-sm">{webDesignDevelopment.title}</h2>
+          {webDesignDevelopment.desc.map((item, index) => (
+            <p key={index}>{item}</p>
+          ))}
+
+          <h3>{webDesignDevelopment.list.title}</h3>
+          <p>{webDesignDevelopment.list.desc}</p>
+
+          <ul>
+            {webDesignDevelopment.list.listPoints.map((item, index) => (
+              <li key={index}>
+                <span>{item.title}</span>
+                <br />
+                {item.desc}
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="service-content-right">
           <Sidebar />

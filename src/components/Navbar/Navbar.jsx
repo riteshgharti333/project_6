@@ -72,11 +72,11 @@ const Navbar = () => {
                 <Link to="/fashion-design" className="dropdown-link">
                   Fashion Design
                 </Link>
-                <Link to="/about-3" className="dropdown-link">
+                <Link to="/undergraduate-courses" className="dropdown-link">
                   UG ( Under Graduate)
                 </Link>
 
-                <Link to="/about-3" className="dropdown-link">
+                <Link to="/postgraduate-courses" className="dropdown-link">
                   PG ( Post Graduate)
                 </Link>
               </div>

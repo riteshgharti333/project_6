@@ -100,10 +100,10 @@ const MobileMenu = () => {
                 <Link to="/fashion-design" onClick={() => setMenuOpen(false)}>
                   Fashion Design
                 </Link>
-                <Link to="/about-3" onClick={() => setMenuOpen(false)}>
+                <Link to="/undergraduate-courses" onClick={() => setMenuOpen(false)}>
                   UG (Under Graduate)
                 </Link>
-                <Link to="/about-3" onClick={() => setMenuOpen(false)}>
+                <Link to="/postgraduate-courses" onClick={() => setMenuOpen(false)}>
                   PG (Post Graduate)
                 </Link>
               </div>

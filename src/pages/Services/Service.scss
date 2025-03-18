@@ -15,11 +15,11 @@
       }
     }
 
-    .web-title{
+    .web-title {
       font-size: 50px;
       width: 100%;
 
-      @include sm{
+      @include sm {
         font-size: 40px;
       }
     }
@@ -57,6 +57,49 @@
 
     .service-content-left {
       flex: 6;
+
+      .service-content-cards {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+
+        @include sm{
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+        }
+
+        .service-content-card {
+          max-width: 200px;
+          background-color: $primary-color;
+          cursor: pointer;
+          border-radius: 5px;
+          transition: all 0.3s ease-in-out;
+          margin: auto;
+
+          &:hover {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            transform: translateY(-6px);
+          }
+          img {
+            width: 100%;
+            display: block;
+            border-radius: 5px 5px 0px 0px;
+          }
+          h4 {
+            text-align: center;
+            font-size: 20px;
+            padding: 5px 10px;
+            color: #fff;
+          }
+        }
+      }
+
+      .web-sm {
+        @include sm {
+          font-size: 25px;
+        }
+      }
 
       h2 {
         font-size: 30px;
