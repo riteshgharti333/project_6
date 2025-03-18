@@ -57,7 +57,7 @@ const Footer = () => {
           <ul>
             <li> Architecture & Interior Design </li>
             <li>Web Design & Development </li>
-            <li>Garphic Design </li>
+            <li>Graphic Design </li>
             <li> UG ( Under Graduate)</li>
             <li> PG ( Post Graduate)</li>
           </ul>

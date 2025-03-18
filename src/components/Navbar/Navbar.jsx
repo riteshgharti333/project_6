@@ -3,6 +3,7 @@ import logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { useState } from "react";
+import MobileMenu from "../MobileMenu/MobileMenu";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
@@ -13,6 +14,10 @@ const Navbar = () => {
       {/* Navbar Left */}
       <div className="navbar-left">
         <img src={logo} alt="Website Logo" />
+      </div>
+
+      <div className="mobile-menu">
+        <MobileMenu />
       </div>
 
       {/* Navbar Center */}
@@ -51,17 +56,20 @@ const Navbar = () => {
             Our course <MdOutlineKeyboardArrowDown className="nav-icon" />
             {serviceDropdown && (
               <div className="nav-dropdown">
-                <Link to="/about-1" className="dropdown-link">
+                <Link
+                  to="/architecture-interior-design"
+                  className="dropdown-link"
+                >
                   Architecture & Interior Design
                 </Link>
-                <Link to="/about-2" className="dropdown-link">
+                <Link to="/web-design-development" className="dropdown-link">
                   Web Design & Development
                 </Link>
-                <Link to="/about-3" className="dropdown-link">
-                  Garphic Design
+                <Link to="/graphic-design" className="dropdown-link">
+                  Graphic Design
                 </Link>
 
-                <Link to="/about-3" className="dropdown-link">
+                <Link to="/fashion-design" className="dropdown-link">
                   Fashion Design
                 </Link>
                 <Link to="/about-3" className="dropdown-link">
