@@ -87,7 +87,7 @@ const Navbar = () => {
             <Link to="/enquiry">Enquiry</Link>
           </li>
           <li>
-            <Link to="/admission"> Placement </Link>
+            <Link to="/placements"> Placement </Link>
           </li>
           <li>
             <Link to="/admission">Admission</Link>

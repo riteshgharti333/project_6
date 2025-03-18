@@ -10,12 +10,13 @@ const About = () => {
           <img src={banner_img} alt="" />
           <h1>About Us</h1>
         </div>
+        </div>
         <div className="about-content">
           {aboutContent.map((item, index) => (
             <p key={index}>{item}</p>
           ))}
         </div>
-      </div>
+      
       <div class="about-form">
         <h1>Enquiry Form</h1>
 

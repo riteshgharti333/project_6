@@ -9,7 +9,7 @@ const Ug1 = () => {
     <div className="service">
       <div className="service-banner">
         <img src={service_banner} alt="" />
-        <h1>B.A</h1>
+        <h1 className="course-title">B.A</h1>
       </div>
 
       <div className="service-content">

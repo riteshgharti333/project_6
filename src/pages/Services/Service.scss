@@ -3,15 +3,21 @@
 .service {
   .service-banner {
     position: relative;
+    padding-top: 80px;
     img {
       width: 100%;
-      height: 500px;
+      height: 400px;
       object-fit: cover;
       filter: brightness(0.5);
       display: block;
 
       @include md {
         height: 300px;
+      }
+    }
+    .course-title{
+      @include xl{
+        font-size: 70px;
       }
     }
 

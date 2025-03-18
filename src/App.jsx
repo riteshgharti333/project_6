@@ -21,6 +21,7 @@ import Pg1 from "./pages/Services/pg/Pg1";
 import Pg2 from "./pages/Services/pg/Pg2";
 import Pg3 from "./pages/Services/pg/Pg3";
 import Pg4 from "./pages/Services/pg/Pg4";
+import Placement from "./pages/Placement/Placement";
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
           <Route path="/about-us" element={<About />} />
           <Route path="/our-staff" element={<Staff />} />
           <Route path="/founding-member" element={<Founding />} />
+          <Route path="/placements" element={<Placement />} />
+
+
 
           {/* Services */}
           <Route path="/architecture-interior-design" element={<Service1 />} />

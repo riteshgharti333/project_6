@@ -1,0 +1,129 @@
+@use "../../styles/responsive.scss" as *;
+
+.placement {
+  .img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    z-index: -1;
+    padding-top: 80px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    h1 {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 70px;
+      color: #fff;
+      z-index: 10;
+
+      @include sm{
+        font-size: 50px;
+      }
+    }
+  }
+
+  .placement-content {
+    max-width: 1200px;
+    margin: 40px auto;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 30px;
+
+      @include sm{
+        font-size: 25px;
+      }
+    }
+    .placement-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+
+
+      @include xl{
+        padding: 0px 10px;
+      }
+
+      @include lg{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      @include md{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      @include sm{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 30px;
+      }
+      .placement-card {
+        max-width: 300px;
+        background: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid $primary-color;
+
+        @include md{
+          margin: auto;
+        }
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          display: block;
+        }
+
+        &-desc {
+          text-align: center;
+          padding: 20px 0px;
+
+          h3 {
+            font-size: 1.5rem;
+            margin: 0 0 8px;
+            color: #333;
+          }
+          .placed {
+            font-size: 20px;
+            margin: 10px 0px;
+          }
+          p {
+            font-size: 18px;
+            margin: 0;
+            color: #666;
+          }
+        }
+      }
+    }
+  }
+}
