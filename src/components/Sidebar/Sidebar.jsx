@@ -52,6 +52,11 @@ const Sidebar = () => {
         </div>
 
         <div class="form-group">
+          <textarea id="message" name="message" rows="5" required></textarea>
+          <label for="message">Message</label>
+          <div class="underline"></div>
+        </div>
+        <div class="form-group">
           <button type="submit">Submit</button>
         </div>
       </form>

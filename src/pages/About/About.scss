@@ -75,12 +75,16 @@ $transition-speed: 0.3s;
     border-radius: 5px;
     box-shadow: $box-shadow;
     transition: transform $transition-speed ease,
-      box-shadow $transition-speed ease;
+    box-shadow $transition-speed ease;
     margin: 60px auto;
     border: 1px solid $primary-color;
 
     @include md {
       width: 95%;
+    }
+
+    @include sm{
+      padding: 30px 10px;
     }
     h1 {
       text-align: center;
@@ -93,6 +97,20 @@ $transition-speed: 0.3s;
     .form-group {
       position: relative;
       margin-bottom: 40px;
+
+      select {
+        width: 100%;
+        padding: 10px 0px;
+        color: $secondary-color;
+        font-size: 16px;
+        line-height: 1.2;
+        // appearance: none;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+      }
 
       input,
       textarea {

@@ -1,25 +1,23 @@
-import "./About.scss";
-import banner_img from "../../assets/images/homebanner.jpeg";
-import { aboutContent, programs, states } from "../../assets/data";
+import "./Admission.scss";
 
-const About = () => {
+import banner_img from "../../assets/images/homebanner.jpeg";
+import { programs, states } from "../../assets/data";
+
+const Admission = () => {
   return (
-    <div className="about">
-      <div className="about-banner">
+    <div className="admission">
+      <div className="admission-banner">
         <div className="img-wrapper">
           <img src={banner_img} alt="" />
-          <h1>About Us</h1>
+          <h1>Admission</h1>
         </div>
       </div>
-      <div className="about-content">
-        {aboutContent.map((item, index) => (
-          <p key={index}>{item}</p>
-        ))}
-      </div>
 
-      <div class="about-form">
-        <h1>Enquiry Form</h1>
+      <h1>International Academy of Design</h1>
 
+      <div className="admission-wrapper">
+        <h2>Admission Form</h2>
+        <p>Contact us for course information, admissions, and more.</p>
         <form action="#" method="POST">
           <div class="form-group">
             <input type="text" id="name" name="name" required />
@@ -67,8 +65,14 @@ const About = () => {
           </div>
 
           <div class="form-group">
-            <textarea id="message" name="message" rows="5" required></textarea>
-            <label for="message">Message</label>
+            <input type="text" id="name" name="name" required />
+            <label for="name">District</label>
+            <div class="underline"></div>
+          </div>
+
+          <div class="form-group">
+            <input type="text" id="name" name="name" required />
+            <label for="name">City</label>
             <div class="underline"></div>
           </div>
 
@@ -81,4 +85,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Admission;

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
 import Homepage from "./pages/Homepage/Homepage";
 import Navbar from "./components/Navbar/Navbar";
@@ -22,11 +22,26 @@ import Pg2 from "./pages/Services/pg/Pg2";
 import Pg3 from "./pages/Services/pg/Pg3";
 import Pg4 from "./pages/Services/pg/Pg4";
 import Placement from "./pages/Placement/Placement";
+import Enquiry from "./pages/Enquiry/Enquiry";
+import Admission from "./pages/Admission/Admission";
+import { useEffect } from "react";
 
 function App() {
+  
+  const ScrollToTop = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+      window.scrollTo(0, 0); // Scrolls to top
+    }, [pathname]);
+
+    return null;
+  };
+
   return (
     <div className="app">
       <BrowserRouter>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -34,8 +49,8 @@ function App() {
           <Route path="/our-staff" element={<Staff />} />
           <Route path="/founding-member" element={<Founding />} />
           <Route path="/placements" element={<Placement />} />
-
-
+          <Route path="/enquiry" element={<Enquiry />} />
+          <Route path="/admission" element={<Admission />} />
 
           {/* Services */}
           <Route path="/architecture-interior-design" element={<Service1 />} />

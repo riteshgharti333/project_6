@@ -1,25 +1,25 @@
-import "./About.scss";
-import banner_img from "../../assets/images/homebanner.jpeg";
-import { aboutContent, programs, states } from "../../assets/data";
+import React, { useState } from "react";
+import "./Enquiry.scss";
+import { toast } from "react-hot-toast";
 
-const About = () => {
+import banner_img from "../../assets/images/homebanner.jpeg";
+import { programs, states } from "../../assets/data";
+
+const Enquiry = () => {
   return (
-    <div className="about">
-      <div className="about-banner">
+    <div className="enquiry">
+      <div className="enquiry-banner">
         <div className="img-wrapper">
           <img src={banner_img} alt="" />
-          <h1>About Us</h1>
+          <h1>Enquiry</h1>
         </div>
       </div>
-      <div className="about-content">
-        {aboutContent.map((item, index) => (
-          <p key={index}>{item}</p>
-        ))}
-      </div>
 
-      <div class="about-form">
-        <h1>Enquiry Form</h1>
+      <h1>International Academy of Design</h1>
 
+      <div className="enquiry-wrapper">
+        <h2>Enquiry Form</h2>
+        <p>Contact us for course information, admissions, and more.</p>
         <form action="#" method="POST">
           <div class="form-group">
             <input type="text" id="name" name="name" required />
@@ -81,4 +81,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Enquiry;

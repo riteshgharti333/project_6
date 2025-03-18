@@ -116,7 +116,7 @@ const MobileMenu = () => {
             </Link>
           </li>
           <li>
-            <Link to="/admission" onClick={() => setMenuOpen(false)}>
+            <Link to="/placements" onClick={() => setMenuOpen(false)}>
               Placement
             </Link>
           </li>

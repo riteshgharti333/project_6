@@ -55,11 +55,28 @@ const Footer = () => {
         <div className="footer-right-item">
           <h3>Our course</h3>
           <ul>
-            <li> Architecture & Interior Design </li>
-            <li>Web Design & Development </li>
-            <li>Graphic Design </li>
-            <li> UG ( Under Graduate)</li>
-            <li> PG ( Post Graduate)</li>
+            <li>
+              <Link to={"/architecture-interior-design"}>
+                Architecture & Interior Design
+              </Link>
+            </li>
+            <li>
+              <Link to={"/web-design-development"}>
+                Web Design & Development
+              </Link>
+            </li>
+            <li>
+              <Link to={"/graphic-design"}>Graphic Design</Link>
+            </li>
+            <li>
+              <Link to={"/fashion-design"}>Fashion Design</Link>
+            </li>
+            <li>
+              <Link to={"/undergraduate-courses"}> UG ( Under Graduate)</Link>
+            </li>
+            <li>
+              <Link to={"/postgraduate-courses"}>PG ( Post Graduate)</Link>
+            </li>
           </ul>
         </div>
 
@@ -67,20 +84,31 @@ const Footer = () => {
           <h3>About</h3>
           <ul>
             <li>
-              {" "}
-              <Link to={"/about-us"}>About Us</Link>{" "}
+              <Link to={"/about-us"}>About Us</Link>
             </li>
-            <li>Founding Member </li>
-            <li>Our Staff </li>
+            <li>
+              <Link to={"/founding-member"}>Founding Member</Link>
+            </li>
+            <li>
+              <Link to={"/our-staff"}>Our Staff</Link>
+            </li>
           </ul>
         </div>
         <div className="footer-right-item">
           <h3>Useful Links</h3>
           <ul>
-            <li> Enquiry </li>
-            <li>Placement </li>
-            <li>Admission </li>
-            <li>Gallery</li>
+            <li>
+              <Link to={"/enquiry"}>Enquiry</Link>
+            </li>
+            <li>
+              <Link to={"/placements"}>Placement</Link>
+            </li>
+            <li>
+              <Link to={"/admission"}>Admission</Link>
+            </li>
+            <li>
+              <Link to={"/gallery"}>Gallery</Link>
+            </li>
           </ul>
         </div>
       </div>
