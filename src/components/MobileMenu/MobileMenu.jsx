@@ -126,12 +126,12 @@ const MobileMenu = () => {
             </Link>
           </li>
           <li>
-            <Link to="/admission" onClick={() => setMenuOpen(false)}>
+            <Link to="/gallery" onClick={() => setMenuOpen(false)}>
               Gallery
             </Link>
           </li>
           <li>
-            <Link to="/contact" onClick={() => setMenuOpen(false)}>
+            <Link to="/contact-us" onClick={() => setMenuOpen(false)}>
               Contact Us
             </Link>
           </li>

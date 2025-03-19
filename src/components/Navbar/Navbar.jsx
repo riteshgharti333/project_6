@@ -93,11 +93,11 @@ const Navbar = () => {
             <Link to="/admission">Admission</Link>
           </li>
           <li>
-            <Link to="/admission">Gallery</Link>
+            <Link to="/gallery">Gallery</Link>
           </li>
 
           <li>
-            <Link to="/contact">Contact Us</Link>
+            <Link to="/contact-us">Contact Us</Link>
           </li>
         </ul>
       </div>

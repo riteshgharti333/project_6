@@ -25,6 +25,8 @@
       display: flex;
       gap: 10px;
 
+      
+
       .footer-icon {
         font-size: 40px;
         background: $primary-color;
@@ -33,6 +35,11 @@
         border-radius: 10px;
         transition: all 0.3s ease-in-out;
         border: 1px solid transparent;
+
+        @include sm{
+          padding: 5px;
+          font-size: 35px;
+        }
 
         &:hover {
           background: #fff;

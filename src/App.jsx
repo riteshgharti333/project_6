@@ -25,6 +25,8 @@ import Placement from "./pages/Placement/Placement";
 import Enquiry from "./pages/Enquiry/Enquiry";
 import Admission from "./pages/Admission/Admission";
 import { useEffect } from "react";
+import Contact from "./pages/Contact/Contact";
+import Gallery from "./pages/Gallery/Gallery";
 
 function App() {
   
@@ -46,11 +48,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/about-us" element={<About />} />
+          <Route path="/contact-us" element={<Contact />} />
+
           <Route path="/our-staff" element={<Staff />} />
           <Route path="/founding-member" element={<Founding />} />
           <Route path="/placements" element={<Placement />} />
           <Route path="/enquiry" element={<Enquiry />} />
           <Route path="/admission" element={<Admission />} />
+          <Route path="/gallery" element={<Gallery />} />
 
           {/* Services */}
           <Route path="/architecture-interior-design" element={<Service1 />} />
