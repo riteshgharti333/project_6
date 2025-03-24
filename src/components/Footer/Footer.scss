@@ -6,7 +6,6 @@
   background: #f8f1d7;
   padding: 50px;
   overflow: hidden;
-  
 
   @include lg {
     flex-direction: column;
@@ -16,7 +15,7 @@
     img {
       width: 300px;
 
-      @include sm{
+      @include sm {
         width: 250px;
       }
     }
@@ -24,8 +23,6 @@
       margin-top: 20px;
       display: flex;
       gap: 10px;
-
-      
 
       .footer-icon {
         font-size: 40px;
@@ -36,7 +33,7 @@
         transition: all 0.3s ease-in-out;
         border: 1px solid transparent;
 
-        @include sm{
+        @include sm {
           padding: 5px;
           font-size: 35px;
         }
@@ -74,7 +71,6 @@
 
     @include md {
       flex-direction: column;
-
     }
     .footer-right-item {
       ul {

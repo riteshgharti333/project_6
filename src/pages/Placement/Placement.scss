@@ -37,7 +37,7 @@
       color: #fff;
       z-index: 10;
 
-      @include sm{
+      @include sm {
         font-size: 50px;
       }
     }
@@ -52,7 +52,7 @@
       margin-bottom: 40px;
       font-size: 30px;
 
-      @include sm{
+      @include sm {
         font-size: 25px;
       }
     }
@@ -61,22 +61,21 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 30px;
 
-
-      @include xl{
+      @include xl {
         padding: 0px 10px;
       }
 
-      @include lg{
+      @include lg {
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
       }
 
-      @include md{
+      @include md {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
       }
 
-      @include sm{
+      @include sm {
         grid-template-columns: repeat(1, 1fr);
         gap: 30px;
       }
@@ -85,10 +84,12 @@
         background: #ffffff;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
         border: 1px solid $primary-color;
 
-        @include md{
+        @include md {
           margin: auto;
         }
 

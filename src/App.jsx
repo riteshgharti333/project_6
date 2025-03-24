@@ -27,9 +27,7 @@ import Admission from "./pages/Admission/Admission";
 import { useEffect } from "react";
 import Contact from "./pages/Contact/Contact";
 import Gallery from "./pages/Gallery/Gallery";
-
 function App() {
-  
   const ScrollToTop = () => {
     const { pathname } = useLocation();
 

@@ -22,7 +22,7 @@ const Staff = () => {
                 <h3>{item.name}</h3>
                 <p>{item.title} </p>
                 <p>
-                  {item.location} <TiLocationArrow className="staff-icon" /> 
+                  {item.location} <TiLocationArrow className="staff-icon" />
                 </p>
               </div>
             </div>

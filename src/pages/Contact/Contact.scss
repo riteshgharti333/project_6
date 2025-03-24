@@ -8,9 +8,9 @@ $transition-speed: 0.3s;
 .contact {
   background: rgba(154, 190, 199, 0.603);
 
-   @include lg{
+  @include lg {
     padding: 0px 10px;
-   }
+  }
   .contact-banner {
     height: 300px;
     position: relative;
@@ -27,7 +27,7 @@ $transition-speed: 0.3s;
         font-size: 60px;
         color: #fff;
 
-        @include sm{
+        @include sm {
           font-size: 50px;
         }
       }
@@ -46,12 +46,12 @@ $transition-speed: 0.3s;
     padding: 30px;
     border-radius: 10px;
 
-    @include md{
+    @include md {
       flex-direction: column;
       gap: 40px;
     }
 
-    @include sm{
+    @include sm {
       padding: 30px 10px;
     }
 
@@ -90,7 +90,7 @@ $transition-speed: 0.3s;
             transition: all 0.3s ease-in-out;
             border: 1px solid transparent;
 
-            @include sm{
+            @include sm {
               padding: 5px;
               font-size: 30px;
             }
@@ -104,9 +104,9 @@ $transition-speed: 0.3s;
       }
 
       .follow {
-         @include md{
+        @include md {
           margin-top: 40px;
-         }
+        }
         .follow-icons {
           display: flex;
           gap: 10px;
@@ -120,7 +120,7 @@ $transition-speed: 0.3s;
             transition: all 0.3s ease-in-out;
             border: 1px solid transparent;
 
-            @include sm{
+            @include sm {
               padding: 5px;
               font-size: 30px;
             }
@@ -229,7 +229,8 @@ $transition-speed: 0.3s;
           font-size: 18px;
           font-weight: 600;
           cursor: pointer;
-          transition: background-color $transition-speed ease,
+          transition:
+            background-color $transition-speed ease,
             transform $transition-speed ease;
 
           &:hover {

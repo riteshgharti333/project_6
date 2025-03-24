@@ -5,7 +5,6 @@ import { gallery } from "../../assets/imageData";
 import { useState } from "react";
 
 const Gallery = () => {
-
   const [selectedImg, setSelectedImg] = useState(null);
 
   return (
@@ -17,10 +16,10 @@ const Gallery = () => {
         </div>
       </div>
 
-      
       <div className="gallery-content">
-        <h2>Explore memorable moments and vibrant campus life through our gallery.</h2>
-        
+        <h2>
+          Explore memorable moments and vibrant campus life through our gallery.
+        </h2>
 
         <div className="gallery-imgs">
           {gallery.map((item, index) => (

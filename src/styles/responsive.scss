@@ -7,9 +7,8 @@ $xl: 1200px;
 $xxl: 1400px;
 $xxxl: 1600px;
 
-
-$primary-color : #B22222;
-$secondary-color:#654321;
+$primary-color: #b22222;
+$secondary-color: #654321;
 
 @mixin EEsm {
   @media screen and (max-width: ($sm)) {

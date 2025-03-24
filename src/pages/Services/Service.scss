@@ -15,8 +15,8 @@
         height: 300px;
       }
     }
-    .course-title{
-      @include xl{
+    .course-title {
+      @include xl {
         font-size: 70px;
       }
     }
@@ -70,7 +70,7 @@
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 10px;
 
-        @include sm{
+        @include sm {
           grid-template-columns: repeat(2, 1fr);
           gap: 20px;
         }

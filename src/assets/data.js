@@ -207,5 +207,5 @@ export const states = [
   "Delhi",
   "Puducherry",
   "Ladakh",
-  "Jammu and Kashmir"
+  "Jammu and Kashmir",
 ];

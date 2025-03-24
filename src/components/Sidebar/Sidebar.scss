@@ -6,13 +6,13 @@ $box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 $transition-speed: 0.3s;
 
 .sidebar {
- 
   form {
     width: 100%;
     padding: 30px;
     border-radius: 5px;
-    transition: transform $transition-speed ease,
-    box-shadow $transition-speed ease;
+    transition:
+      transform $transition-speed ease,
+      box-shadow $transition-speed ease;
     border: 1px solid $primary-color;
     margin: auto;
 
@@ -20,7 +20,7 @@ $transition-speed: 0.3s;
       width: 95%;
     }
 
-    @include sm{
+    @include sm {
       padding: 30px 10px;
     }
     h1 {
@@ -35,21 +35,18 @@ $transition-speed: 0.3s;
       position: relative;
       margin-bottom: 30px;
 
-     
-
-      select{
+      select {
         width: 100%;
         padding: 10px 0px;
         color: $secondary-color;
         font-size: 16px;
-        line-height: 1.2; 
-        // appearance: none;  
+        line-height: 1.2;
+        // appearance: none;
         background: #fff;
         border: 1px solid #ccc;
         border-radius: 5px;
         cursor: pointer;
         outline: none;
-       
       }
 
       input,
@@ -113,7 +110,8 @@ $transition-speed: 0.3s;
       font-size: 18px;
       font-weight: 600;
       cursor: pointer;
-      transition: background-color $transition-speed ease,
+      transition:
+        background-color $transition-speed ease,
         transform $transition-speed ease;
 
       &:hover {

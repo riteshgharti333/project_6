@@ -37,7 +37,7 @@ const OurPrograms = () => {
             0: { slidesPerView: 1 },
             480: { slidesPerView: 2 },
             768: { slidesPerView: 3 },
-            1024: { slidesPerView: 4},
+            1024: { slidesPerView: 4 },
             1400: { slidesPerView: 4 },
           }}
           className="program-swiper"
@@ -57,7 +57,7 @@ const OurPrograms = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        
+
         <div className="program-swiper-prev">❮</div>
         <div className="program-swiper-next">❯</div>
       </div>

@@ -88,10 +88,16 @@ const MobileMenu = () => {
             </div>
             {serviceDropdown && (
               <div className="nav-dropdown">
-                <Link to="/architecture-interior-design" onClick={() => setMenuOpen(false)}>
+                <Link
+                  to="/architecture-interior-design"
+                  onClick={() => setMenuOpen(false)}
+                >
                   Architecture & Interior Design
                 </Link>
-                <Link to="/web-design-development" onClick={() => setMenuOpen(false)}>
+                <Link
+                  to="/web-design-development"
+                  onClick={() => setMenuOpen(false)}
+                >
                   Web Design & Development
                 </Link>
                 <Link to="/graphic-design" onClick={() => setMenuOpen(false)}>
@@ -100,10 +106,16 @@ const MobileMenu = () => {
                 <Link to="/fashion-design" onClick={() => setMenuOpen(false)}>
                   Fashion Design
                 </Link>
-                <Link to="/undergraduate-courses" onClick={() => setMenuOpen(false)}>
+                <Link
+                  to="/undergraduate-courses"
+                  onClick={() => setMenuOpen(false)}
+                >
                   UG (Under Graduate)
                 </Link>
-                <Link to="/postgraduate-courses" onClick={() => setMenuOpen(false)}>
+                <Link
+                  to="/postgraduate-courses"
+                  onClick={() => setMenuOpen(false)}
+                >
                   PG (Post Graduate)
                 </Link>
               </div>

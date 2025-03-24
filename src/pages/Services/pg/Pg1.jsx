@@ -6,7 +6,7 @@ import { maProgram } from "../../../assets/courses";
 
 const Pg1 = () => {
   return (
-  <div className="service">
+    <div className="service">
       <div className="service-banner">
         <img src={service_banner} alt="" />
         <h1 className="course-title">M.A</h1>

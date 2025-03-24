@@ -48,8 +48,8 @@ $transition-speed: 0.3s;
     text-align: center;
     margin-top: 30px;
 
-    @include sm{
-        font-size: 30px;
+    @include sm {
+      font-size: 30px;
     }
   }
 
@@ -64,21 +64,19 @@ $transition-speed: 0.3s;
     margin: 30px auto;
     border: 1px solid $primary-color;
 
-    @include md{
+    @include md {
       width: 95%;
       padding: 20px;
     }
 
-    @include sm{
-        padding: 20px 10px;
+    @include sm {
+      padding: 20px 10px;
     }
 
     h2 {
       font-size: 27px;
       color: #333;
       margin-bottom: 10px;
-
-      
     }
 
     p {
@@ -89,12 +87,11 @@ $transition-speed: 0.3s;
     form {
       width: 100%;
       border-radius: 5px;
-      transition: transform $transition-speed ease,
+      transition:
+        transform $transition-speed ease,
         box-shadow $transition-speed ease;
       margin: auto;
 
-    
-      
       .form-group {
         position: relative;
         margin-bottom: 30px;
@@ -174,7 +171,8 @@ $transition-speed: 0.3s;
         font-size: 18px;
         font-weight: 600;
         cursor: pointer;
-        transition: background-color $transition-speed ease,
+        transition:
+          background-color $transition-speed ease,
           transform $transition-speed ease;
 
         &:hover {
