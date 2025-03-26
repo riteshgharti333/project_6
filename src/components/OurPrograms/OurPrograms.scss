@@ -10,9 +10,17 @@
     padding: 0px 10px;
   }
   .ourPrograms-top {
+    h1{
+      font-size: 30px;
+      font-family: $heading-font;
+    }
     p {
-      font-size: 18px;
+      font-size: $p-size;
       margin-top: 10px;
+
+      @include sm{
+        font-size: 16px;
+      }
     }
   }
   .ourPrograms-cards {
@@ -22,7 +30,7 @@
 
     .ourPrograms-card {
       width: 250px;
-      height: 400px;
+      height: 370px;
       border-radius: 10px;
       background-image: url("../../assets/images/rotate.jpeg");
       background-position: center;
@@ -103,7 +111,7 @@
 .program-swiper-next {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-100%);
   color: $primary-color;
   border: none;
   border-radius: 50%;
@@ -115,7 +123,7 @@
   align-items: center;
   justify-content: center;
   background: #fff;
-  padding: 5px 13px;
+  padding: 5px 14px;
 
   @include sm {
     display: none;
@@ -130,8 +138,8 @@
   right: 10px;
 }
 
-.taxi-swiper-prev:hover,
-.taxi-swiper-next:hover {
+.program-swiper-prev:hover,
+.program-swiper-next:hover {
   background: $primary-color;
   color: #fff;
 }

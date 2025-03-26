@@ -1,16 +1,35 @@
 import "./Navbar.scss";
 import logo from "../../assets/images/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MobileMenu from "../MobileMenu/MobileMenu";
+import { RiHome2Line } from "react-icons/ri";
+import {
+  aboutOption,
+  othercourse,
+  pgCourse,
+  ugCourse,
+} from "../../assets/data";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [serviceDropdown, setServiceDropdown] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
+
+  const location = useLocation();
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolling(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className="navbar">
+    <div className={`navbar ${scrolling ? "scrolled" : ""}`}>
       {/* Navbar Left */}
       <div className="navbar-left">
         <img src={logo} alt="Website Logo" />
@@ -20,11 +39,15 @@ const Navbar = () => {
         <MobileMenu />
       </div>
 
-      {/* Navbar Center */}
       <div className="navbar-center">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link
+              to="/"
+              className={location.pathname === "/" ? "active" : "home-tab"}
+            >
+              <RiHome2Line className="home-icon" /> Home
+            </Link>
           </li>
 
           <li
@@ -35,15 +58,15 @@ const Navbar = () => {
             About Us <MdOutlineKeyboardArrowDown className="nav-icon" />
             {dropdown && (
               <div className="nav-dropdown">
-                <Link to="/about-us" className="dropdown-link">
-                  About Us
-                </Link>
-                <Link to="/founding-member" className="dropdown-link">
-                  Founding Member
-                </Link>
-                <Link to="/our-staff" className="dropdown-link">
-                  Our Staff
-                </Link>
+                {aboutOption.map((item, index) => (
+                  <Link
+                    key={index}
+                    to={`/${item.link}`}
+                    className="dropdown-link"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
               </div>
             )}
           </li>
@@ -53,51 +76,97 @@ const Navbar = () => {
             onMouseLeave={() => setServiceDropdown(false)}
             className="dropdonw-links"
           >
-            Our course <MdOutlineKeyboardArrowDown className="nav-icon" />
+            Courses <MdOutlineKeyboardArrowDown className="nav-icon" />
             {serviceDropdown && (
-              <div className="nav-dropdown">
-                <Link
-                  to="/architecture-interior-design"
-                  className="dropdown-link"
-                >
-                  Architecture & Interior Design
-                </Link>
-                <Link to="/web-design-development" className="dropdown-link">
-                  Web Design & Development
-                </Link>
-                <Link to="/graphic-design" className="dropdown-link">
-                  Graphic Design
-                </Link>
+              <div className="nav-dropdown course-dropdown">
+                <div className="course-dropdown-items">
+                  <div className="course-dropdown-item">
+                    <div className="course-links">
+                      {othercourse.map((item, index) => (
+                        <Link
+                          key={index}
+                          to={`/${item.link}`}
+                          className="course-link"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
 
-                <Link to="/fashion-design" className="dropdown-link">
-                  Fashion Design
-                </Link>
-                <Link to="/undergraduate-courses" className="dropdown-link">
-                  UG ( Under Graduate)
-                </Link>
+                  <div className="course-dropdown-item">
+                    <h3>UG Course</h3>
+                    <div className="course-links">
+                      {ugCourse.map((item, index) => (
+                        <Link
+                          key={index}
+                          to={`/${item.link}`}
+                          className="course-link"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
 
-                <Link to="/postgraduate-courses" className="dropdown-link">
-                  PG ( Post Graduate)
-                </Link>
+                  <div className="course-dropdown-item">
+                    <h3>PG Course</h3>
+                    <div className="course-links">
+                      {pgCourse.map((item, index) => (
+                        <Link
+                          key={index}
+                          to={`/${item.link}`}
+                          className="course-link"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
           </li>
 
           <li>
-            <Link to="/enquiry">Enquiry</Link>
+            <Link
+              to="/gallery"
+              className={location.pathname === "/gallery" ? "active" : ""}
+            >
+              Gallery
+            </Link>
           </li>
           <li>
-            <Link to="/placements"> Placement </Link>
+            <Link
+              to="/alumini"
+              className={location.pathname === "/alumini" ? "active" : ""}
+            >
+              Alumini
+            </Link>
           </li>
           <li>
-            <Link to="/admission">Admission</Link>
+            <Link
+              to="/admission"
+              className={location.pathname === "/admission" ? "active" : ""}
+            >
+              Admission
+            </Link>
           </li>
           <li>
-            <Link to="/gallery">Gallery</Link>
+            <Link
+              to="/enquiry"
+              className={location.pathname === "/enquiry" ? "active" : ""}
+            >
+              Enquiry
+            </Link>
           </li>
-
           <li>
-            <Link to="/contact-us">Contact Us</Link>
+            <Link
+              to="/contact-us"
+              className={location.pathname === "/contact-us" ? "active" : ""}
+            >
+              Contact Us
+            </Link>
           </li>
         </ul>
       </div>

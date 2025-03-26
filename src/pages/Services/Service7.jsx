@@ -2,33 +2,28 @@ import "./Service.scss";
 
 import service_banner from "../../assets/images/card.jpg";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import { interior } from "../../assets/serviceData";
+import { architecture } from "../../assets/serviceData";
 
-const Service1 = () => {
+const Service7 = () => {
   return (
     <div className="service">
-      <div className="service-banner interior-design">
+      <div className="service-banner">
         <img src={service_banner} alt="" />
-        
-        <div className="interior-design-desc">
-        <h1>Interior&nbsp;&nbsp;Design</h1>
-        <p>(B.VOC 3 YEAR )</p>
-        </div>
-       
+        <h1 className="architecture-title">Architecture&nbsp;&nbsp;Design</h1>
       </div>
 
       <div className="service-content">
         <div className="service-content-left">
-          <h2>{interior.title}</h2>
-          {interior.desc.map((item, index) => (
+          <h2>{architecture.title}</h2>
+          {architecture.desc.map((item, index) => (
             <p key={index}>{item}</p>
           ))}
 
-          <h3>{interior.list.title}</h3>
-          <p>{interior.list.desc}</p>
+          <h3>{architecture.list.title}</h3>
+          <p>{architecture.list.desc}</p>
 
           <ul>
-            {interior.list.listPoints.map((item, index) => (
+            {architecture.list.listPoints.map((item, index) => (
               <li key={index}>
                 <span>{item.title}</span>
                 <br />
@@ -45,4 +40,4 @@ const Service1 = () => {
   );
 };
 
-export default Service1;
+export default Service7;

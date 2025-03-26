@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import "./MobileMenu.scss";
+import { RiHome2Line } from "react-icons/ri";
+import { aboutOption, courses } from "../../assets/data";
 
 const MobileMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -50,7 +52,12 @@ const MobileMenu = () => {
       <div className={`mobileMenu-menu ${menuOpen ? "open" : ""}`}>
         <ul>
           <li>
-            <Link to="/" onClick={() => setMenuOpen(false)}>
+            <Link
+              to="/"
+              onClick={() => setMenuOpen(false)}
+              className="home-tab"
+            >
+              <RiHome2Line />
               Home
             </Link>
           </li>
@@ -65,15 +72,15 @@ const MobileMenu = () => {
             </div>
             {dropdown && (
               <div className="nav-dropdown">
-                <Link to="/about-us" onClick={() => setMenuOpen(false)}>
-                  About Us
-                </Link>
-                <Link to="/founding-member" onClick={() => setMenuOpen(false)}>
-                  Founding Member
-                </Link>
-                <Link to="/our-staff" onClick={() => setMenuOpen(false)}>
-                  Our Staff
-                </Link>
+                {aboutOption.map((item, index) => (
+                  <Link
+                    to={`/${item.link}`}
+                    onClick={() => setMenuOpen(false)}
+                    key={index}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
               </div>
             )}
           </li>
@@ -84,52 +91,32 @@ const MobileMenu = () => {
               onClick={() => setServiceDropdown(!serviceDropdown)}
               className="dropdown-title"
             >
-              Our Courses <MdOutlineKeyboardArrowDown className="nav-icon" />
+              Courses <MdOutlineKeyboardArrowDown className="nav-icon" />
             </div>
             {serviceDropdown && (
               <div className="nav-dropdown">
-                <Link
-                  to="/architecture-interior-design"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Architecture & Interior Design
-                </Link>
-                <Link
-                  to="/web-design-development"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Web Design & Development
-                </Link>
-                <Link to="/graphic-design" onClick={() => setMenuOpen(false)}>
-                  Graphic Design
-                </Link>
-                <Link to="/fashion-design" onClick={() => setMenuOpen(false)}>
-                  Fashion Design
-                </Link>
-                <Link
-                  to="/undergraduate-courses"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  UG (Under Graduate)
-                </Link>
-                <Link
-                  to="/postgraduate-courses"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  PG (Post Graduate)
-                </Link>
+                {courses.map((item, index) => (
+                  <Link
+                    to={`${item.link}`}
+                    onClick={() => setMenuOpen(false)}
+                    key={index}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
               </div>
             )}
           </li>
 
           <li>
-            <Link to="/enquiry" onClick={() => setMenuOpen(false)}>
-              Enquiry
+            <Link to="/gallery" onClick={() => setMenuOpen(false)}>
+              Gallery
             </Link>
           </li>
+
           <li>
-            <Link to="/placements" onClick={() => setMenuOpen(false)}>
-              Placement
+            <Link to="/alumini" onClick={() => setMenuOpen(false)}>
+            Alumini
             </Link>
           </li>
           <li>
@@ -137,9 +124,10 @@ const MobileMenu = () => {
               Admission
             </Link>
           </li>
+
           <li>
-            <Link to="/gallery" onClick={() => setMenuOpen(false)}>
-              Gallery
+            <Link to="/enquiry" onClick={() => setMenuOpen(false)}>
+              Enquiry
             </Link>
           </li>
           <li>

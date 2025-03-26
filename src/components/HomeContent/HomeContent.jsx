@@ -18,9 +18,9 @@ const HomeContent = () => {
     <div className="homeContent">
       <div className="homeContent-container">
         <div className="homeContent-left">
-          <h1>Welcome to International Academy of Design</h1>
+          <h1>Welcome to InterNational Academy of Design</h1>
           <p>
-            At International Academy of Design, we are dedicated to fostering
+            At InterNational Academy of Design, we are dedicated to fostering
             creativity, innovation, and technical expertise in the fields of
             design and development. Our academy offers a diverse range of
             courses tailored to equip students with the skills necessary to

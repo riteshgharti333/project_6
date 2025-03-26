@@ -23,25 +23,13 @@ const Gallery = () => {
 
         <div className="gallery-imgs">
           {gallery.map((item, index) => (
-            <img
-              key={index}
-              src={item.img}
-              alt={item.img}
-              onClick={() => setSelectedImg(item.img)}
-              loading="lazy"
-            />
+            <div className="gallery-card" key={index}>
+              <img src={item.img} alt={item.img} loading="lazy" />
+              <p>Best Of 2025</p>
+            </div>
           ))}
         </div>
       </div>
-
-      {selectedImg && (
-        <div className="image-modal" onClick={() => setSelectedImg(null)}>
-          <img src={selectedImg} alt="Fullscreen Preview" loading="lazy" />
-          <span className="close-btn" onClick={() => setSelectedImg(null)}>
-            ×
-          </span>
-        </div>
-      )}
     </div>
   );
 };

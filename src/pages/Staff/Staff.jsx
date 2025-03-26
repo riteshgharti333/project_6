@@ -1,19 +1,20 @@
 import "./Staff.scss";
-import staff_banner from "../../assets/images/staff.jpg";
 
 import { TiLocationArrow } from "react-icons/ti";
 import { staffs } from "../../assets/data";
+import banner_img from "../../assets/images/homebanner.jpeg";
 
 const Staff = () => {
   return (
     <div className="staff">
       <div className="staff-banner">
-        <img src={staff_banner} alt="" />
+        <div className="img-wrapper">
+          <img src={banner_img} alt="" />
+          <h1>Our Staff</h1>
+        </div>
       </div>
 
       <div className="staff-container">
-        <h1>Our Staff</h1>
-
         <div className="staff-cards">
           {staffs.map((item, index) => (
             <div className="staff-card" key={index}>

@@ -9,10 +9,28 @@ import { RiInstagramFill } from "react-icons/ri";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 
+import banner_img from "../../assets/images/homebanner.jpeg";
+import { useState } from "react";
+
 const Contact = () => {
+
+    const [message, setMessage] = useState("");
+    const wordLimit = 150;
+  
+    const handleChange = (e) => {
+      const words = e.target.value.split(/\s+/).filter((word) => word !== "");
+      if (words.length <= wordLimit) {
+        setMessage(e.target.value);
+      }
+    };
+
   return (
     <div className="contact">
+
       <div className="contact-banner">
+        <div className="img-wrapper">
+          <img src={banner_img} alt="" />
+        </div>
         <div className="contact-banner-desc">
           <h1>Contact Us</h1>
           <p>
@@ -46,13 +64,13 @@ const Contact = () => {
           </div>
 
           <div className="follow">
-            <h3>Follow us on Social Media</h3>
+            <h3>Follow Us</h3>
 
             <div className="follow-icons">
-              <FaFacebookSquare className="follow-icon" />
-              <RiInstagramFill className="follow-icon" />
-              <FaLinkedin className="follow-icon" />
-              <FaSquareXTwitter className="follow-icon" />
+              <FaFacebookSquare className="follow-icon facebook" />
+              <RiInstagramFill className="follow-icon insta" />
+              <FaLinkedin className="follow-icon linkedin" />
+              <FaSquareXTwitter className="follow-icon twitter" />
             </div>
           </div>
         </div>
@@ -79,15 +97,8 @@ const Contact = () => {
             </div>
 
             <div class="form-group">
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                required
-              ></textarea>
-              <label for="message">Message</label>
-              <div class="underline"></div>
-            </div>
+            <textarea id="message" placeholder={`Message (Max ${wordLimit} words)`} name="message" rows="5" required></textarea>
+          </div>
 
             <div class="form-group">
               <button type="submit">Submit</button>

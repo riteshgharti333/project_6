@@ -1,7 +1,7 @@
 import "./Admission.scss";
 
 import banner_img from "../../assets/images/homebanner.jpeg";
-import { programs, states } from "../../assets/data";
+import { formCourse, programs, states } from "../../assets/data";
 
 const Admission = () => {
   return (
@@ -13,7 +13,7 @@ const Admission = () => {
         </div>
       </div>
 
-      <h1>International Academy of Design</h1>
+      <h1>InterNational Academy of Design</h1>
 
       <div className="admission-wrapper">
         <h2>Admission Form</h2>
@@ -47,20 +47,26 @@ const Admission = () => {
           </div>
 
           <div class="form-group">
-            <select name="" id="">
+            <select name="course" id="course" required>
               <option value="">Select Course</option>
-              {programs.map((item, index) => (
-                <option key={index}>{item.title}</option>
+              {formCourse.map((item, index) => (
+                <option key={index} value={item.name}>
+                  {item.name}
+                </option>
               ))}
             </select>
           </div>
 
           <div class="form-group">
-            <select name="" id="">
+            <select name="state" id="state" required>
               <option value="">Select State</option>
-              {states.map((item, index) => (
-                <option key={index}>{item}</option>
-              ))}
+              {states
+                .sort((a, b) => a.localeCompare(b))
+                .map((item, index) => (
+                  <option key={index} value={item}>
+                    {item}
+                  </option>
+                ))}
             </select>
           </div>
 

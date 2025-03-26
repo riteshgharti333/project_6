@@ -11,6 +11,9 @@
     flex-direction: column;
     gap: 30px;
   }
+  @include sm{
+    padding: 50px 30px;
+  }
   .footer-left {
     img {
       width: 300px;
@@ -25,24 +28,26 @@
       gap: 10px;
 
       .footer-icon {
-        font-size: 40px;
-        background: $primary-color;
+        font-size: 35px;
         color: #fff;
         padding: 5px;
         border-radius: 10px;
         transition: all 0.3s ease-in-out;
-        border: 1px solid transparent;
 
         @include sm {
           padding: 5px;
           font-size: 35px;
         }
 
+        &.facebook {
+          background: linear-gradient(45deg, #1877f2, #4a90e2);
+        }
+        &.insta {
+          background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+        }
+
         &:hover {
-          background: #fff;
-          color: $primary-color;
-          transform: translateY(-2px);
-          border: 1px solid $primary-color;
+          transform: translateY(-4px);
         }
       }
     }
@@ -55,12 +60,24 @@
         gap: 10px;
         margin-bottom: 10px;
         .footer-center-icon {
-          font-size: 25px;
+          font-size: 20px;
           color: $primary-color;
           flex-shrink: 0;
         }
         p {
-          font-size: 20px;
+          font-size: 16px;
+          font-weight: 500;
+        }
+
+        .footer-map {
+          margin-top: 10px;
+          iframe{
+            border-radius: 5px;
+            @include md{
+              width: 100%;
+
+            }
+          }
         }
       }
     }
@@ -76,12 +93,14 @@
       ul {
         list-style-position: inside;
         margin-top: 10px;
+        
+
         li {
-          color: $secondary-color;
           margin-top: 15px;
           transition: all 0.3s ease-in-out;
           cursor: pointer;
 
+          font-weight: 500;
           &:hover {
             transform: translateX(5px);
             color: $primary-color;

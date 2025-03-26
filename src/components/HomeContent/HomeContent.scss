@@ -20,14 +20,23 @@
 
       h1 {
         margin-bottom: 30px;
-
+        font-family: $heading-font;
+        white-space: nowrap;
+        font-size: 28px;
+        @include md {
+          white-space: wrap;
+        }
         @include sm {
           font-size: 25px;
         }
       }
       p {
-        font-size: 18px;
-        line-height: 1.5;
+        font-size: $p-size;
+        line-height: $p-height;
+
+        @include sm {
+          font-size: 16px;
+        }
       }
     }
     .homeContent-right {
@@ -36,18 +45,19 @@
       justify-content: end;
       .homeContent-right-imgs {
         display: flex;
-        gap: 10px;
+        gap: 15px;
         img {
           width: 200px;
           height: 250px;
           object-fit: cover;
+          border-radius: 10px;
           transition: transform 0.5s ease-in-out;
         }
 
         .homeContent-imgs-left {
           display: flex;
           flex-direction: column;
-          gap: 10px;
+          gap: 15px;
 
           @include sm {
             // flex-direction: row;
@@ -56,7 +66,7 @@
         .homeContent-imgs-right {
           display: flex;
           flex-direction: column;
-          gap: 10px;
+          gap: 15px;
           margin-top: 15px;
 
           @include sm {

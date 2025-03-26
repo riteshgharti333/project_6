@@ -1,5 +1,4 @@
 import "./ChooseUs.scss";
-import svg_icon from "../../assets/images/svg-image/svg1.svg";
 import { chooseUs } from "../../assets/data";
 
 const ChooseUs = () => {
@@ -8,7 +7,7 @@ const ChooseUs = () => {
       <div className="chooseUs-top">
         <h1>Why Choose Us?</h1>
         <p>
-          At International Academy of Design, we strive to shape the future of
+          At InterNational Academy of Design, we strive to shape the future of
           aspiring designers, providing them with the tools they need to succeed
           in their careers. Join us today and take the first step towards a
           creative and fulfilling future!

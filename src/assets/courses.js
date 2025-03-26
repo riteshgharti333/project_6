@@ -1,15 +1,15 @@
 export const baProgram = {
   title: "B.A (Bachelor of Arts)",
   desc: [
-    "The B.A program at the International Academy of Design offers a comprehensive education in the fields of humanities, social sciences, and creative arts. It is designed to foster critical thinking, creativity, and analytical skills.",
+    "The B.A program at the InterNational Academy of Design offers a comprehensive education in the fields of humanities, social sciences, and creative arts. It is designed to foster critical thinking, creativity, and analytical skills.",
     "Through a blend of theoretical knowledge and practical applications, students gain a deep understanding of their chosen discipline, preparing them for diverse career paths in the creative and corporate sectors.",
     "The program encourages innovation and artistic expression, helping students develop a unique creative voice while equipping them with industry-relevant skills.",
-    "Enroll in the B.A program at the International Academy of Design and unlock your potential in the dynamic world of arts and design.",
+    "Enroll in the B.A program at the InterNational Academy of Design and unlock your potential in the dynamic world of arts and design.",
   ],
 
   list: {
     title: "Program Highlights",
-    desc: "The B.A program at the International Academy of Design offers a rich learning experience with the following features:",
+    desc: "The B.A program at the InterNational Academy of Design offers a rich learning experience with the following features:",
 
     listPoints: [
       {
@@ -37,15 +37,15 @@ export const baProgram = {
 export const bComProgram = {
   title: "B.Com (Bachelor of Commerce)",
   desc: [
-    "The B.Com program at the International Academy of Design offers a dynamic and comprehensive education in commerce, finance, and business management. It is designed to develop analytical, financial, and entrepreneurial skills, preparing students for successful careers in the corporate world.",
+    "The B.Com program at the InterNational Academy of Design offers a dynamic and comprehensive education in commerce, finance, and business management. It is designed to develop analytical, financial, and entrepreneurial skills, preparing students for successful careers in the corporate world.",
     "The program covers core areas such as accounting, economics, taxation, business law, and financial management, providing students with a strong foundation in commercial principles.",
     "With a perfect blend of theoretical knowledge and practical application, students gain valuable insights into the financial sector, business operations, and market trends.",
-    "Enroll in the B.Com program at the International Academy of Design and acquire the skills and expertise necessary to thrive in today’s competitive business landscape.",
+    "Enroll in the B.Com program at the InterNational Academy of Design and acquire the skills and expertise necessary to thrive in today’s competitive business landscape.",
   ],
 
   list: {
     title: "Program Highlights",
-    desc: "The B.Com program at the International Academy of Design is structured to provide industry-relevant knowledge and skills through the following key features:",
+    desc: "The B.Com program at the InterNational Academy of Design is structured to provide industry-relevant knowledge and skills through the following key features:",
 
     listPoints: [
       {
@@ -73,15 +73,15 @@ export const bComProgram = {
 export const bScProgram = {
   title: "B.Sc (Bachelor of Science)",
   desc: [
-    "The B.Sc program at the International Academy of Design offers a comprehensive and innovative education in science and technology. It is designed to foster analytical thinking, technical expertise, and problem-solving skills, preparing students for a wide range of scientific and technological careers.",
+    "The B.Sc program at the InterNational Academy of Design offers a comprehensive and innovative education in science and technology. It is designed to foster analytical thinking, technical expertise, and problem-solving skills, preparing students for a wide range of scientific and technological careers.",
     "The curriculum combines theoretical knowledge with practical applications, ensuring students gain a deep understanding of scientific principles and their real-world applications.",
     "With access to state-of-the-art laboratories, industry collaborations, and hands-on projects, students develop the technical proficiency and research abilities needed to excel in their chosen field.",
-    "Enroll in the B.Sc program at the International Academy of Design and embark on a journey of scientific exploration and technological advancement.",
+    "Enroll in the B.Sc program at the InterNational Academy of Design and embark on a journey of scientific exploration and technological advancement.",
   ],
 
   list: {
     title: "Program Highlights",
-    desc: "The B.Sc program at the International Academy of Design offers a rich and engaging learning experience through the following key features:",
+    desc: "The B.Sc program at the InterNational Academy of Design offers a rich and engaging learning experience through the following key features:",
 
     listPoints: [
       {
@@ -108,15 +108,15 @@ export const bScProgram = {
 export const bbaProgram = {
   title: "B.B.A (Bachelor of Business Administration)",
   desc: [
-    "The B.B.A program at the International Academy of Design offers a dynamic and industry-focused education in business and management. It is designed to develop leadership, strategic thinking, and entrepreneurial skills, preparing students for successful careers in the corporate world.",
+    "The B.B.A program at the InterNational Academy of Design offers a dynamic and industry-focused education in business and management. It is designed to develop leadership, strategic thinking, and entrepreneurial skills, preparing students for successful careers in the corporate world.",
     "The curriculum covers key business areas such as marketing, finance, human resources, operations, and organizational behavior, equipping students with a well-rounded understanding of business principles.",
     "Through a combination of classroom learning, case studies, and real-world projects, students gain practical knowledge and problem-solving abilities essential for business success.",
-    "Enroll in the B.B.A program at the International Academy of Design and acquire the skills needed to thrive in the competitive global business landscape.",
+    "Enroll in the B.B.A program at the InterNational Academy of Design and acquire the skills needed to thrive in the competitive global business landscape.",
   ],
 
   list: {
     title: "Program Highlights",
-    desc: "The B.B.A program at the International Academy of Design offers a comprehensive learning experience through the following key features:",
+    desc: "The B.B.A program at the InterNational Academy of Design offers a comprehensive learning experience through the following key features:",
 
     listPoints: [
       {
@@ -139,20 +139,56 @@ export const bbaProgram = {
   },
 };
 
+// blib
+
+export const bLib = {
+  title: "B.Lib (Bachelor of Library and Information Science)",
+  desc: [
+    "The B.Lib program at the InterNational Academy of Design offers a comprehensive education in library and information science, preparing students for careers in knowledge management and information services.",
+    "Through a blend of theoretical knowledge and practical applications, students learn how to organize, catalog, and manage information resources efficiently.",
+    "The program emphasizes modern information technologies, equipping students with the skills required for managing digital libraries, e-resources, and data systems.",
+    "Enroll in the B.Lib program at the InterNational Academy of Design and develop expertise in information science, opening doors to opportunities in libraries, archives, and information centers.",
+  ],
+
+  list: {
+    title: "Program Highlights",
+    desc: "The B.Lib program at the InterNational Academy of Design offers a rich learning experience with the following features:",
+
+    listPoints: [
+      {
+        title: "Comprehensive Curriculum",
+        desc: "The program covers core subjects such as cataloging, classification, information retrieval, and library automation, ensuring a solid foundation in library science.",
+      },
+      {
+        title: "Experienced Faculty",
+        desc: "Learn from seasoned librarians and information science professionals who bring industry insights and practical expertise into the classroom.",
+      },
+      {
+        title: "Hands-on Experience",
+        desc: "Gain practical skills through internships, fieldwork, and projects, preparing you for real-world library management challenges.",
+      },
+      {
+        title: "Career Opportunities",
+        desc: "Graduates are prepared for careers in public and private libraries, research institutions, corporate information centers, and digital archives.",
+      },
+    ],
+  },
+};
+
 ////////////////// ma
 
 export const maProgram = {
   title: "M.A (Master of Arts)",
   desc: [
-    "The M.A program at the International Academy of Design offers an advanced and intellectually stimulating education in the humanities and social sciences. It is designed to deepen students' critical thinking, analytical, and research skills, preparing them for academic, creative, and professional excellence.",
+    "The M.A program at the InterNational Academy of Design offers an advanced and intellectually stimulating education in the humanities and social sciences. It is designed to deepen students' critical thinking, analytical, and research skills, preparing them for academic, creative, and professional excellence.",
     "The curriculum covers a wide range of disciplines, including literature, history, sociology, political science, psychology, and more. Students engage in rigorous coursework, research projects, and scholarly discussions to expand their knowledge base.",
     "With a strong emphasis on research and academic writing, the program encourages students to explore complex social, cultural, and philosophical issues while honing their analytical and interpretive abilities.",
-    "Enroll in the M.A program at the International Academy of Design and take your expertise in the arts and humanities to the next level.",
+    "Enroll in the M.A program at the InterNational Academy of Design and take your expertise in the arts and humanities to the next level.",
   ],
 
   list: {
     title: "Program Highlights",
-    desc: "The M.A program at the International Academy of Design offers a rich academic experience with the following key features:",
+    desc: "The M.A program at the InterNational Academy of Design offers a rich academic experience with the following key features:",
 
     listPoints: [
       {
@@ -179,15 +215,15 @@ export const maProgram = {
 export const mComProgram = {
   title: "M.Com (Master of Commerce)",
   desc: [
-    "The M.Com program at the International Academy of Design offers an advanced education in commerce, finance, and business management. It is designed to enhance students' analytical, financial, and managerial skills, preparing them for leadership roles in the corporate world.",
+    "The M.Com program at the InterNational Academy of Design offers an advanced education in commerce, finance, and business management. It is designed to enhance students' analytical, financial, and managerial skills, preparing them for leadership roles in the corporate world.",
     "The curriculum covers key areas such as financial management, corporate accounting, taxation, business law, and strategic management. It provides students with in-depth knowledge of commercial practices and financial systems.",
     "Through case studies, research projects, and industry interactions, students gain practical insights into modern business challenges and financial decision-making.",
-    "Enroll in the M.Com program at the International Academy of Design and develop the expertise required to excel in the ever-evolving world of commerce and finance.",
+    "Enroll in the M.Com program at the InterNational Academy of Design and develop the expertise required to excel in the ever-evolving world of commerce and finance.",
   ],
 
   list: {
     title: "Program Highlights",
-    desc: "The M.Com program at the International Academy of Design offers a robust and industry-aligned curriculum with the following key features:",
+    desc: "The M.Com program at the InterNational Academy of Design offers a robust and industry-aligned curriculum with the following key features:",
 
     listPoints: [
       {
@@ -214,15 +250,15 @@ export const mComProgram = {
 export const mScProgram = {
   title: "M.Sc (Master of Science)",
   desc: [
-    "The M.Sc program at the International Academy of Design offers an advanced and research-oriented education in science and technology. It is designed to enhance students' technical proficiency, analytical skills, and scientific knowledge, preparing them for specialized careers and academic excellence.",
+    "The M.Sc program at the InterNational Academy of Design offers an advanced and research-oriented education in science and technology. It is designed to enhance students' technical proficiency, analytical skills, and scientific knowledge, preparing them for specialized careers and academic excellence.",
     "The curriculum covers key scientific disciplines such as physics, chemistry, biology, mathematics, data science, and computer science. It combines theoretical studies with practical research to develop industry-ready expertise.",
     "With access to state-of-the-art laboratories, modern research facilities, and expert faculty, students engage in hands-on projects, scientific experiments, and data analysis, gaining valuable practical experience.",
-    "Enroll in the M.Sc program at the International Academy of Design and build a solid foundation for careers in research, technology, and scientific innovation.",
+    "Enroll in the M.Sc program at the InterNational Academy of Design and build a solid foundation for careers in research, technology, and scientific innovation.",
   ],
 
   list: {
     title: "Program Highlights",
-    desc: "The M.Sc program at the International Academy of Design offers a comprehensive and research-driven curriculum with the following key features:",
+    desc: "The M.Sc program at the InterNational Academy of Design offers a comprehensive and research-driven curriculum with the following key features:",
 
     listPoints: [
       {
@@ -249,15 +285,15 @@ export const mScProgram = {
 export const mbaProgram = {
   title: "M.B.A (Master of Business Administration)",
   desc: [
-    "The M.B.A program at the International Academy of Design offers a comprehensive and industry-focused education in business and management. It is designed to develop strategic leadership skills, financial expertise, and innovative problem-solving abilities, preparing students for top-tier managerial roles in the corporate world.",
+    "The M.B.A program at the InterNational Academy of Design offers a comprehensive and industry-focused education in business and management. It is designed to develop strategic leadership skills, financial expertise, and innovative problem-solving abilities, preparing students for top-tier managerial roles in the corporate world.",
     "The curriculum covers core business disciplines, including marketing, finance, operations, human resources, business analytics, and entrepreneurship. It combines theoretical insights with practical applications to equip students with real-world business expertise.",
     "Through case studies, live projects, industry collaborations, and internships, students gain hands-on experience, enhancing their decision-making and analytical capabilities.",
-    "Enroll in the M.B.A program at the International Academy of Design and become a versatile, future-ready business leader with the skills and knowledge to excel in a dynamic and competitive global market.",
+    "Enroll in the M.B.A program at the InterNational Academy of Design and become a versatile, future-ready business leader with the skills and knowledge to excel in a dynamic and competitive global market.",
   ],
 
   list: {
     title: "Program Highlights",
-    desc: "The M.B.A program at the International Academy of Design offers an industry-aligned curriculum with the following key features:",
+    desc: "The M.B.A program at the InterNational Academy of Design offers an industry-aligned curriculum with the following key features:",
 
     listPoints: [
       {
@@ -274,8 +310,45 @@ export const mbaProgram = {
       },
       {
         title: "Career Opportunities",
-        desc: "Graduates of the M.B.A program are well-equipped for leadership roles in marketing, finance, operations, consulting, and entrepreneurship. The program also provides a solid foundation for executive-level management positions and international career opportunities.",
+        desc: "Graduates of the M.B.A program are well-equipped for leadership roles in marketing, finance, operations, consulting, and entrepreneurship. The program also provides a solid foundation for executive-level management positions and InterNational career opportunities.",
       },
     ],
   },
 };
+
+/// mlib
+
+export const mLib = {
+  title: "M.Lib (Master of Library and Information Science)",
+  desc: [
+    "The M.Lib program at the InterNational Academy of Design offers advanced education in library and information science, preparing students for leadership roles in information management and knowledge organization.",
+    "Through a blend of theoretical expertise and practical applications, students develop skills in digital resource management, data curation, and research methodologies.",
+    "The program emphasizes modern information technologies, enabling students to manage digital libraries, e-resources, and large-scale information systems with efficiency and precision.",
+    "Enroll in the M.Lib program at the InterNational Academy of Design and gain specialized expertise, opening doors to careers in academic, corporate, and research information sectors.",
+  ],
+
+  list: {
+    title: "Program Highlights",
+    desc: "The M.Lib program at the InterNational Academy of Design offers a comprehensive learning experience with the following features:",
+
+    listPoints: [
+      {
+        title: "Advanced Curriculum",
+        desc: "The program covers advanced subjects such as digital preservation, metadata management, information retrieval systems, and research methods, ensuring expertise in modern library science.",
+      },
+      {
+        title: "Experienced Faculty",
+        desc: "Learn from industry experts and experienced librarians who provide real-world insights and advanced knowledge of information management.",
+      },
+      {
+        title: "Practical Exposure",
+        desc: "Gain hands-on experience through research projects, case studies, and internships, preparing you for real-world challenges in library and information management.",
+      },
+      {
+        title: "Career Opportunities",
+        desc: "Graduates are prepared for careers as library managers, information analysts, digital archivists, and data management specialists in academic, corporate, and public sectors.",
+      },
+    ],
+  },
+};
+

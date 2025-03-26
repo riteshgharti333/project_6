@@ -11,7 +11,7 @@ const Placement = () => {
       <div className="placement-banner">
         <div className="img-wrapper">
           <img src={banner_img} alt="" />
-          <h1>Placements</h1>
+          <h1>Alumini</h1>
         </div>
       </div>
 

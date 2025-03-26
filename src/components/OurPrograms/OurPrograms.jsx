@@ -1,17 +1,18 @@
 import "./OurPrograms.scss";
-import { programs } from "../../assets/data";
+import { courses } from "../../assets/data";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Link } from "react-router-dom";
 
 const OurPrograms = () => {
   return (
     <div className="ourPrograms">
       <div className="ourPrograms-top">
-        <h1>Our Services</h1>
+        <h1>Courses</h1>
         <p>
           We provide comprehensive training in various disciplines, including:
         </p>
@@ -42,18 +43,20 @@ const OurPrograms = () => {
           }}
           className="program-swiper"
         >
-          {programs.map((item, index) => (
+          {courses.map((item, index) => (
             <SwiperSlide key={index}>
-              <div
-                className="ourPrograms-card"
-                style={{
-                  backgroundImage: `url(${item.img})`,
-                }}
-              >
-                <div className="ourPrograms-card-desc">
-                  <h3>{item.title}</h3>
+              <Link to={`${item.link}`}>
+                <div
+                  className="ourPrograms-card"
+                  style={{
+                    backgroundImage: `url(${item.img})`,
+                  }}
+                >
+                  <div className="ourPrograms-card-desc">
+                    <h3>{item.name}</h3>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

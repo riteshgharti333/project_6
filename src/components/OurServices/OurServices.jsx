@@ -1,7 +1,6 @@
 import "./OurServices.scss";
 
-import card_img from "../../assets/images/card.jpg";
-import { services } from "../../assets/data";
+import { courses } from "../../assets/data";
 
 const OurServices = () => {
   return (
@@ -14,7 +13,7 @@ const OurServices = () => {
       </div>
 
       <div className="ourServices-cards">
-        {services.map((item, index) => (
+        {courses.map((item, index) => (
           <div className="ourServices-card" key={index}>
             <div className="ourServices-card-img">
               <img src={item.img} alt="" />

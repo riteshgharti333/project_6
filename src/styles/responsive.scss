@@ -9,6 +9,10 @@ $xxxl: 1600px;
 
 $primary-color: #b22222;
 $secondary-color: #654321;
+$heading-font: "Rubik", sans-serif;
+$p-size : 18px;
+$p-height : 1.5;
+
 
 @mixin EEsm {
   @media screen and (max-width: ($sm)) {

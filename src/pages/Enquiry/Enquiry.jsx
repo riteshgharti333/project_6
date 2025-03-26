@@ -3,9 +3,18 @@ import "./Enquiry.scss";
 import { toast } from "react-hot-toast";
 
 import banner_img from "../../assets/images/homebanner.jpeg";
-import { programs, states } from "../../assets/data";
+import { formCourse, states } from "../../assets/data";
 
 const Enquiry = () => {
+  const [message, setMessage] = useState("");
+  const wordLimit = 100;
+
+  const handleChange = (e) => {
+    const words = e.target.value.split(/\s+/).filter((word) => word !== "");
+    if (words.length <= wordLimit) {
+      setMessage(e.target.value);
+    }
+  };
   return (
     <div className="enquiry">
       <div className="enquiry-banner">
@@ -15,7 +24,7 @@ const Enquiry = () => {
         </div>
       </div>
 
-      <h1>International Academy of Design</h1>
+      <h1>InterNational Academy of Design</h1>
 
       <div className="enquiry-wrapper">
         <h2>Enquiry Form</h2>
@@ -43,6 +52,7 @@ const Enquiry = () => {
           <div class="form-group">
             <select name="" id="">
               <option value="">Select Profile</option>
+              <option value="">10+2</option>
               <option value="">Under Gradute</option>
               <option value="">Post Gradute</option>
             </select>
@@ -51,25 +61,34 @@ const Enquiry = () => {
           <div class="form-group">
             <select name="" id="">
               <option value="">Select Course</option>
-              {programs.map((item, index) => (
-                <option key={index}>{item.title}</option>
+              {formCourse.map((item, index) => (
+                <option key={index}>{item.name}</option>
               ))}
             </select>
           </div>
 
           <div class="form-group">
-            <select name="" id="">
-              <option value="">Select State</option>
-              {states.map((item, index) => (
-                <option key={index}>{item}</option>
+          <select name="state" id="state" required>
+            <option value="">Select State</option>
+            {states
+              .sort((a, b) => a.localeCompare(b))
+              .map((item, index) => (
+                <option key={index} value={item}>
+                  {item}
+                </option>
               ))}
-            </select>
+          </select>
           </div>
 
           <div class="form-group">
-            <textarea id="message" name="message" rows="5" required></textarea>
-            <label for="message">Message</label>
+            <input type="text" id="name" name="name" required />
+            <label for="name">City</label>
             <div class="underline"></div>
+          </div>
+
+
+          <div class="form-group">
+            <textarea id="message" placeholder={`Message (Max ${wordLimit} words)`} name="message" rows="5" required></textarea>
           </div>
 
           <div class="form-group">

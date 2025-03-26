@@ -3,7 +3,7 @@
 .service {
   .service-banner {
     position: relative;
-    padding-top: 80px;
+    padding-top: 83px;
     img {
       width: 100%;
       height: 400px;
@@ -30,19 +30,53 @@
       }
     }
 
+    &.interior-design {
+      position: relative;
+      .interior-design-desc {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+       
+
+
+        h1 {
+          position: static;
+          text-align: center;
+          transform: none;
+        }
+        p {
+          font-size: 30px;
+          font-weight: 600;
+          color: #fff;
+          text-align: center;
+          @include sm{
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
     h1 {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-
-      // Responsive font size
       font-size: clamp(30px, 8vw, 70px);
-
       text-transform: uppercase;
       color: #fff;
       letter-spacing: 2px;
+
+      &.architecture-title {
+        @include md {
+          font-size: 35px;
+        }
+
+        @include sm {
+          font-size: 26px;
+        }
+      }
     }
   }
 
@@ -109,6 +143,13 @@
 
       h2 {
         font-size: 30px;
+        font-family: $heading-font;
+
+        &.lib-title {
+          @include sm {
+            font-size: 25px;
+          }
+        }
       }
 
       p {
@@ -118,6 +159,7 @@
 
       h3 {
         margin-top: 30px;
+        font-size: 23px;
       }
 
       ul {
@@ -134,6 +176,7 @@
             margin: 20px 0px 10px 0px;
             display: inline-block;
             font-size: 18px;
+            font-weight: 600;
           }
         }
       }

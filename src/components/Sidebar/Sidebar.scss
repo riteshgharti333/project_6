@@ -25,15 +25,28 @@ $transition-speed: 0.3s;
     }
     h1 {
       text-align: center;
-      color: $primary-color;
       margin-bottom: 40px;
       font-size: 28px;
+      font-family: $heading-font;
       font-weight: 600;
     }
 
     .form-group {
       position: relative;
       margin-bottom: 30px;
+
+      textarea{
+        border: 1px solid #ccc !important;
+        border-radius: 5px;
+        width: 100%;
+        outline: none;
+        padding-left: 5px;
+        font-size: 16px;
+        padding: 5px;
+         &::placeholder{
+          color: $secondary-color;
+         }
+      }
 
       select {
         width: 100%;
@@ -49,8 +62,7 @@ $transition-speed: 0.3s;
         outline: none;
       }
 
-      input,
-      textarea {
+      input {
         font-size: 20px;
         width: 100%;
         border: none;

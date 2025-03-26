@@ -10,20 +10,24 @@
   z-index: 999;
   background: #fff;
 
+  &.scrolled {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
   @include lg {
     padding: 10px 10px;
   }
 
   .navbar-left {
     img {
-      width: 300px;
+      width: 210px;
 
       @include lg {
-        width: 250px;
+        width: 175px;
       }
 
       @include sm {
-        width: 250px;
+        width: 175px;
       }
     }
   }
@@ -36,7 +40,7 @@
       padding: 0;
       display: flex;
       list-style: none;
-      gap: 20px;
+      gap: 15px;
       font-weight: 500;
       letter-spacing: 1px;
 
@@ -45,12 +49,33 @@
       }
 
       li {
-        font-size: 18px;
+        font-size: 15px;
         position: relative;
         padding: 30px 0px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
 
         @include xl {
           font-size: 14px;
+        }
+        a {
+          &.active {
+            color: $primary-color;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+          }
+        }
+
+        .home-tab {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+
+        .home-icon {
+          font-size: 16px;
         }
         .nav-icon {
           font-size: 22px;
@@ -83,14 +108,48 @@
           background: #fff;
 
           .dropdown-link {
-            padding: 15px 10px;
+            padding: 10px 10px;
             transition: all 0.3s ease-in-out;
-            color: $secondary-color;
-            font-size: 16px;
+            font-size: 14px;
 
             &:hover {
               transform: translateX(5px);
               color: $primary-color;
+            }
+          }
+
+          &.course-dropdown {
+            top: 54%;
+            left: 50%;
+            transform: translate(-50%, 15%);
+            width: 700px;
+
+            .course-dropdown-items {
+              display: flex;
+              padding: 10px;
+              justify-content: space-around;
+              .course-dropdown-item {
+                h3 {
+                  color: $secondary-color;
+                  font-weight: 600;
+                }
+                .course-links {
+                  display: flex;
+                  flex-direction: column;
+                  margin-top: 10px;
+                  gap: 5px;
+
+                  .course-link {
+                    transition: all 0.3s ease-in-out;
+                    padding: 5px 0px;
+
+                    &:hover {
+                      transform: translateX(4px);
+                      color: $primary-color;
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -101,7 +160,7 @@
           height: 2px;
           width: 0%;
           background: $primary-color;
-          top: 55px;
+          top: 53px;
           transition: all 0.3s ease-in-out;
           border-radius: 10px;
         }

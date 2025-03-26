@@ -15,7 +15,6 @@ const Homepage = () => {
       {/* <OurServices />/ */}
       <OurPrograms />
       <ChooseUs />
-      <Founder />
       <SmallContent />
     </div>
   );

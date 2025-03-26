@@ -9,6 +9,8 @@ import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 
+import { courses, footerCourse } from "../../assets/data";
+
 const Footer = () => {
   return (
     <div className="footer">
@@ -48,66 +50,48 @@ const Footer = () => {
             <FaLocationDot className="footer-center-icon" />
             <p>east west USA - 110012</p>
           </div>
+
+          <div className="footer-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.0524128176435!2d77.1493764!3d28.628191199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d038fe22cbe27%3A0x7b234cd402107ba4!2sGlobal%20India%20Travels!5e0!3m2!1sen!2sin!4v1741773204877!5m2!1sen!2sin"
+              width="100%"
+              height="300"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         </div>
       </div>
 
       <div className="footer-right">
         <div className="footer-right-item">
-          <h3>Our course</h3>
-          <ul>
-            <li>
-              <Link to={"/architecture-interior-design"}>
-                Architecture & Interior Design
-              </Link>
-            </li>
-            <li>
-              <Link to={"/web-design-development"}>
-                Web Design & Development
-              </Link>
-            </li>
-            <li>
-              <Link to={"/graphic-design"}>Graphic Design</Link>
-            </li>
-            <li>
-              <Link to={"/fashion-design"}>Fashion Design</Link>
-            </li>
-            <li>
-              <Link to={"/undergraduate-courses"}> UG ( Under Graduate)</Link>
-            </li>
-            <li>
-              <Link to={"/postgraduate-courses"}>PG ( Post Graduate)</Link>
-            </li>
+          <h3>Courses</h3>
+
+          <ul className="course-footer">
+            {footerCourse.map((item, index) => (
+              <li key={index}>
+                <Link to={`${item.link}`}>{item.name}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div className="footer-right-item">
-          <h3>About</h3>
-          <ul>
-            <li>
-              <Link to={"/about-us"}>About Us</Link>
-            </li>
-            <li>
-              <Link to={"/founding-member"}>Founding Member</Link>
-            </li>
-            <li>
-              <Link to={"/our-staff"}>Our Staff</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="footer-right-item">
           <h3>Useful Links</h3>
           <ul>
             <li>
-              <Link to={"/enquiry"}>Enquiry</Link>
+              <Link to={"/gallery"}>Gallery</Link>
             </li>
             <li>
-              <Link to={"/placements"}>Placement</Link>
+              <Link to={"/alumini"}> Alumini</Link>
             </li>
             <li>
               <Link to={"/admission"}>Admission</Link>
             </li>
             <li>
-              <Link to={"/gallery"}>Gallery</Link>
+              <Link to={"/enquiry"}>Enquiry</Link>
             </li>
           </ul>
         </div>
