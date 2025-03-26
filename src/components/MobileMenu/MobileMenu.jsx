@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import "./MobileMenu.scss";
 import { RiHome2Line } from "react-icons/ri";
@@ -10,10 +10,16 @@ const MobileMenu = () => {
   const [dropdown, setDropdown] = useState(false);
   const [serviceDropdown, setServiceDropdown] = useState(false);
 
-  // Reference for the menu container
   const menuRef = useRef(null);
 
-  // Close the menu if clicked outside
+  const location = useLocation();
+
+  useEffect(() => {
+    setDropdown(false);
+    setServiceDropdown(false);
+    setMenuOpen(false);
+  }, [location]);
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -116,7 +122,7 @@ const MobileMenu = () => {
 
           <li>
             <Link to="/alumini" onClick={() => setMenuOpen(false)}>
-            Alumini
+              Alumini
             </Link>
           </li>
           <li>

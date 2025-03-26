@@ -44,8 +44,8 @@ const Sidebar = () => {
           <select name="profile" id="profile" required>
             <option value="">Select Profile</option>
             <option value="">10+2</option>
-            <option value="undergraduate">Undergraduate</option>
-            <option value="postgraduate">Postgraduate</option>
+            <option value="">Under Graduate </option>
+            <option value="">Post Graduate </option>
           </select>
         </div>
 

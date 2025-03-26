@@ -41,8 +41,9 @@ const Admission = () => {
           <div class="form-group">
             <select name="" id="">
               <option value="">Select Profile</option>
-              <option value="">Under Gradute</option>
-              <option value="">Post Gradute</option>
+              <option value="">10+2</option>
+              <option value="">Under Graduate </option>
+              <option value="">Post Graduate </option>
             </select>
           </div>
 
