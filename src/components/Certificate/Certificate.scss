@@ -15,7 +15,7 @@
       display: flex;
       gap: 10px;
 
-      @include sm{
+      @include sm {
         gap: 5px;
         padding: 0px 10px;
       }
@@ -39,9 +39,9 @@
         padding: 0px 10px;
         border-radius: 5px;
         cursor: pointer;
-        
-        @include sm{
-            font-size: 12px;
+
+        @include sm {
+          font-size: 12px;
         }
 
         &:disabled {
@@ -52,30 +52,30 @@
     }
 
     .certificate-preview {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.8);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-      
-        img {
-            max-width: 90%;
-            max-height: 90%;
-          }
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
 
-          .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 30px;
-            font-size: 40px;
-            color: white;
-            cursor: pointer;
-          }
+      img {
+        max-width: 90%;
+        max-height: 90%;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 30px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+      }
     }
   }
 }
