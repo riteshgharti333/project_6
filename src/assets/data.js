@@ -1,4 +1,3 @@
-import card_img from "../assets/images/card.jpg";
 import course_img from "../assets/images/rotate.jpeg";
 
 export const courses = [
