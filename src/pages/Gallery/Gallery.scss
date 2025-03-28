@@ -2,12 +2,13 @@
 
 .gallery {
   .gallery-banner {
+    padding-top: 80px;
+
     .img-wrapper {
       position: relative;
       width: 100%;
       height: 400px;
       z-index: -1;
-      padding-top: 80px;
 
       img {
         width: 100%;

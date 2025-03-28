@@ -1,9 +1,10 @@
 @use "../../styles/responsive.scss" as *;
 
 .service {
+  padding-top: 83px;
   .service-banner {
     position: relative;
-    padding-top: 83px;
+  
 
   
     img {

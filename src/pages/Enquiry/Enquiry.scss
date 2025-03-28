@@ -6,12 +6,13 @@ $box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 $transition-speed: 0.3s;
 
 .enquiry {
+  padding-top: 80px;
+
   .img-wrapper {
     position: relative;
     width: 100%;
     height: 400px;
     z-index: -1;
-    padding-top: 80px;
 
     img {
       width: 100%;
@@ -44,12 +45,14 @@ $transition-speed: 0.3s;
     }
   }
 
-  h1 {
+  h2 {
     text-align: center;
     margin-top: 30px;
+    font-size: 30px;
 
     @include sm {
       font-size: 25px;
+
     }
   }
 
@@ -73,7 +76,7 @@ $transition-speed: 0.3s;
       padding: 20px 10px;
     }
 
-    h2 {
+    h3 {
       font-size: 27px;
       margin-bottom: 10px;
     }

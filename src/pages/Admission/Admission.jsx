@@ -13,10 +13,10 @@ const Admission = () => {
         </div>
       </div>
 
-      <h1>InterNational Academy of Design</h1>
+      <h2>InterNational Academy of Design</h2>
 
       <div className="admission-wrapper">
-        <h2>Admission Form</h2>
+        <h3>Admission Form</h3>
         <p>Contact us for course information, admissions, and more.</p>
         <form action="#" method="POST">
           <div class="form-group">

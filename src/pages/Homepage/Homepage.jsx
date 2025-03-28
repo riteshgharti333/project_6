@@ -4,7 +4,7 @@ import HomeContent from "../../components/HomeContent/HomeContent";
 import OurPrograms from "../../components/OurPrograms/OurPrograms";
 import ChooseUs from "../../components/ChooseUs/ChooseUs";
 import SmallContent from "../../components/SmallContent/SmallContent";
-import Certificate from "../../components/Certificate/Certificate";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
   return (
@@ -15,7 +15,12 @@ const Homepage = () => {
       <OurPrograms />
       <ChooseUs />
       <SmallContent />
-      <Certificate />
+
+      <div className="homepage-btn">
+        <Link to={"/student-corner"} className="student-login">
+        Student Login
+        </Link>
+      </div>
     </div>
   );
 };

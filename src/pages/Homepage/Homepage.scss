@@ -1,6 +1,30 @@
+@use "../../styles/responsive.scss" as *;
+
 .homepage {
   display: flex;
   flex-direction: column;
   gap: 70px;
   padding-bottom: 40px;
+
+  .homepage-btn {
+    display: flex;
+    justify-content: center;
+
+    .student-login {
+      padding: 10px 20px;
+      background-color: $primary-color;
+      font-size: 16px;
+      border: none;
+      font-weight: 500;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+      &:hover {
+        transform: translateY(-4px);
+      }
+    }
+  }
 }

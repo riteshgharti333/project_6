@@ -33,6 +33,7 @@ import Service7 from "./pages/Services/Service7";
 import Service8 from "./pages/Services/Service8";
 import Ug5 from "./pages/Services/ug/Ug5";
 import Pg5 from "./pages/Services/pg/Pg5";
+import Student from "./pages/Student/Student";
 function App() {
   const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -61,6 +62,8 @@ function App() {
           <Route path="/enquiry" element={<Enquiry />} />
           <Route path="/admission" element={<Admission />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/student-corner" element={<Student />} />
+
 
           {/* Services */}
           <Route path="/interior-design" element={<Service1 />} />

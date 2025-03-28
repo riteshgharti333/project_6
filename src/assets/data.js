@@ -423,3 +423,25 @@ export const footerCourse = [
 
   { name: "PG ( Post Graduate)", link: "/postgraduate-courses" },
 ];
+
+// student image
+
+import student1 from "../assets/images/demo/WhatsApp Image 2025-03-28 at 07.49.04.jpeg";
+import student2 from "../assets/images/demo/WhatsApp Image 2025-03-28 at 07.49.05 (1).jpeg";
+import student3 from "../assets/images/demo/WhatsApp Image 2025-03-28 at 07.49.05.jpeg";
+import student4 from "../assets/images/demo/WhatsApp Image 2025-03-28 at 07.49.07.jpeg";
+
+export const student = [
+  {
+    img: student1,
+  },
+  {
+    img: student2,
+  },
+  {
+    img: student3,
+  },
+  {
+    img: student4,
+  },
+];

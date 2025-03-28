@@ -1,5 +1,9 @@
 import "./HomeContent.scss";
-import rotate_img from "../../assets/images/rotate.jpeg";
+
+import cardImg1 from "../../assets/images/homeContent/hc1.jpeg";
+import cardImg2 from "../../assets/images/homeContent/hc2.jpeg";
+import cardImg3 from "../../assets/images/homeContent/hc3.jpeg";
+import cardImg4 from "../../assets/images/homeContent/hc4.jpeg";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -31,17 +35,17 @@ const HomeContent = () => {
           <div className="homeContent-right-imgs">
             <div className="homeContent-imgs-left">
               <img
-                src={rotate_img}
+                src={cardImg1}
                 alt=""
                 className="top-img"
                 data-aos="fade-down"
               />
-              <img src={rotate_img} alt="" data-aos="fade-right" />
+              <img src={cardImg4} alt="" data-aos="fade-right" />
             </div>
 
             <div className="homeContent-imgs-right">
-              <img src={rotate_img} alt="" data-aos="fade-left" />
-              <img src={rotate_img} alt="" data-aos="fade-up" />
+              <img src={cardImg2} alt="" data-aos="fade-left" />
+              <img src={cardImg3} alt="" data-aos="fade-up" />
             </div>
           </div>
         </div>

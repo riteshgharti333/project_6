@@ -24,10 +24,10 @@ const Enquiry = () => {
         </div>
       </div>
 
-      <h1>InterNational Academy of Design</h1>
+      <h2>InterNational Academy of Design</h2>
 
       <div className="enquiry-wrapper">
-        <h2>Enquiry Form</h2>
+        <h3>Enquiry Form</h3>
         <p>Contact us for course information, admissions, and more.</p>
         <form action="#" method="POST">
           <div class="form-group">
