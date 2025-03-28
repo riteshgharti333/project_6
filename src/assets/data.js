@@ -9,7 +9,7 @@ export const courses = [
     link: "/architecture-design",
     img: course_img,
   },
-{ name: "Graphic Design", link: "/graphic-design", img: course_img },
+  { name: "Graphic Design", link: "/graphic-design", img: course_img },
   {
     name: "Web Design & Development",
     link: "/web-design-development",
