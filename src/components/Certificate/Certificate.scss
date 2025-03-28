@@ -1,0 +1,81 @@
+@use "../../styles/responsive.scss" as *;
+
+.certificate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .certificate-content {
+    form {
+      display: flex;
+      gap: 10px;
+
+      @include sm{
+        gap: 5px;
+        padding: 0px 10px;
+      }
+      input {
+        font-size: 16px;
+        padding: 5px 2px;
+        border-radius: 5px;
+        border: 1px solid #585858;
+
+        &:focus {
+          outline-color: $primary-color;
+        }
+      }
+
+      button {
+        background: $primary-color;
+        border: none;
+        color: #fff;
+        font-weight: 500;
+        font-size: 16px;
+        padding: 0px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        
+        @include sm{
+            font-size: 12px;
+        }
+
+        &:disabled {
+          background: #ccc;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .certificate-preview {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      
+        img {
+            max-width: 90%;
+            max-height: 90%;
+          }
+
+          .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+          }
+    }
+  }
+}

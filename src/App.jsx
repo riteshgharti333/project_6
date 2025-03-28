@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import About from "./pages/About/About";
 
+import { Toaster } from "sonner";
+
 import Staff from "./pages/Staff/Staff";
 import Founding from "./pages/Founding/Founding";
 import Service1 from "./pages/Services/Service1";
@@ -45,6 +47,7 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
+       <Toaster position="top-center" richColors />
         <ScrollToTop />
         <Navbar />
         <Routes>

@@ -6,6 +6,7 @@ import OurPrograms from "../../components/OurPrograms/OurPrograms";
 import ChooseUs from "../../components/ChooseUs/ChooseUs";
 import Founder from "../../components/Founder/Founder";
 import SmallContent from "../../components/SmallContent/SmallContent";
+import Certificate from "../../components/Certificate/Certificate";
 
 const Homepage = () => {
   return (
@@ -16,6 +17,7 @@ const Homepage = () => {
       <OurPrograms />
       <ChooseUs />
       <SmallContent />
+      <Certificate />
     </div>
   );
 };

@@ -101,7 +101,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>
           Copyright © 2025 InterNational Academy of Design. Designed and
-          Developed by{" "}
+          Developed by
           <a
             href="https://www.Wingstarnarketing.com"
             target="_blank"
