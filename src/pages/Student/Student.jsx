@@ -1,17 +1,15 @@
 import "./Student.scss";
 
-import banner_img from "../../assets/images/homebanner.jpeg";
 import { toast } from "sonner";
 import { baseUrl } from "../../main";
 import axios from "axios";
 import { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { student } from "../../assets/data";
+import "swiper/css/effect-fade";
+import { student_banners } from "../../assets/data";
 
 const Student = () => {
   const [enrollmentId, setEnrollmentId] = useState("");
@@ -54,48 +52,22 @@ const Student = () => {
   return (
     <div className="student">
       <div className="student-banner">
-        <div className="img-wrapper">
-          <img src={banner_img} alt="" />
-          <h1>Student Corner</h1>
-        </div>
-      </div>
-
-      <div className="student-cards">
         <Swiper
-          modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={10}
-          slidesPerView={1}
+          modules={[EffectFade, Autoplay]}
+          effect="fade"
           loop={true}
-          navigation={{
-            nextEl: ".student-swiper-next",
-            prevEl: ".student-swiper-prev",
-          }}
-          speed={1000}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
+          speed={1200}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
-          breakpoints={{
-            0: { slidesPerView: 1 },
-            480: { slidesPerView: 2 },
-            768: { slidesPerView: 3 },
-            1024: { slidesPerView: 3 },
-            1400: { slidesPerView: 2 },
-          }}
-          className="student-swiper"
+          className="services-slide"
         >
-          {student.map((item, index) => (
-            <SwiperSlide key={index}>
-              <div className="student-card">
-                <img src={item.img} alt="" />
-              </div>
+          {student_banners.map((item, index) => (
+            <SwiperSlide key={index} className="service_slide">
+              <img src={item.img} alt="banner-img" loading="lazy" />
+              <h1>Student Corner</h1>
             </SwiperSlide>
           ))}
         </Swiper>
-
-        <div className="student-swiper-prev">❮</div>
-        <div className="student-swiper-next">❯</div>
       </div>
 
       <div className="certificate-content">

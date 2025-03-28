@@ -426,22 +426,39 @@ export const footerCourse = [
 
 // student image
 
-import student1 from "../assets/images/demo/WhatsApp Image 2025-03-28 at 07.49.04.jpeg";
-import student2 from "../assets/images/demo/WhatsApp Image 2025-03-28 at 07.49.05 (1).jpeg";
-import student3 from "../assets/images/demo/WhatsApp Image 2025-03-28 at 07.49.05.jpeg";
-import student4 from "../assets/images/demo/WhatsApp Image 2025-03-28 at 07.49.07.jpeg";
+import student_banner1 from "../assets/images/student-banner/banner1.jpeg";
+import student_banner2 from "../assets/images/student-banner/banner2.jpeg";
+import student_banner3 from "../assets/images/student-banner/banner3.jpeg";
+import student_banner4 from "../assets/images/student-banner/banner4.jpeg";
+import student_banner5 from "../assets/images/student-banner/banner5.jpeg";
+import student_banner6 from "../assets/images/student-banner/banner6.jpeg";
+import student_banner7 from "../assets/images/student-banner/banner7.jpeg";
+import student_banner8 from "../assets/images/student-banner/banner8.jpeg";
 
-export const student = [
+export const student_banners = [
   {
-    img: student1,
+    img: student_banner1,
+  },
+
+  {
+    img: student_banner2,
   },
   {
-    img: student2,
+    img: student_banner3,
   },
   {
-    img: student3,
+    img: student_banner4,
   },
   {
-    img: student4,
+    img: student_banner5,
+  },
+  {
+    img: student_banner6,
+  },
+  {
+    img: student_banner7,
+  },
+  {
+    img: student_banner8,
   },
 ];
