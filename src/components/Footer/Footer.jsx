@@ -23,11 +23,10 @@ const Footer = () => {
 
   const location = useLocation();
 
-    useEffect(() => {
-       setFooterOption1(false);
-       setFooterOption2(false);
-
-    }, [location]);
+  useEffect(() => {
+    setFooterOption1(false);
+    setFooterOption2(false);
+  }, [location]);
 
   return (
     <div className="footer">
@@ -57,21 +56,24 @@ const Footer = () => {
             <div className="footer-center-item">
               <IoCallSharp className="footer-center-icon" />
               <p>
-                <a href="tel:+917011890082">+91 12345679</a>
+                <a href="tel:+917011890082">08058866333</a>
               </p>
             </div>
             <div className="footer-center-item">
               <MdEmail className="footer-center-icon" />
-              <p>johndoe123@gmail.com</p>
+              <p>Thenadskr@gmail.com</p>
             </div>
             <div className="footer-center-item">
               <FaLocationDot className="footer-center-icon" />
-              <p>east west USA - 110012</p>
+              <p>
+                Railway Sta Rd, opp. Garg Hospital, near City Centre Mall, Ward
+                No 35, Sakpura Mohlla, Radha Kishanpura, Sikar, Rajasthan 332001
+              </p>
             </div>
 
             <div className="footer-map">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.0524128176435!2d77.1493764!3d28.628191199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d038fe22cbe27%3A0x7b234cd402107ba4!2sGlobal%20India%20Travels!5e0!3m2!1sen!2sin!4v1741773204877!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3535.4146521451316!2d75.1470817!3d27.6116717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396ca55de1463785%3A0xfb9c65d2f6a4f15!2sNational%20Academy%20of%20Design!5e0!3m2!1sen!2sin!4v1743591625124!5m2!1sen!2sin"
                 width="100%"
                 height="300"
                 style={{ border: 0 }}

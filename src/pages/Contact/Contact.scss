@@ -105,7 +105,7 @@ $transition-speed: 0.3s;
         .contact-left-item {
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 20px;
           cursor: pointer;
 
           &:hover {
@@ -113,6 +113,7 @@ $transition-speed: 0.3s;
               background: #fff;
               color: $primary-color;
               border: 1px solid $primary-color;
+              
             }
           }
 
@@ -124,6 +125,7 @@ $transition-speed: 0.3s;
             border-radius: 50%;
             transition: all 0.3s ease-in-out;
             border: 1px solid transparent;
+            flex-shrink: 0;
 
             @include sm {
               padding: 5px;
@@ -132,7 +134,7 @@ $transition-speed: 0.3s;
           }
 
           p {
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 500;
           }
         }

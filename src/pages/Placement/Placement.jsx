@@ -8,6 +8,11 @@ import { baseUrl } from "../../main";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/Loader/Loader";
 
+
+import { FaLocationDot } from "react-icons/fa6";
+import { FaBuilding } from "react-icons/fa";
+import { FaUserTie } from "react-icons/fa";
+
 const fetchStaffs = async () => {
   if (!navigator.onLine) {
     throw new Error("NETWORK_ERROR");
@@ -90,12 +95,24 @@ const Placement = () => {
           {data?.map((item, index) => (
             <div className="placement-card" key={index}>
               <img src={item.image} alt={item.name} />
-              <div className="placement-card-desc">
-                <p>{item.name}</p>
-                <h3 className="placed">Placed at {item.company}</h3>
+              <div className="alumini-details">
+                <h3>{item.name}</h3>
+                <p>
+                  <FaUserTie className="alumni-icon" />
+                  {item.designation}
+                </p>
+                <p>
+                  <FaBuilding className="alumni-icon" />
+                  {item.company}
+                </p>
+                <p>
+                  <FaLocationDot className="alumni-icon" />
+                  {item.location}
+                </p>
               </div>
             </div>
           ))}
+          
         </div>
       </div>
     </div>
