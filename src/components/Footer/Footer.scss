@@ -17,7 +17,7 @@
       flex-direction: column;
       gap: 30px;
     }
-  
+
     .footer-left {
       img {
         width: 300px;
@@ -101,11 +101,39 @@
             margin-top: 15px;
             transition: all 0.3s ease-in-out;
             cursor: pointer;
-
             font-weight: 500;
             &:hover {
               transform: translateX(5px);
               color: $primary-color;
+            }
+          }
+        }
+
+        .footer-dropdown {
+          li {
+            display: flex;
+            flex-direction: column;
+            transform: none;
+            &:hover {
+              transform: none;
+              color: inherit;
+            }
+            .footer-dropdown-title {
+              display: flex;
+              align-items: center;
+            }
+            ul {
+              display: flex;
+              flex-direction: column;
+
+              .footer-option-link{
+                transition: all 0.3s ease-in-out;
+                margin-bottom: 10px;
+                &:hover {
+                  transform: translateX(5px);
+                  color: $primary-color;
+                }
+              }
             }
           }
         }
@@ -119,7 +147,7 @@
       text-align: center;
       font-weight: 500;
 
-      @include sm{
+      @include sm {
         font-size: 14px;
       }
       .star {

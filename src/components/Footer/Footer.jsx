@@ -7,11 +7,28 @@ import { FaInstagram } from "react-icons/fa";
 import { IoCallSharp } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-import { courses, footerCourse } from "../../assets/data";
+import {
+  footerCourse,
+  footerDropdown1,
+  footerDropdown2,
+} from "../../assets/data";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { useEffect, useState } from "react";
 
 const Footer = () => {
+  const [footerOption1, setFooterOption1] = useState(false);
+  const [footerOption2, setFooterOption2] = useState(false);
+
+  const location = useLocation();
+
+    useEffect(() => {
+       setFooterOption1(false);
+       setFooterOption2(false);
+
+    }, [location]);
+
   return (
     <div className="footer">
       <div className="footer-top">
@@ -77,6 +94,52 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
+            <ul className="footer-dropdown">
+              <li>
+                <div
+                  className="footer-dropdown-title"
+                  onClick={() => setFooterOption1(!footerOption1)}
+                >
+                  UG ( Under Graduate) <MdOutlineKeyboardArrowRight />
+                </div>
+
+                {footerOption1 && (
+                  <ul>
+                    {footerDropdown1.map((item, index) => (
+                      <Link
+                        to={`${item.link}`}
+                        key={index}
+                        className="footer-option-link"
+                      >
+                        {" "}
+                        {item.name}
+                      </Link>
+                    ))}
+                  </ul>
+                )}
+              </li>
+              <li>
+                <div
+                  className="footer-dropdown-title"
+                  onClick={() => setFooterOption2(!footerOption2)}
+                >
+                  PG ( Post Graduate) <MdOutlineKeyboardArrowRight />
+                </div>
+                {footerOption2 && (
+                  <ul>
+                    {footerDropdown2.map((item, index) => (
+                      <Link
+                        to={`${item.link}`}
+                        key={index}
+                        className="footer-option-link"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            </ul>
           </div>
 
           <div className="footer-right-item">
@@ -101,7 +164,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <p>
           Copyright © 2025 InterNational Academy of Design. Designed and
-          Developed by
+          Developed by&nbsp;
           <a
             href="https://www.Wingstarnarketing.com"
             target="_blank"
@@ -110,7 +173,6 @@ const Footer = () => {
           >
             Star Marketing
           </a>
-          .
         </p>
       </div>
     </div>

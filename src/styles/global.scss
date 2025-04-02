@@ -15,4 +15,15 @@ a {
 
 .app {
 
+  .error {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+
+    .error-desc {
+      text-align: center;
+    }
+  }
 }

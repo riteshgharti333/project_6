@@ -1,4 +1,4 @@
-import "./Gallery.scss";
+import "./SingleGallery.scss";
 
 import banner_img from "../../assets/images/homebanner.jpeg";
 import { useState } from "react";
@@ -6,17 +6,15 @@ import { baseUrl } from "../../main";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/Loader/Loader";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-const fetchFolders = async () => {
+const fetchGallery = async (id) => {
   if (!navigator.onLine) {
     throw new Error("NETWORK_ERROR");
   }
 
-  const { data } = await axios.get(
-    `${baseUrl}/gallery-folder/all-gallery-folders`
-  );
-  return data.folders;
+  const { data } = await axios.get(`${baseUrl}/gallery-folder/${id}`);
+  return data.folder;
 };
 
 const fetchBanner = async () => {
@@ -29,12 +27,13 @@ const fetchBanner = async () => {
   return data?.image;
 };
 
-const Gallery = () => {
+const SingleGallery = () => {
   const [selectedImg, setSelectedImg] = useState(null);
+  const { id } = useParams();
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["folders"],
-    queryFn: fetchFolders,
+    queryKey: ["gallery", id],
+    queryFn: () => fetchGallery(id),
     staleTime: 1000 * 60 * 5,
     retry: false,
   });
@@ -73,7 +72,7 @@ const Gallery = () => {
     return (
       <div className="error">
         <div className="error-desc">
-          <h3>Failed to load image folder.</h3>
+          <h3>Failed to load gallery</h3>
           <p>Try refreshing the page or check your connection.</p>
         </div>
       </div>
@@ -81,11 +80,11 @@ const Gallery = () => {
   }
 
   return (
-    <div className="gallery">
+    <div className="singleGallery">
       <div className="gallery-banner">
         <div className="img-wrapper">
           <img src={bannerImg} alt="" />
-          <h1>Gallery</h1>
+          <h1>{data.folderTitle}</h1>
         </div>
       </div>
 
@@ -95,26 +94,29 @@ const Gallery = () => {
         </h2>
 
         <div className="gallery-imgs">
-          {data.map((item, index) => (
-            <Link
-              to={`/gallery/${item._id}?title=${encodeURIComponent(
-                item.folderTitle
-              )}`}
-            >
-              <div className="gallery-card" key={index}>
-                <img
-                  src={item.folderImage}
-                  alt={item.folderTitle}
-                  loading="lazy"
-                />
-                <p>{item.folderTitle}</p>
-              </div>
-            </Link>
+          {data.galleryImages.map((item, index) => (
+            <div className="gallery-card" key={index}>
+              <img
+                src={item.imageUrl}
+                loading="lazy"
+                onClick={() => setSelectedImg(item.imageUrl)}
+                alt={item.imageUrl}
+              />
+            </div>
           ))}
         </div>
       </div>
+
+      {selectedImg && (
+        <div className="image-modal" onClick={() => setSelectedImg(null)}>
+          <img src={selectedImg} alt="Fullscreen Preview" loading="lazy" />
+          <span className="close-btn" onClick={() => setSelectedImg(null)}>
+            ×
+          </span>
+        </div>
+      )}
     </div>
   );
 };
 
-export default Gallery;
+export default SingleGallery;

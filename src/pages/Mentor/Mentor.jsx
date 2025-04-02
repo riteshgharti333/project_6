@@ -1,20 +1,17 @@
-import "./Staff.scss";
-import { TiLocationArrow } from "react-icons/ti";
+import "./Mentor.scss";
 import { useQuery } from "@tanstack/react-query";
-import Loader from "../../components/Loader/Loader";
-
-import banner_img from "../../assets/images/homebanner.jpeg";
-import { baseUrl } from "../../main";
-import { toast } from "sonner";
 import axios from "axios";
+import Loader from "../../components/Loader/Loader";
+import { toast } from "sonner";
+
+import { baseUrl } from "../../main";
 
 const fetchStaffs = async () => {
   if (!navigator.onLine) {
     throw new Error("NETWORK_ERROR");
   }
-
-  const { data } = await axios.get(`${baseUrl}/staff/all-staffs`);
-  return data.staff;
+  const { data } = await axios.get(`${baseUrl}/founder/all-founders`);
+  return data.founders;
 };
 
 const fetchBanner = async () => {
@@ -22,30 +19,29 @@ const fetchBanner = async () => {
     throw new Error("NETWORK_ERROR");
   }
   const { data } = await axios.get(
-    `${baseUrl}/banner/mentor-banner/67e7722bc95a30104036fdbe`
+    `${baseUrl}/banner/staff-banner/67e7723fc95a30104036fdc1`
   );
   return data?.image;
 };
 
-
-const Staff = () => {
+const Mentor = () => {
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["staffs"],
+    queryKey: ["staff"],
     queryFn: fetchStaffs,
     staleTime: 1000 * 60 * 5,
     retry: false,
   });
 
-    const {
-      data: bannerImg,
-      isLoading: isBannerLoading,
-      isError: isBannerError,
-    } = useQuery({
-      queryKey: ["mentorBanner"],
-      queryFn: fetchBanner,
-      staleTime: 1000 * 60 * 5,
-      retry: false,
-    });
+  const {
+    data: bannerImg,
+    isLoading: isBannerLoading,
+    isError: isBannerError,
+  } = useQuery({
+    queryKey: ["staffBanner"],
+    queryFn: fetchBanner,
+    staleTime: 1000 * 60 * 5,
+    retry: false,
+  });
 
   if (isError) {
     if (error.name === "AxiosError") {
@@ -70,7 +66,7 @@ const Staff = () => {
     return (
       <div className="error">
         <div className="error-desc">
-          <h3>Failed to load staff data.</h3>
+          <h3>Failed to load data.</h3>
           <p>Try refreshing the page or check your connection.</p>
         </div>
       </div>
@@ -78,11 +74,11 @@ const Staff = () => {
   }
 
   return (
-    <div className="staff">
+    <div className="mentor">
       <div className="staff-banner">
         <div className="img-wrapper">
-          <img src={bannerImg} alt="banner" />
-          <h1>Our Staff</h1>
+          <img src={bannerImg} alt="Mentor Banner" />
+          <h1>Mentors</h1>
         </div>
       </div>
 
@@ -90,13 +86,12 @@ const Staff = () => {
         <div className="staff-cards">
           {data?.map((item) => (
             <div className="staff-card" key={item._id}>
-              <img src={item.image} alt={item.name} />
+              <div className="staff-img-round">
+                <img src={item.image} alt={item.name} />
+              </div>
               <div className="staff-card-desc">
                 <h3>{item.name}</h3>
                 <p>{item.position}</p>
-                <p>
-                  {item.location} <TiLocationArrow className="staff-icon" />
-                </p>
               </div>
             </div>
           ))}
@@ -106,4 +101,4 @@ const Staff = () => {
   );
 };
 
-export default Staff;
+export default Mentor;

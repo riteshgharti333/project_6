@@ -418,10 +418,6 @@ export const footerCourse = [
     link: "/web-design-development",
   },
   { name: "Digital Marketing", link: "/digital-marketing" },
-
-  { name: "UG ( Under Graduate)", link: "/undergraduate-courses" },
-
-  { name: "PG ( Post Graduate)", link: "/postgraduate-courses" },
 ];
 
 // student image
@@ -461,4 +457,22 @@ export const student_banners = [
   {
     img: student_banner8,
   },
+];
+
+////////////
+
+export const footerDropdown1 = [
+  { name: "B.A", link: "/undergraduate-course/ba" },
+  { name: "B.Com", link: "/undergraduate-course/bcom" },
+  { name: "B.Sc", link: "/undergraduate-course/bsc" },
+  { name: "B.B.A", link: "/undergraduate-course/bba" },
+  { name: "B.Lib", link: "/undergraduate-course/blib" },
+];
+
+export const footerDropdown2 = [
+  { name: "M.A", link: "/postgraduate-course/ma" },
+  { name: "M.Com", link: "/postgraduate-course/mcom" },
+  { name: "M.Sc", link: "/postgraduate-course/msc" },
+  { name: "M.B.A", link: "/postgraduate-course/mba" },
+  { name: "M.Lib", link: "/postgraduate-course/mlib" },
 ];

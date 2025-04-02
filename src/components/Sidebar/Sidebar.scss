@@ -10,15 +10,12 @@ $transition-speed: 0.3s;
     width: 100%;
     padding: 30px;
     border-radius: 5px;
-    transition:
-      transform $transition-speed ease,
-      box-shadow $transition-speed ease;
+    transition: transform $transition-speed ease,
+    box-shadow $transition-speed ease;
     border: 1px solid $primary-color;
     margin: auto;
 
-    @include md {
-      width: 95%;
-    }
+   
 
     @include sm {
       padding: 30px 10px;
@@ -35,7 +32,7 @@ $transition-speed: 0.3s;
       position: relative;
       margin-bottom: 30px;
 
-      textarea{
+      textarea {
         border: 1px solid #ccc !important;
         border-radius: 5px;
         width: 100%;
@@ -43,9 +40,9 @@ $transition-speed: 0.3s;
         padding-left: 5px;
         font-size: 16px;
         padding: 5px;
-         &::placeholder{
+        &::placeholder {
           color: $secondary-color;
-         }
+        }
       }
 
       select {
@@ -122,8 +119,7 @@ $transition-speed: 0.3s;
       font-size: 18px;
       font-weight: 600;
       cursor: pointer;
-      transition:
-        background-color $transition-speed ease,
+      transition: background-color $transition-speed ease,
         transform $transition-speed ease;
 
       &:hover {

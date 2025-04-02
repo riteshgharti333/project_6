@@ -9,27 +9,128 @@ import { RiInstagramFill } from "react-icons/ri";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 
-import banner_img from "../../assets/images/homebanner.jpeg";
 import { useState } from "react";
+import axios from "axios";
+import { toast } from "sonner";
+import { baseUrl } from "../../main";
+
+import { useQuery } from "@tanstack/react-query";
+import Loader from "../../components/Loader/Loader";
+
+const fetchBanner = async () => {
+  if (!navigator.onLine) {
+    throw new Error("NETWORK_ERROR");
+  }
+
+  const { data } = await axios.get(
+    `${baseUrl}/banner/contact-banner/67e772d0768539d1e12454a7`
+  );
+  return data;
+};
 
 const Contact = () => {
+  const wordLimit = 150;
 
-    const [message, setMessage] = useState("");
-    const wordLimit = 150;
-  
-    const handleChange = (e) => {
-      const words = e.target.value.split(/\s+/).filter((word) => word !== "");
-      if (words.length <= wordLimit) {
-        setMessage(e.target.value);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "message") {
+      const words = value.split(/\s+/).filter((word) => word !== "");
+      if (words.length > wordLimit) return;
+    }
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const { name, email, phoneNumber, message } = formData;
+
+    if (!name || !email || !phoneNumber || !message) {
+      toast.error("All fields are required!");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const { data } = await axios.post(
+        `${baseUrl}/contact/new-contact`,
+        formData
+      );
+
+      if (data.result === 1) {
+        toast.success(data.message);
+        setFormData({
+          name: "",
+          email: "",
+          phoneNumber: "",
+          message: "",
+        });
       }
-    };
+    } catch (error) {
+      console.error("contact error:", error);
+      toast.error(error.response?.data?.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["contact-banner"],
+    queryFn: fetchBanner,
+    staleTime: 1000 * 60 * 5,
+    retry: false,
+  });
+
+  if (isError) {
+    if (error.name === "AxiosError") {
+      const isNetworkError =
+        !error.response ||
+        error.message.includes("ECONNRESET") ||
+        error.response?.data?.message === "read ECONNRESET";
+
+      if (isNetworkError) {
+        setTimeout(() => {
+          toast.error("🚫 Network error. Please check your connection.");
+        }, 100);
+      } else {
+        console.error("❗ Server Error:", error.response?.status);
+      }
+    }
+  }
+
+  if (isLoading) return <Loader />;
+
+  if (isError) {
+    return (
+      <div className="error">
+        <div className="error-desc">
+          <h3>Failed to contact banner</h3>
+          <p>Try refreshing the page or check your connection.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="contact">
-
       <div className="contact-banner">
         <div className="img-wrapper">
-          <img src={banner_img} alt="" />
+          <img src={data?.image} alt="" />
         </div>
         <div className="contact-banner-desc">
           <h1>Contact Us</h1>
@@ -76,32 +177,59 @@ const Contact = () => {
         </div>
         <div className="contact-right">
           <h3>Send us a message</h3>
-          <form action="#" method="POST">
+          <form action="#" method="POST" onSubmit={handleSubmit}>
             <div class="form-group">
-              <input type="text" id="name" name="name" required />
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
               <label for="name">Name</label>
               <div class="underline"></div>
             </div>
 
             <div class="form-group">
-              <input type="email" id="email" name="email" required />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
               <label for="email">Email</label>
               <div class="underline"></div>
             </div>
 
             <div class="form-group">
-              <input type="tel" id="phone" name="phone" required />
+              <input
+                type="tel"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                required
+              />
               <label for="phone">Phone Number</label>
 
               <div class="underline"></div>
             </div>
 
             <div class="form-group">
-            <textarea id="message" placeholder={`Message (Max ${wordLimit} words)`} name="message" rows="5" required></textarea>
-          </div>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder={`Message (Max ${wordLimit} words)`}
+                rows="5"
+                required
+              ></textarea>
+            </div>
 
-            <div class="form-group">
-              <button type="submit">Submit</button>
+            <div className="form-group">
+              <button type="submit" disabled={loading}>
+                {loading ? "Sending..." : "Submit"}
+              </button>
             </div>
           </form>
         </div>

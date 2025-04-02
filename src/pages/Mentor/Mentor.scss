@@ -1,13 +1,13 @@
 @use "../../styles/responsive.scss" as *;
 
-.staff {
+.mentor {
   padding-top: 80px;
-
   .img-wrapper {
     position: relative;
     width: 100%;
     height: 400px;
     z-index: -1;
+
 
     img {
       width: 100%;
@@ -68,7 +68,11 @@
       }
 
       .staff-card {
-        max-width: 270px;
+        box-sizing: border-box;
+        justify-content: space-between;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        position: relative;
 
         @include lg {
           margin: auto;
@@ -79,14 +83,30 @@
           width: 300px;
         }
 
-        img {
-          width: 100%;
-          height: 300px;
-          object-fit: cover;
-          object-position: top;
-          background: #dddddd;
-          border-radius: 10px;
+        .staff-img-round {
+          display: flex;
+          justify-content: center;
+          justify-content: center;
+          img {
+            object-fit: cover;
+            width: 250px;
+            height: 250px;
+            position: relative;
+            background: #b22222;
+            border-radius: 50%;
+            object-position: top;
+            display: block;
+
+            &.add-filter {
+              filter: brightness(0.5);
+            }
+
+            &.staff-img {
+              border-radius: 5px;
+            }
+          }
         }
+
         .staff-card-desc {
           display: flex;
           flex-direction: column;
