@@ -27,6 +27,7 @@ const HomeBanner = () => {
   });
 
   if (isError) {
+    console.log("🔴 Error Object:", error);
     if (error.name === "AxiosError") {
       const isNetworkError =
         !error.response ||
