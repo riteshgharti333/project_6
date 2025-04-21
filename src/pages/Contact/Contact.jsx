@@ -131,13 +131,7 @@ const Contact = () => {
       <div className="contact-banner">
         <div className="img-wrapper">
           <img src={data?.image} alt="" />
-        </div>
-        <div className="contact-banner-desc">
           <h1>Contact Us</h1>
-          <p>
-            Get in touch with us for any inquiries about admissions, courses, or
-            campus life
-          </p>
         </div>
       </div>
 
@@ -170,10 +164,19 @@ const Contact = () => {
             <h3>Follow Us</h3>
 
             <div className="follow-icons">
-              <FaFacebookSquare className="follow-icon facebook" />
-              <RiInstagramFill className="follow-icon insta" />
-              <FaLinkedin className="follow-icon linkedin" />
-              <FaSquareXTwitter className="follow-icon twitter" />
+              <a
+                href="https://www.facebook.com/thenadskr?rdid=g32zGxNSooqDf1YH&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19bj6SHgR8%2F#"
+                target="_blank"
+              >
+                <FaFacebookSquare className="follow-icon facebook" />
+              </a>
+
+              <a
+                href="https://www.instagram.com/thenad.in?igsh=MWU3amN0dGdlZGh2YQ=="
+                target="_blank"
+              >
+                <RiInstagramFill className="follow-icon insta" />
+              </a>
             </div>
           </div>
         </div>

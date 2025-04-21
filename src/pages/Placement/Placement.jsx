@@ -8,7 +8,6 @@ import { baseUrl } from "../../main";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/Loader/Loader";
 
-
 import { FaLocationDot } from "react-icons/fa6";
 import { FaBuilding } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
@@ -27,7 +26,7 @@ const fetchBanner = async () => {
     throw new Error("NETWORK_ERROR");
   }
   const { data } = await axios.get(
-    `${baseUrl}/banner/alumni-banner/67e7726c768539d1e124549e`
+    `${baseUrl}/banner/alumni-banner/67e7726c768539d1e124549e`,
   );
   return data?.image;
 };
@@ -112,7 +111,6 @@ const Placement = () => {
               </div>
             </div>
           ))}
-          
         </div>
       </div>
     </div>

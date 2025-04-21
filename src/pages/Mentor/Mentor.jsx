@@ -19,7 +19,7 @@ const fetchBanner = async () => {
     throw new Error("NETWORK_ERROR");
   }
   const { data } = await axios.get(
-    `${baseUrl}/banner/staff-banner/67e7723fc95a30104036fdc1`
+    `${baseUrl}/banner/staff-banner/67e7723fc95a30104036fdc1`,
   );
   return data?.image;
 };

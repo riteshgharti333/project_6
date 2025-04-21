@@ -14,7 +14,7 @@ const fetchFolders = async () => {
   }
 
   const { data } = await axios.get(
-    `${baseUrl}/gallery-folder/all-gallery-folders`
+    `${baseUrl}/gallery-folder/all-gallery-folders`,
   );
   return data.folders;
 };
@@ -24,7 +24,7 @@ const fetchBanner = async () => {
     throw new Error("NETWORK_ERROR");
   }
   const { data } = await axios.get(
-    `${baseUrl}/banner/gallery-banner/67e772a7768539d1e12454a4`
+    `${baseUrl}/banner/gallery-banner/67e772a7768539d1e12454a4`,
   );
   return data?.image;
 };
@@ -98,7 +98,7 @@ const Gallery = () => {
           {data.map((item, index) => (
             <Link
               to={`/gallery/${item._id}?title=${encodeURIComponent(
-                item.folderTitle
+                item.folderTitle,
               )}`}
             >
               <div className="gallery-card" key={index}>

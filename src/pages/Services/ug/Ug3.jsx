@@ -16,7 +16,7 @@ const fetchBanner = async () => {
   }
 
   const { data } = await axios.get(
-    `${baseUrl}/banner/bsc-banner/67e773db768539d1e12454d1`
+    `${baseUrl}/banner/bsc-banner/67e773db768539d1e12454d1`,
   );
   return data;
 };

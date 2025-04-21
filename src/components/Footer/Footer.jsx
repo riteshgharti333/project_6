@@ -36,14 +36,14 @@ const Footer = () => {
 
           <div className="footer-icons">
             <a
-              href="https://www.facebook.com/share/p/1FSwuHsTm8/?mibextid=WC7FNe"
+              href="https://www.facebook.com/thenadskr?rdid=g32zGxNSooqDf1YH&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19bj6SHgR8%2F#"
               target="_blank"
             >
               <FaFacebook className="footer-icon facebook" />
             </a>
 
             <a
-              href="https://www.instagram.com/p/DGmowV8TTPv/?igsh=bzFnaW1xdG9zdW81"
+              href="https://www.instagram.com/thenad.in?igsh=MWU3amN0dGdlZGh2YQ=="
               target="_blank"
             >
               <FaInstagram className="footer-icon insta" />

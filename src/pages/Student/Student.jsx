@@ -39,7 +39,21 @@ const Student = () => {
       toast.success("Certificate loaded successfully!");
     } catch (error) {
       console.error("Failed to get certificate:", error);
-      toast.error("Failed to load certificate. Try again.");
+
+      try {
+        // If error response is a blob, parse it
+        const blob = error.response?.data;
+        if (blob instanceof Blob && blob.type === "application/json") {
+          const text = await blob.text();
+          const json = JSON.parse(text);
+          toast.error(json.message || "Something went wrong.");
+        } else {
+          toast.error("Something went wrong. Please try again.");
+        }
+      } catch (parseError) {
+        console.error("Error parsing error response:", parseError);
+        toast.error("Something went wrong. Please try again.");
+      }
     } finally {
       setLoading(false);
     }

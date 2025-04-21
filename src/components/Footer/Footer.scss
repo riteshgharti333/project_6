@@ -34,8 +34,8 @@
       flex: 4;
       justify-content: end;
 
-      @include lg{
-        justify-content:flex-start;
+      @include lg {
+        justify-content: flex-start;
       }
     }
 

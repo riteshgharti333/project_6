@@ -15,7 +15,7 @@ const fetchBanner = async () => {
   }
 
   const { data } = await axios.get(
-    `${baseUrl}/banner/about-banner/67e7720bf86def3cbf7ba215`
+    `${baseUrl}/banner/about-banner/67e7720bf86def3cbf7ba215`,
   );
   return data;
 };
@@ -65,6 +65,7 @@ const About = () => {
           <h1>About Us</h1>
         </div>
       </div>
+      
       <div className="about-content">
         {aboutContent.map((item, index) => (
           <p key={index}>{item}</p>

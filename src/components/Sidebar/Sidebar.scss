@@ -10,12 +10,11 @@ $transition-speed: 0.3s;
     width: 100%;
     padding: 30px;
     border-radius: 5px;
-    transition: transform $transition-speed ease,
-    box-shadow $transition-speed ease;
+    transition:
+      transform $transition-speed ease,
+      box-shadow $transition-speed ease;
     border: 1px solid $primary-color;
     margin: auto;
-
-   
 
     @include sm {
       padding: 30px 10px;
@@ -119,7 +118,8 @@ $transition-speed: 0.3s;
       font-size: 18px;
       font-weight: 600;
       cursor: pointer;
-      transition: background-color $transition-speed ease,
+      transition:
+        background-color $transition-speed ease,
         transform $transition-speed ease;
 
       &:hover {

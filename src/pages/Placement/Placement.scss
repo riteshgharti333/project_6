@@ -83,18 +83,19 @@
         background: #ffffff;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
         border: 1px solid #ddd;
         border-radius: 10px;
         max-width: 300px;
         height: 100%;
 
-
         @include md {
           margin: auto;
         }
 
-        @include sm{
+        @include sm {
           width: 300px;
         }
 

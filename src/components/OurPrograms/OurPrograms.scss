@@ -10,7 +10,7 @@
     padding: 0px 10px;
   }
   .ourPrograms-top {
-    h1{
+    h1 {
       font-size: 30px;
       font-family: $heading-font;
     }
@@ -18,7 +18,7 @@
       font-size: $p-size;
       margin-top: 10px;
 
-      @include sm{
+      @include sm {
         font-size: 16px;
       }
     }

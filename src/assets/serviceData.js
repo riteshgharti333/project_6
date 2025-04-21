@@ -223,8 +223,6 @@ export const digitalMarketing = {
   },
 };
 
-
-
 //////// courses
 
 export const ug = [
@@ -272,4 +270,3 @@ export const pg = [
     link: "postgraduate-course/Mlib",
   },
 ];
-

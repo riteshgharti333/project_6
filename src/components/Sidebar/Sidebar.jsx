@@ -70,7 +70,7 @@ const Enquiry = () => {
       setLoading(true);
       const { data } = await axios.post(
         `${baseUrl}/enquiry/new-enquiry`,
-        formData
+        formData,
       );
 
       if (data.result === 1) {

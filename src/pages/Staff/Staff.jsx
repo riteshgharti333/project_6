@@ -22,11 +22,10 @@ const fetchBanner = async () => {
     throw new Error("NETWORK_ERROR");
   }
   const { data } = await axios.get(
-    `${baseUrl}/banner/mentor-banner/67e7722bc95a30104036fdbe`
+    `${baseUrl}/banner/mentor-banner/67e7722bc95a30104036fdbe`,
   );
   return data?.image;
 };
-
 
 const Staff = () => {
   const { data, isLoading, isError, error } = useQuery({
@@ -36,16 +35,16 @@ const Staff = () => {
     retry: false,
   });
 
-    const {
-      data: bannerImg,
-      isLoading: isBannerLoading,
-      isError: isBannerError,
-    } = useQuery({
-      queryKey: ["mentorBanner"],
-      queryFn: fetchBanner,
-      staleTime: 1000 * 60 * 5,
-      retry: false,
-    });
+  const {
+    data: bannerImg,
+    isLoading: isBannerLoading,
+    isError: isBannerError,
+  } = useQuery({
+    queryKey: ["mentorBanner"],
+    queryFn: fetchBanner,
+    staleTime: 1000 * 60 * 5,
+    retry: false,
+  });
 
   if (isError) {
     if (error.name === "AxiosError") {

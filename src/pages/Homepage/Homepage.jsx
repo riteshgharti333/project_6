@@ -18,7 +18,7 @@ const Homepage = () => {
 
       <div className="homepage-btn">
         <Link to={"/student-corner"} className="student-login">
-        Student Login
+          Student Login
         </Link>
       </div>
     </div>

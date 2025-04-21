@@ -9,21 +9,22 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/Loader/Loader";
 
-const fetchBanner = async () => {
+const fetchCourse = async () => {
   if (!navigator.onLine) {
     throw new Error("NETWORK_ERROR");
   }
 
   const { data } = await axios.get(
-    `${baseUrl}/banner/interior-design-banner/67e7735d768539d1e12454bc`
+    `${baseUrl}/course/68062f6fcfc1977e5c7edb1f`
   );
-  return data;
+  console.log(data);
+  return data?.course;
 };
 
 const Service1 = () => {
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["interior-banner"],
-    queryFn: fetchBanner,
+    queryKey: ["courses"],
+    queryFn: fetchCourse,
     staleTime: 1000 * 60 * 5,
     retry: false,
   });
@@ -61,26 +62,23 @@ const Service1 = () => {
   return (
     <div className="service">
       <div className="service-banner interior-design">
-        <img src={data.image} alt="" />
+        <img src={data.bannerImage} alt="" />
 
-        {/* <div className="interior-design-desc">
-          <h1>Interior&nbsp;&nbsp;Design</h1>
-          <p>(B.VOC 3 YEAR )</p>
-        </div> */}
+        <div className="interior-design-desc">
+          <h1>{data.bannerTitle}</h1>
+        </div>
       </div>
 
       <div className="service-content">
         <div className="service-content-left">
-          <h2>{interior.title}</h2>
-          {interior.desc.map((item, index) => (
-            <p key={index}>{item}</p>
-          ))}
+          <h2>{data.courseTitle}</h2>
+          <p style={{ whiteSpace: "pre-line" }}>{data.courseDescription}</p>
 
-          <h3>{interior.list.title}</h3>
-          <p>{interior.list.desc}</p>
+          <h3>{data.courseListTitle}</h3>
+          <p>{data.courseListDesc}</p>
 
           <ul>
-            {interior.list.listPoints.map((item, index) => (
+            {data.courseLists.map((item, index) => (
               <li key={index}>
                 <span>{item.title}</span>
                 <br />

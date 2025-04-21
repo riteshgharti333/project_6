@@ -6,10 +6,9 @@ $box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 $transition-speed: 0.3s;
 
 .contact {
-
   .contact-banner {
-    position: relative;
     padding-top: 80px;
+
     .img-wrapper {
       position: relative;
       width: 100%;
@@ -33,32 +32,20 @@ $transition-speed: 0.3s;
         background: rgba(0, 0, 0, 0.5);
         z-index: 1;
       }
-    }
-
-    .contact-banner-desc {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-      text-align: center;
 
       h1 {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         font-size: 60px;
         color: #fff;
+        z-index: 10;
 
-        @include sm {
+        @include sm{
           font-size: 50px;
-        }
-      }
-
-      p {
-        font-size: 23px;
-        color: #fff;
-        font-weight: 600;
-
-        @include sm {
-          font-size: 18px;
         }
       }
     }
@@ -73,7 +60,7 @@ $transition-speed: 0.3s;
     border-radius: 10px;
     border: 1px solid #dddd;
 
-    @include lg{
+    @include lg {
       margin: 40px 10px;
     }
 
@@ -113,7 +100,6 @@ $transition-speed: 0.3s;
               background: #fff;
               color: $primary-color;
               border: 1px solid $primary-color;
-              
             }
           }
 
@@ -312,7 +298,7 @@ $transition-speed: 0.3s;
     margin: 0px auto;
     margin-bottom: 40px;
 
-    @include lg{
+    @include lg {
       margin: 40px 10px;
     }
 
