@@ -16,7 +16,7 @@ const fetchBanner = async () => {
   }
 
   const { data } = await axios.get(
-    `${baseUrl}/banner/fashion-design-banner/67e773a4768539d1e12454c8`,
+    `${baseUrl}/banner/fashion-design-banner/67e773a4768539d1e12454c8`
   );
   return data;
 };
@@ -70,6 +70,30 @@ const Service3 = () => {
           {fashion.desc.map((item, index) => (
             <p key={index}>{item}</p>
           ))}
+
+          <h3>{fashion.courseLists.title}</h3>
+
+          <ul>
+            {fashion.courseLists.courses.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+
+          <h3>{fashion.keyTopics.title}</h3>
+
+          <ul>
+            {fashion.keyTopics.keyTopicsLists.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+
+          <h3>{fashion.careerTopics.title}</h3>
+
+          <ul>
+            {fashion.careerTopics.careerOpportunities.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
 
           <h3>{fashion.list.title}</h3>
           <p>{fashion.list.desc}</p>

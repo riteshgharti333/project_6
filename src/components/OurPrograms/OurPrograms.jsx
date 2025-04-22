@@ -1,5 +1,4 @@
 import "./OurPrograms.scss";
-import { courses } from "../../assets/data";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
@@ -7,8 +6,43 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { baseUrl } from "../../main";
+
+import course_img from "../../assets/images/rotate.jpeg";
 
 const OurPrograms = () => {
+  const [mainCourses, setMainCourses] = useState([]);
+  const [ugCourses, setUgCourses] = useState([]);
+  const [pgCourses, setPgCourses] = useState([]);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const { data } = await axios.get(`${baseUrl}/course/all-course`);
+        const allCourses = data?.courses || [];
+
+        setMainCourses(
+          allCourses.filter((course) => course.courseType === "Main Course")
+        );
+        setUgCourses(
+          allCourses.filter((course) => course.courseType === "UG Course")
+        );
+        setPgCourses(
+          allCourses.filter((course) => course.courseType === "PG Course")
+        );
+      } catch (err) {
+        console.error("Error fetching courses:", err);
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
+  // Combine and order all course types
+  const allCoursesOrdered = [...mainCourses, ...ugCourses, ...pgCourses];
+
   return (
     <div className="ourPrograms">
       <div className="ourPrograms-top">
@@ -43,17 +77,19 @@ const OurPrograms = () => {
           }}
           className="program-swiper"
         >
-          {courses.map((item, index) => (
+          {allCoursesOrdered.map((item, index) => (
             <SwiperSlide key={index}>
-              <Link to={`${item.link}`}>
+              <Link
+                to={`/course/${item.courseType}/${item._id}/${item.bannerTitle}`}
+              >
                 <div
                   className="ourPrograms-card"
                   style={{
-                    backgroundImage: `url(${item.img})`,
+                    backgroundImage: `url(${course_img})`,
                   }}
                 >
                   <div className="ourPrograms-card-desc">
-                    <h3>{item.name}</h3>
+                    <h3>{item.bannerTitle}</h3>
                   </div>
                 </div>
               </Link>

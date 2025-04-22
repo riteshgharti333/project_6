@@ -7,6 +7,8 @@ export const interior = {
     "Come and see how dreams come true at InterNational Academy Of Design School of Creative Studies. Develop your interior design skills while embarking on a unique and captivating journey.",
   ],
 
+ 
+
   list: {
     title: "Who Can Apply?",
     desc: "The criteria for InterNational Academy Of Design's interior design programs are flexible, and the institution welcomes students who are enthusiastic about the subject. To participate in the programs, you must meet the following requirements:",
@@ -70,6 +72,59 @@ export const fashion = {
     "Creativity is key in fashion. We foster it through specialized modules in fashion illustration, studio work, and design software. Students master fashion CAD software, industry tools, and gain a well-rounded understanding of fashion management and merchandising.",
     "At , inspiration is paramount. Students benefit from guest lectures by industry experts and have the opportunity to participate in Vibes 360°, a Guinness World Record-winning beauty fashion show.",
   ],
+
+  courseLists: {
+    title: "Course",
+    courses: [
+      "Degree in Fashion Design (B.VOC.) – 3 year",
+      "Master Diploma in Fashion Design – 2 year",
+      "Professional in Fashion Design – 1 year",
+      "Professional in Fashion CAD – 1 year",
+      "Certificate in Dress Making – 6 months",
+    ],
+  },
+
+  keyTopics: {
+    title: "Key Topics",
+    keyTopicsLists: [
+      "Application of design",
+      "Pattern Making",
+      "History of Fashion",
+      "Photoshop",
+      "Illustrator/ Sketching",
+      "Textile Design",
+      "Garment Construction",
+      "Drawing",
+      "Fashion Management",
+      "Textile Science",
+      "3D-Fashion",
+      "Draping",
+      "Fashion CAD",
+      "Embroidery Design",
+    ],
+  },
+
+  careerTopics: {
+    title: "Career Opportunities",
+    careerOpportunities: [
+      "Fashion Designer",
+      "Fashion Illustrator",
+      "Fashion Buyer",
+      "Fashion Stylist",
+      "Fashion Merchandiser",
+      "Fashion Photographer",
+      "Fashion Writer or Editor",
+      "Fashion PR & Marketing",
+      "Fashion Retail Manager",
+      "Fashion Product Developer",
+      "Fashion Tech and E-Commerce",
+      "Fashion Consultant or Personal Stylist",
+      "Costume Designer",
+      "Boutique Management",
+      "Textile Designer",
+      "Production Manager",
+    ],
+  },
 
   list: {
     title: "Who Can Apply?",

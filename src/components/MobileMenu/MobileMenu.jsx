@@ -4,6 +4,8 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import "./MobileMenu.scss";
 import { RiHome2Line } from "react-icons/ri";
 import { aboutOption, courses } from "../../assets/data";
+import axios from "axios";
+import { baseUrl } from "../../main";
 
 const MobileMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -35,6 +37,36 @@ const MobileMenu = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [menuOpen]);
+
+  const [mainCourses, setMainCourses] = useState([]);
+  const [ugCourses, setUgCourses] = useState([]);
+  const [pgCourses, setPgCourses] = useState([]);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const { data } = await axios.get(`${baseUrl}/course/all-course`);
+        const allCourses = data?.courses || [];
+
+        setMainCourses(
+          allCourses.filter((course) => course.courseType === "Main Course")
+        );
+        setUgCourses(
+          allCourses.filter((course) => course.courseType === "UG Course")
+        );
+        setPgCourses(
+          allCourses.filter((course) => course.courseType === "PG Course")
+        );
+      } catch (err) {
+        console.error("Error fetching courses:", err);
+      }
+    };
+
+    fetchCourses();
+  }, []);
+
+  // Combine and order all course types
+  const allCoursesOrdered = [...mainCourses, ...ugCourses, ...pgCourses];
 
   return (
     <div className="mobileMenu" ref={menuRef}>
@@ -101,13 +133,13 @@ const MobileMenu = () => {
             </div>
             {serviceDropdown && (
               <div className="nav-dropdown">
-                {courses.map((item, index) => (
+                {allCoursesOrdered?.map((item, index) => (
                   <Link
-                    to={`${item.link}`}
+                  to={`/course/${item.courseType}/${item._id}/${item.bannerTitle}`}
                     onClick={() => setMenuOpen(false)}
                     key={index}
                   >
-                    {item.name}
+                    {item.bannerTitle}
                   </Link>
                 ))}
               </div>

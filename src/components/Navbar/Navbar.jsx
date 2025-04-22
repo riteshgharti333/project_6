@@ -11,11 +11,40 @@ import {
   pgCourse,
   ugCourse,
 } from "../../assets/data";
+import { baseUrl } from "../../main";
+import axios from "axios";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [serviceDropdown, setServiceDropdown] = useState(false);
   const [scrolling, setScrolling] = useState(false);
+
+  const [mainCourses, setMainCourses] = useState([]);
+  const [ugCourses, setUgCourses] = useState([]);
+  const [pgCourses, setPgCourses] = useState([]);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const { data } = await axios.get(`${baseUrl}/course/all-course`);
+        const allCourses = data?.courses || [];
+
+        setMainCourses(
+          allCourses.filter((course) => course.courseType === "Main Course")
+        );
+        setUgCourses(
+          allCourses.filter((course) => course.courseType === "UG Course")
+        );
+        setPgCourses(
+          allCourses.filter((course) => course.courseType === "PG Course")
+        );
+      } catch (err) {
+        console.error("Error fetching courses:", err);
+      }
+    };
+
+    fetchCourses();
+  }, []);
 
   const location = useLocation();
   useEffect(() => {
@@ -82,13 +111,13 @@ const Navbar = () => {
                 <div className="course-dropdown-items">
                   <div className="course-dropdown-item">
                     <div className="course-links">
-                      {othercourse.map((item, index) => (
+                      {mainCourses?.map((item, index) => (
                         <Link
                           key={index}
-                          to={`/${item.link}`}
+                          to={`/course/${item.courseType}/${item._id}/${item.bannerTitle}`}
                           className="course-link"
                         >
-                          {item.name}
+                          {item.bannerTitle}
                         </Link>
                       ))}
                     </div>
@@ -97,13 +126,13 @@ const Navbar = () => {
                   <div className="course-dropdown-item">
                     <h3>UG Course</h3>
                     <div className="course-links">
-                      {ugCourse.map((item, index) => (
+                      {ugCourses?.map((item, index) => (
                         <Link
                           key={index}
-                          to={`/${item.link}`}
+                          to={`/course/${item.courseType}/${item._id}/${item.bannerTitle}`}
                           className="course-link"
                         >
-                          {item.name}
+                          {item.bannerTitle}
                         </Link>
                       ))}
                     </div>
@@ -112,13 +141,13 @@ const Navbar = () => {
                   <div className="course-dropdown-item">
                     <h3>PG Course</h3>
                     <div className="course-links">
-                      {pgCourse.map((item, index) => (
+                      {pgCourses?.map((item, index) => (
                         <Link
                           key={index}
-                          to={`/${item.link}`}
+                          to={`/course/${item.courseType}/${item._id}/${item.bannerTitle}`}
                           className="course-link"
                         >
-                          {item.name}
+                          {item.bannerTitle}
                         </Link>
                       ))}
                     </div>

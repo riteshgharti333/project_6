@@ -37,6 +37,7 @@ import Pg5 from "./pages/Services/pg/Pg5";
 import Student from "./pages/Student/Student";
 import Mentor from "./pages/Mentor/Mentor";
 import SingleGallery from "./pages/SingleGallery/SingleGallery";
+import SingleCourse from "./pages/SingleCourse/SingleCourse";
 function App() {
   const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -70,6 +71,10 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/student-corner" element={<Student />} />
             <Route path="/gallery/:id" element={<SingleGallery />} />
+
+            {/* Courses */}
+            <Route path="/course/:couseType/:id/:courseName" element={<SingleCourse />} />
+
 
 
             {/* Services */}

@@ -15,7 +15,7 @@ const fetchCourse = async () => {
   }
 
   const { data } = await axios.get(
-    `${baseUrl}/course/68062f6fcfc1977e5c7edb1f`
+    `${baseUrl}/course/68072c650f285b17a020a6e5`
   );
   console.log(data);
   return data?.course;
@@ -59,26 +59,68 @@ const Service1 = () => {
     );
   }
 
+
+  const {
+    bannerImage,
+    bannerTitle,
+    courseDescription,
+    courseListDesc,
+    courseListTitle,
+    courseLists,
+    courseTitle,
+    courseOfCoursesTitle,
+    courseOfCoursesLists,
+    topicTitle,
+    topicLists,
+    careerTitle,
+    careerLists,
+    overviewTitle,
+    overviewDesc,
+  } = data;
+
   return (
     <div className="service">
       <div className="service-banner interior-design">
-        <img src={data.bannerImage} alt="" />
+        <img src={bannerImage} alt="" />
 
         <div className="interior-design-desc">
-          <h1>{data.bannerTitle}</h1>
+          <h1>{bannerTitle}</h1>
         </div>
       </div>
 
       <div className="service-content">
         <div className="service-content-left">
-          <h2>{data.courseTitle}</h2>
-          <p style={{ whiteSpace: "pre-line" }}>{data.courseDescription}</p>
+          <h2>{courseTitle}</h2>
+          <p style={{ whiteSpace: "pre-line" }}>{courseDescription}</p>
 
-          <h3>{data.courseListTitle}</h3>
-          <p>{data.courseListDesc}</p>
+
+
+          <h3>{courseOfCoursesTitle}</h3>
+          <ul>
+            {courseOfCoursesLists?.map((item, index) => (
+              <li key={index}>{item.item}</li>
+            ))}
+          </ul>
+
+          <h3>{topicTitle}</h3>
+          <ul>
+            {topicLists?.map((item, index) => (
+              <li key={index}>{item.item}</li>
+            ))}
+          </ul>
+
+          <h3>{careerTitle}</h3>
+          <ul>
+            {careerLists?.map((item, index) => (
+              <li key={index}>{item.item}</li>
+            ))}
+          </ul>
+
+          <h3>{courseListTitle}</h3>
+          <p>{courseListDesc}</p>
 
           <ul>
-            {data.courseLists.map((item, index) => (
+            {courseLists.map((item, index) => (
               <li key={index}>
                 <span>{item.title}</span>
                 <br />
@@ -86,6 +128,9 @@ const Service1 = () => {
               </li>
             ))}
           </ul>
+
+          <h3>{overviewTitle}</h3>
+          <p style={{ whiteSpace: "pre-line" }}>{overviewDesc}</p>
         </div>
         <div className="service-content-right">
           <Sidebar />

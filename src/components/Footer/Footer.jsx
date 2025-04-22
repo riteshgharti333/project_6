@@ -16,6 +16,8 @@ import {
 } from "../../assets/data";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import { baseUrl } from "../../main";
 
 const Footer = () => {
   const [footerOption1, setFooterOption1] = useState(false);
@@ -27,6 +29,33 @@ const Footer = () => {
     setFooterOption1(false);
     setFooterOption2(false);
   }, [location]);
+
+  const [mainCourses, setMainCourses] = useState([]);
+  const [ugCourses, setUgCourses] = useState([]);
+  const [pgCourses, setPgCourses] = useState([]);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const { data } = await axios.get(`${baseUrl}/course/all-course`);
+        const allCourses = data?.courses || [];
+
+        setMainCourses(
+          allCourses.filter((course) => course.courseType === "Main Course")
+        );
+        setUgCourses(
+          allCourses.filter((course) => course.courseType === "UG Course")
+        );
+        setPgCourses(
+          allCourses.filter((course) => course.courseType === "PG Course")
+        );
+      } catch (err) {
+        console.error("Error fetching courses:", err);
+      }
+    };
+
+    fetchCourses();
+  }, []);
 
   return (
     <div className="footer">
@@ -90,9 +119,13 @@ const Footer = () => {
             <h3>Courses</h3>
 
             <ul className="course-footer">
-              {footerCourse.map((item, index) => (
+              {mainCourses?.map((item, index) => (
                 <li key={index}>
-                  <Link to={`${item.link}`}>{item.name}</Link>
+                  <Link
+                    to={`/course/${item.courseType}/${item._id}/${item.bannerTitle}`}
+                  >
+                    {item.bannerTitle}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -107,14 +140,12 @@ const Footer = () => {
 
                 {footerOption1 && (
                   <ul>
-                    {footerDropdown1.map((item, index) => (
+                    {ugCourses?.map((item, index) => (
                       <Link
-                        to={`${item.link}`}
+                        to={`/course/${item.courseType}/${item._id}/${item.bannerTitle}`}
                         key={index}
-                        className="footer-option-link"
                       >
-                        {" "}
-                        {item.name}
+                        {item.bannerTitle}
                       </Link>
                     ))}
                   </ul>
@@ -129,13 +160,12 @@ const Footer = () => {
                 </div>
                 {footerOption2 && (
                   <ul>
-                    {footerDropdown2.map((item, index) => (
+                    {pgCourses.map((item, index) => (
                       <Link
-                        to={`${item.link}`}
+                        to={`/course/${item.courseType}/${item._id}/${item.bannerTitle}`}
                         key={index}
-                        className="footer-option-link"
                       >
-                        {item.name}
+                        {item.bannerTitle}
                       </Link>
                     ))}
                   </ul>
