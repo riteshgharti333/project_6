@@ -135,7 +135,7 @@ const MobileMenu = () => {
               <div className="nav-dropdown">
                 {allCoursesOrdered?.map((item, index) => (
                   <Link
-                  to={`/course/${item.courseType}/${item._id}/${item.bannerTitle}`}
+                    to={`/course/${item.courseType}/${item._id}/${item.bannerTitle}`}
                     onClick={() => setMenuOpen(false)}
                     key={index}
                   >
@@ -166,6 +166,11 @@ const MobileMenu = () => {
           <li>
             <Link to="/enquiry" onClick={() => setMenuOpen(false)}>
               Enquiry
+            </Link>
+          </li>
+          <li>
+            <Link to="/student-corner" onClick={() => setMenuOpen(false)}>
+              Student Login
             </Link>
           </li>
           <li>

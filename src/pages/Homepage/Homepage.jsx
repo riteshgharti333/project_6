@@ -16,11 +16,6 @@ const Homepage = () => {
       <ChooseUs />
       <SmallContent />
 
-      <div className="homepage-btn">
-        <Link to={"/student-corner"} className="student-login">
-          Student Login
-        </Link>
-      </div>
     </div>
   );
 };

@@ -305,5 +305,21 @@ $transition-speed: 0.3s;
     iframe {
       border-radius: 10px;
     }
+
+    .get-direction-btn {
+      padding: 12px 20px;
+      background-color: #2d7ff9;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    
+      &:hover {
+        background-color: #105be0;
+      }
+    }
+    
   }
 }

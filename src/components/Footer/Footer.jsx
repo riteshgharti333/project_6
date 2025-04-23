@@ -57,6 +57,30 @@ const Footer = () => {
     fetchCourses();
   }, []);
 
+  const handleGetDirections = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const userLat = position.coords.latitude;
+          const userLng = position.coords.longitude;
+
+          // Destination coordinates: National Academy of Design (Sikar)
+          const destinationLat = 27.6116717;
+          const destinationLng = 75.1470817;
+
+          const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${destinationLat},${destinationLng}&travelmode=driving`;
+
+          window.open(mapsUrl, "_blank");
+        },
+        (error) => {
+          toast.error("Please allow location access to get directions.");
+        }
+      );
+    } else {
+      toast.error("Geolocation not supported on this browser.");
+    }
+  };
+
   return (
     <div className="footer">
       <div className="footer-top">
@@ -110,6 +134,13 @@ const Footer = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
+
+              <button
+                className="get-direction-btn"
+                onClick={handleGetDirections}
+              >
+                Get Directions
+              </button>
             </div>
           </div>
         </div>
@@ -188,6 +219,9 @@ const Footer = () => {
               </li>
               <li>
                 <Link to={"/enquiry"}>Enquiry</Link>
+              </li>
+              <li>
+                <Link to={"/student-corner"}>Student Login</Link>
               </li>
             </ul>
           </div>

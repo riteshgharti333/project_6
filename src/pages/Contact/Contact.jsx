@@ -126,6 +126,30 @@ const Contact = () => {
     );
   }
 
+  const handleGetDirections = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const userLat = position.coords.latitude;
+          const userLng = position.coords.longitude;
+
+          // Destination coordinates: National Academy of Design (Sikar)
+          const destinationLat = 27.6116717;
+          const destinationLng = 75.1470817;
+
+          const mapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${destinationLat},${destinationLng}&travelmode=driving`;
+
+          window.open(mapsUrl, "_blank");
+        },
+        (error) => {
+          toast.error("Please allow location access to get directions.");
+        }
+      );
+    } else {
+      toast.error("Geolocation not supported on this browser.");
+    }
+  };
+
   return (
     <div className="contact">
       <div className="contact-banner">
@@ -250,6 +274,12 @@ const Contact = () => {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
+
+        <div style={{ textAlign: "center", marginTop: "1rem" }}>
+          <button className="get-direction-btn" onClick={handleGetDirections}>
+            Get Directions
+          </button>
+        </div>
       </div>
     </div>
   );
