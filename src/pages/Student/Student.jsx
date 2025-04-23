@@ -102,7 +102,7 @@ const Student = () => {
         {/* ✅ Display the certificate preview with close button */}
         {certificateUrl && (
           <div className="certificate-preview">
-            <img src={certificateUrl} alt="Certificate" />
+            <img src={certificateUrl} alt="Certificate" loading="lazy"  />
             <span className="close-btn" onClick={closePreview}>
               ×
             </span>

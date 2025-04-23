@@ -63,7 +63,7 @@ const HomeBanner = () => {
   return (
     <div className="homeBanner">
       <div className="img-wrapper">
-        <img src={data?.image} alt="Home Banner" />
+        <img src={data?.image} alt="Home Banner" loading="lazy" />
       </div>
     </div>
   );

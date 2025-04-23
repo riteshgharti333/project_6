@@ -83,7 +83,7 @@ const SingleGallery = () => {
     <div className="singleGallery">
       <div className="gallery-banner">
         <div className="img-wrapper">
-          <img src={bannerImg} alt="" />
+          <img src={bannerImg} alt="" loading="lazy" />
           <h1>{data.folderTitle}</h1>
         </div>
       </div>

@@ -22,7 +22,7 @@ const fetchBanner = async () => {
     throw new Error("NETWORK_ERROR");
   }
   const { data } = await axios.get(
-    `${baseUrl}/banner/mentor-banner/67e7722bc95a30104036fdbe`,
+    `${baseUrl}/banner/mentor-banner/67e7722bc95a30104036fdbe`
   );
   return data?.image;
 };
@@ -80,7 +80,7 @@ const Staff = () => {
     <div className="staff">
       <div className="staff-banner">
         <div className="img-wrapper">
-          <img src={bannerImg} alt="banner" />
+          <img src={bannerImg} alt="banner" loading="lazy" />
           <h1>Our Staff</h1>
         </div>
       </div>
@@ -89,7 +89,7 @@ const Staff = () => {
         <div className="staff-cards">
           {data?.map((item) => (
             <div className="staff-card" key={item._id}>
-              <img src={item.image} alt={item.name} />
+              <img src={item.image} alt={item.name} loading="lazy" />
               <div className="staff-card-desc">
                 <h3>{item.name}</h3>
                 <p>{item.position}</p>

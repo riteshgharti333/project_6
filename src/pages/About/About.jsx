@@ -61,7 +61,7 @@ const About = () => {
     <div className="about">
       <div className="about-banner">
         <div className="img-wrapper">
-          <img src={data.image} alt="" />
+          <img src={data.image} alt="" loading="lazy" />
           <h1>About Us</h1>
         </div>
       </div>

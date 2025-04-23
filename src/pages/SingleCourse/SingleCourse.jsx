@@ -91,7 +91,7 @@ const SingleCourse = () => {
   return (
     <div className="SingleCourse">
       <div className="SingleCourse-banner interior-design">
-        <img src={bannerImage} alt="" />
+        <img src={bannerImage} alt="" loading="lazy" />
 
         <div className="interior-design-desc">
           <h1>{bannerTitle}</h1>

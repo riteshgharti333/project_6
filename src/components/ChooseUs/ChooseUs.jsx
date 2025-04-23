@@ -18,7 +18,7 @@ const ChooseUs = () => {
         {chooseUs.map((item, index) => (
           <div className="chooseUs-card" key={index}>
             <div className="chooseUs-cards-left">
-              <img src={item.img} alt="" />
+              <img src={item.img} alt="" loading="lazy" />
             </div>
             <div className="chooseUs-cards-center">
               <span>{item.no}</span>

@@ -151,7 +151,7 @@ const Enquiry = () => {
     <div className="enquiry">
       <div className="enquiry-banner">
         <div className="img-wrapper">
-          <img src={data?.image} alt="enquiry Banner" />
+          <img src={data?.image} alt="enquiry Banner" loading="lazy"  />
           <h1>Enquiry</h1>
         </div>
       </div>

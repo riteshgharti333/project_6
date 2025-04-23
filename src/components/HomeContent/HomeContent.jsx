@@ -39,13 +39,14 @@ const HomeContent = () => {
                 alt=""
                 className="top-img"
                 data-aos="fade-down"
+                loading="lazy"
               />
-              <img src={cardImg4} alt="" data-aos="fade-right" />
+              <img src={cardImg4} alt="" data-aos="fade-right" loading="lazy" />
             </div>
 
             <div className="homeContent-imgs-right">
-              <img src={cardImg2} alt="" data-aos="fade-left" />
-              <img src={cardImg3} alt="" data-aos="fade-up" />
+              <img src={cardImg2} alt="" data-aos="fade-left" loading="lazy" />
+              <img src={cardImg3} alt="" data-aos="fade-up" loading="lazy" />
             </div>
           </div>
         </div>

@@ -154,7 +154,7 @@ const Contact = () => {
     <div className="contact">
       <div className="contact-banner">
         <div className="img-wrapper">
-          <img src={data?.image} alt="" />
+          <img src={data?.image} alt="" loading="lazy" />
           <h1>Contact Us</h1>
         </div>
       </div>

@@ -15,7 +15,7 @@ const fetchBanner = async () => {
   }
 
   const { data } = await axios.get(
-    `${baseUrl}/banner/admission-banner/67e77282768539d1e12454a1`,
+    `${baseUrl}/banner/admission-banner/67e77282768539d1e12454a1`
   );
   return data;
 };
@@ -74,7 +74,7 @@ const Admission = () => {
       setLoading(true);
       const { data } = await axios.post(
         `${baseUrl}/admission/new-admission`,
-        formData,
+        formData
       );
 
       if (data.result === 1) {
@@ -139,7 +139,7 @@ const Admission = () => {
     <div className="admission">
       <div className="admission-banner">
         <div className="img-wrapper">
-          <img src={data?.image} alt="Admission Banner" />
+          <img src={data?.image} alt="Admission Banner" loading="lazy" />
           <h1>Admission</h1>
         </div>
       </div>

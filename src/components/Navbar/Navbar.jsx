@@ -61,7 +61,7 @@ const Navbar = () => {
     <div className={`navbar ${scrolling ? "scrolled" : ""}`}>
       {/* Navbar Left */}
       <div className="navbar-left">
-        <img src={logo} alt="Website Logo" />
+        <img src={logo} alt="Website Logo" loading="lazy" />
       </div>
 
       <div className="mobile-menu">

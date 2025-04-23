@@ -16,7 +16,7 @@ const OurServices = () => {
         {courses.map((item, index) => (
           <div className="ourServices-card" key={index}>
             <div className="ourServices-card-img">
-              <img src={item.img} alt="" />
+              <img src={item.img} alt="" loading="lazy" />
             </div>
 
             <div className="ourServices-card-desc">

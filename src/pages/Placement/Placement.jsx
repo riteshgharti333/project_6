@@ -83,7 +83,7 @@ const Placement = () => {
     <div className="placement">
       <div className="placement-banner">
         <div className="img-wrapper">
-          <img src={bannerImg} alt="" />
+          <img src={bannerImg} alt="" loading="lazy" />
           <h1>Alumini</h1>
         </div>
       </div>
@@ -93,7 +93,7 @@ const Placement = () => {
         <div className="placement-cards">
           {data?.map((item, index) => (
             <div className="placement-card" key={index}>
-              <img src={item.image} alt={item.name} />
+              <img src={item.image} alt={item.name} loading="lazy" />
               <div className="alumini-details">
                 <h3>{item.name}</h3>
                 <p>

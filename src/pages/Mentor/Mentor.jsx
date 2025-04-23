@@ -77,7 +77,7 @@ const Mentor = () => {
     <div className="mentor">
       <div className="staff-banner">
         <div className="img-wrapper">
-          <img src={bannerImg} alt="Mentor Banner" />
+          <img src={bannerImg} alt="Mentor Banner" loading="lazy" />
           <h1>Mentors</h1>
         </div>
       </div>
