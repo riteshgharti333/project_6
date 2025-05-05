@@ -1,6 +1,6 @@
 import "./Enquiry.scss";
 import banner_img from "../../assets/images/homebanner.jpeg";
-import { formCourse, states } from "../../assets/data";
+import { formCourse } from "../../assets/data";
 import { useState } from "react";
 import axios from "axios";
 import { baseUrl } from "../../main";
@@ -9,13 +9,15 @@ import { toast } from "sonner";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/Loader/Loader";
 
+import { states } from "../../assets/state";
+
 const fetchBanner = async () => {
   if (!navigator.onLine) {
     throw new Error("NETWORK_ERROR");
   }
 
   const { data } = await axios.get(
-    `${baseUrl}/banner/enquiry-banner/67e7724fc95a30104036fdc4`,
+    `${baseUrl}/banner/enquiry-banner/67e7724fc95a30104036fdc4`
   );
   return data;
 };
@@ -85,7 +87,7 @@ const Enquiry = () => {
       setLoading(true);
       const { data } = await axios.post(
         `${baseUrl}/enquiry/new-enquiry`,
-        formData,
+        formData
       );
 
       if (data.result === 1) {
@@ -151,7 +153,7 @@ const Enquiry = () => {
     <div className="enquiry">
       <div className="enquiry-banner">
         <div className="img-wrapper">
-          <img src={data?.image} alt="enquiry Banner" loading="lazy"  />
+          <img src={data?.image} alt="enquiry Banner" loading="lazy" />
           <h1>Enquiry</h1>
         </div>
       </div>
@@ -209,10 +211,11 @@ const Enquiry = () => {
               onChange={handleChange}
               required
             >
-              <option value="">Select Profile</option>
+              <option value="">Qualification</option>
               <option value="10+2">10+2</option>
               <option value="Under Graduate">Under Graduate</option>
               <option value="Post Graduate">Post Graduate</option>
+              <option value="Others">Others</option>
             </select>
           </div>
 
@@ -243,26 +246,32 @@ const Enquiry = () => {
             >
               <option value="">Select State</option>
               {states
-                .sort((a, b) => a.localeCompare(b))
+                .sort((a, b) => a.state.localeCompare(b.state))
                 .map((item, index) => (
-                  <option key={index} value={item}>
-                    {item}
+                  <option key={index} value={item.state}>
+                    {item.state}
                   </option>
                 ))}
             </select>
           </div>
 
           <div className="form-group">
-            <input
-              type="text"
-              id="district"
+            <select
               name="district"
+              id="district"
               value={formData.district}
               onChange={handleChange}
               required
-            />
-            <label htmlFor="district">District</label>
-            <div className="underline"></div>
+            >
+              <option value="">Select District</option>
+              {states
+                .find((item) => item.state === formData.selectState)
+                ?.districts.map((district, idx) => (
+                  <option key={idx} value={district}>
+                    {district}
+                  </option>
+                ))}
+            </select>
           </div>
 
           <div className="form-group">

@@ -8,7 +8,6 @@ import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/Loader/Loader";
 
 const fetchBanner = async () => {
-  console.log("hello");
 
   if (!navigator.onLine) {
     throw new Error("NETWORK_ERROR");
@@ -17,8 +16,6 @@ const fetchBanner = async () => {
   const { data } = await axios.get(
     `${baseUrl}/banner/home-banner/67e771c7f86def3cbf7ba1fd`,
   );
-  console.log(data);
-  console.log("hello");
   return data;
 };
 

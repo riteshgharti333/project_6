@@ -63,15 +63,13 @@
 
       @include sm {
         grid-template-columns: repeat(1, 1fr);
-        row-gap: 20px;
+        row-gap: 30px;
       }
 
       .staff-card {
         box-sizing: border-box;
         justify-content: space-between;
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         cursor: pointer;
         position: relative;
 
@@ -93,10 +91,11 @@
             width: 250px;
             height: 250px;
             position: relative;
-            background: #b22222;
+            background: #fff;
             border-radius: 50%;
             object-position: top;
             display: block;
+            border: 1px solid #ddd;
 
             &.add-filter {
               filter: brightness(0.5);

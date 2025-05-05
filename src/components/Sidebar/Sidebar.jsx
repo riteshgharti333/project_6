@@ -1,9 +1,12 @@
 import "./Sidebar.scss";
-import { formCourse, states } from "../../assets/data";
+import { formCourse } from "../../assets/data";
 import { useState } from "react";
 import axios from "axios";
 import { baseUrl } from "../../main";
 import { toast } from "sonner";
+
+import { states } from "../../assets/state";
+
 
 const Enquiry = () => {
   const wordLimit = 100;
@@ -146,10 +149,12 @@ const Enquiry = () => {
             onChange={handleChange}
             required
           >
-            <option value="">Select Profile</option>
+            <option value="">Qualification</option>
             <option value="10+2">10+2</option>
             <option value="Under Graduate">Under Graduate</option>
             <option value="Post Graduate">Post Graduate</option>
+            <option value="Others">Others</option>
+
           </select>
         </div>
 
@@ -171,36 +176,42 @@ const Enquiry = () => {
         </div>
 
         <div className="form-group">
-          <select
-            name="selectState"
-            id="state"
-            value={formData.selectState}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select State</option>
-            {states
-              .sort((a, b) => a.localeCompare(b))
-              .map((item, index) => (
-                <option key={index} value={item}>
-                  {item}
-                </option>
-              ))}
-          </select>
-        </div>
-
-        <div className="form-group">
-          <input
-            type="text"
-            id="district"
-            name="district"
-            value={formData.district}
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="district">District</label>
-          <div className="underline"></div>
-        </div>
+                   <select
+                     name="selectState"
+                     id="state"
+                     value={formData.selectState}
+                     onChange={handleChange}
+                     required
+                   >
+                     <option value="">Select State</option>
+                     {states
+                       .sort((a, b) => a.state.localeCompare(b.state))
+                       .map((item, index) => (
+                         <option key={index} value={item.state}>
+                           {item.state}
+                         </option>
+                       ))}
+                   </select>
+                 </div>
+       
+                 <div className="form-group">
+                   <select
+                     name="district"
+                     id="district"
+                     value={formData.district}
+                     onChange={handleChange}
+                     required
+                   >
+                     <option value="">Select District</option>
+                     {states
+                       .find((item) => item.state === formData.selectState)
+                       ?.districts.map((district, idx) => (
+                         <option key={idx} value={district}>
+                           {district}
+                         </option>
+                       ))}
+                   </select>
+                 </div>
 
         <div className="form-group">
           <input

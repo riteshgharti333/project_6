@@ -1,4 +1,5 @@
 import "./Navbar.scss";
+
 import logo from "../../assets/images/logo.png";
 import { Link, useLocation } from "react-router-dom";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
@@ -60,9 +61,9 @@ const Navbar = () => {
   return (
     <div className={`navbar ${scrolling ? "scrolled" : ""}`}>
       {/* Navbar Left */}
-      <div className="navbar-left">
+      <Link to={"/"} className="navbar-left">
         <img src={logo} alt="Website Logo" loading="lazy" />
-      </div>
+      </Link>
 
       <div className="mobile-menu">
         <MobileMenu />
@@ -124,7 +125,7 @@ const Navbar = () => {
                   </div>
 
                   <div className="course-dropdown-item">
-                    <h3>UG Course</h3>
+                    <h3>Under Graduate</h3>
                     <div className="course-links">
                       {ugCourses?.map((item, index) => (
                         <Link
@@ -139,7 +140,7 @@ const Navbar = () => {
                   </div>
 
                   <div className="course-dropdown-item">
-                    <h3>PG Course</h3>
+                    <h3>Post Graduate</h3>
                     <div className="course-links">
                       {pgCourses?.map((item, index) => (
                         <Link
@@ -173,14 +174,14 @@ const Navbar = () => {
               Alumini
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link
               to="/admission"
               className={location.pathname === "/admission" ? "active" : ""}
             >
               Admission
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link
               to="/enquiry"

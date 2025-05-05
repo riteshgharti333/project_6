@@ -85,7 +85,7 @@ const Footer = () => {
     <div className="footer">
       <div className="footer-top">
         <div className="footer-left">
-          <img src={logo} alt="" loading="lazy"  />
+          <img src={logo} alt="" loading="lazy" />
 
           <div className="footer-icons">
             <a
@@ -214,9 +214,9 @@ const Footer = () => {
               <li>
                 <Link to={"/alumini"}> Alumini</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to={"/admission"}>Admission</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to={"/enquiry"}>Enquiry</Link>
               </li>
