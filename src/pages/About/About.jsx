@@ -87,7 +87,7 @@ const About = () => {
             <img src={founder_img} alt="" />
             <p>
               {" "}
-              <span>Sumit Kumar</span> <span>Chair Person</span>
+              <span>Sumit Kumar</span> <span>Founder</span>
             </p>
           </div>
         </div>
