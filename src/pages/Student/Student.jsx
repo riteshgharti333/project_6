@@ -64,8 +64,8 @@ const Student = () => {
     setCertificateUrl("");
   };
   return (
-    <div className="student">
-      <div className="student-banner">
+    <div className="certificate">
+      <div className="certificate-banner">
         <Swiper
           modules={[EffectFade, Autoplay]}
           effect="fade"
@@ -99,7 +99,6 @@ const Student = () => {
           </button>
         </form>
 
-        {/* ✅ Display the certificate preview with close button */}
         {certificateUrl && (
           <div className="certificate-preview">
             <img src={certificateUrl} alt="Certificate" loading="lazy"  />

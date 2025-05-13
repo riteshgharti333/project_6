@@ -73,7 +73,7 @@ const Contact = () => {
       );
 
       if (data.result === 1) {
-        toast.success(data.message);
+        toast.success("Contact submitted");
         setFormData({
           name: "",
           email: "",

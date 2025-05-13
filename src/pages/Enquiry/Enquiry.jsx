@@ -91,7 +91,7 @@ const Enquiry = () => {
       );
 
       if (data.result === 1) {
-        toast.success(data.message);
+        toast.success("Enquiry submitted");
         setFormData({
           name: "",
           email: "",

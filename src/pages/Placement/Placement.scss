@@ -104,9 +104,10 @@
 
         img {
           width: 100%;
-          height: 230px;
+          height: 250px;
           object-fit: cover;
           display: block;
+          object-position: top;
         }
 
         .alumini-details {

@@ -1,7 +1,8 @@
 @use "../../styles/responsive.scss" as *;
 
-.student {
-  .student-banner {
+.certificate {
+  overflow: hidden;
+  .certificate-banner {
     width: 100%;
     padding-top: 80px;
 
@@ -137,16 +138,23 @@
     form {
       display: flex;
       gap: 10px;
+      width: 100%;
+      justify-content: center;
 
       @include sm {
         gap: 5px;
         padding: 0px 10px;
+        flex-direction: column;
       }
       input {
         font-size: 16px;
-        padding: 5px 2px;
+        padding: 5px 10px;
         border-radius: 5px;
         border: 1px solid #585858;
+        
+        @include sm{
+          width: 100%;
+        }
 
         &:focus {
           outline-color: $primary-color;
@@ -164,7 +172,10 @@
         cursor: pointer;
 
         @include sm {
-          font-size: 12px;
+          font-size: 16px;
+          padding: 10px;
+          margin-top: 10px;
+          
         }
 
         &:disabled {
