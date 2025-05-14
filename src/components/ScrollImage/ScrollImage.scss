@@ -1,0 +1,59 @@
+@use "../../styles/responsive.scss" as *;
+
+.scrollImage {
+  h1 {
+    font-size: 30px;
+    font-family: $heading-font;
+    text-align: center;
+  }
+  .scrollImage-cards-container {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    margin-top: 40px;
+
+    @include sm {
+      margin-top: 10px;
+    }
+    &:hover .scrollImage-cards-track {
+      animation-play-state: paused;
+    }
+
+    .scrollImage-cards-track {
+      display: flex;
+      gap: 50px;
+      width: max-content;
+      animation: scroll 30s linear infinite;
+      align-items: center;
+      @include sm {
+        gap: 30px;
+      }
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .scrollImage-card {
+      flex-shrink: 0;
+      width: 300px;
+      border-radius: 10px;
+
+      @include sm {
+        width: 200px;
+      }
+      img {
+        width: 100%;
+        height: 170px;
+        object-fit: contain;
+        border-radius: 10px;
+      }
+    }
+  }
+}

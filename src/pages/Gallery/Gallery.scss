@@ -74,7 +74,9 @@
       }
 
       @include sm {
-        gap: 10px;
+        gap: 30px;
+          grid-template-columns: repeat(1, 1fr);
+
       }
 
       .gallery-card {
@@ -102,9 +104,6 @@
           padding: 5px 0px;
           border-radius: 0px 0px 5px 5px;
 
-          @include sm {
-            font-size: 16px;
-          }
         }
       }
     }

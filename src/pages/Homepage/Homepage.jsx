@@ -5,6 +5,7 @@ import OurPrograms from "../../components/OurPrograms/OurPrograms";
 import ChooseUs from "../../components/ChooseUs/ChooseUs";
 import SmallContent from "../../components/SmallContent/SmallContent";
 import { Link } from "react-router-dom";
+import ScrollImage from "../../components/ScrollImage/ScrollImage";
 
 const Homepage = () => {
   return (
@@ -14,6 +15,7 @@ const Homepage = () => {
       {/* <OurServices />/ */}
       <OurPrograms />
       <ChooseUs />
+      <ScrollImage />
       <SmallContent />
 
     </div>

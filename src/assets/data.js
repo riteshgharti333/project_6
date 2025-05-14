@@ -476,3 +476,20 @@ export const footerDropdown2 = [
   { name: "M.B.A", link: "/postgraduate-course/mba" },
   { name: "M.Lib", link: "/postgraduate-course/mlib" },
 ];
+
+//////////////////////////////////
+
+const slider_img = "https://images.pexels.com/photos/430205/pexels-photo-430205.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
+export const sliderImage = [
+    slider_img ,
+    slider_img ,
+    slider_img ,
+    slider_img ,
+    slider_img ,
+    slider_img ,
+    slider_img ,
+    slider_img ,
+    slider_img ,
+
+]
