@@ -11,6 +11,8 @@ import Loader from "../../components/Loader/Loader";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaBuilding } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
+import useFullUrl from "../../utils/useFullUrl";
+import SEO from "../../components/SEO/SEO";
 
 const fetchStaffs = async () => {
   if (!navigator.onLine) {
@@ -22,16 +24,19 @@ const fetchStaffs = async () => {
 };
 
 const fetchBanner = async () => {
+ 
+
   if (!navigator.onLine) {
     throw new Error("NETWORK_ERROR");
   }
   const { data } = await axios.get(
-    `${baseUrl}/banner/alumni-banner/67e7726c768539d1e124549e`,
+    `${baseUrl}/banner/alumni-banner/67e7726c768539d1e124549e`
   );
   return data?.image;
 };
 
 const Placement = () => {
+   const fullUrl = useFullUrl();
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["alumni"],
     queryFn: fetchStaffs,
@@ -79,12 +84,21 @@ const Placement = () => {
       </div>
     );
   }
+
+
   return (
     <div className="placement">
+      <SEO
+        title="Alumni | International Academy of Design – Success Stories & Network"
+        description="Discover the inspiring journeys of International Academy of Design alumni. Explore their career achievements, creative projects, and how our global network supports lifelong connections in the design industry."
+        keywords="International Academy of Design alumni, design institute success stories, alumni network, design careers, creative professionals, alumni achievements, design industry connections"
+        url={fullUrl}
+      />
+
       <div className="placement-banner">
         <div className="img-wrapper">
           <img src={bannerImg} alt="" loading="lazy" />
-          <h1>Alumini</h1>
+          <h1>Alumni</h1>
         </div>
       </div>
 

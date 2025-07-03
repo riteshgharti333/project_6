@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thenad.in/sitemap.xml
+Sitemap: https://thenad.in/sitemap-homepage.xml
+Sitemap: https://thenad.in/sitemap-about-us.xml
+Sitemap: https://thenad.in/sitemap-contact-us.xml
+Sitemap: https://thenad.in/sitemap-mentor.xml
+Sitemap: https://thenad.in/sitemap-staff.xml
+
+Sitemap: https://thenad.in/sitemap-gallery.xml
+Sitemap: https://thenad.in/sitemap-alumini.xml
+Sitemap: https://thenad.in/sitemap-enquiry.xml
+
+
+

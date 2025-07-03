@@ -7,6 +7,8 @@ import banner_img from "../../assets/images/homebanner.jpeg";
 import { baseUrl } from "../../main";
 import { toast } from "sonner";
 import axios from "axios";
+import useFullUrl from "../../utils/useFullUrl";
+import SEO from "../../components/SEO/SEO";
 
 const fetchStaffs = async () => {
   if (!navigator.onLine) {
@@ -28,6 +30,7 @@ const fetchBanner = async () => {
 };
 
 const Staff = () => {
+  const fullUrl = useFullUrl();
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["staffs"],
     queryFn: fetchStaffs,
@@ -76,8 +79,17 @@ const Staff = () => {
     );
   }
 
+  
+
   return (
     <div className="staff">
+      <SEO
+        title="Our Staff | International Academy of Design – Administrative & Academic Team"
+        description="Meet the dedicated staff behind International Academy of Design. From academic coordinators to administrative leaders, our team ensures a seamless educational experience for every student."
+        keywords="staff at International Academy of Design, academic staff, administrative team, design institute staff, faculty support, design college management"
+        url={fullUrl}
+      />
+
       <div className="staff-banner">
         <div className="img-wrapper">
           <img src={bannerImg} alt="banner" loading="lazy" />

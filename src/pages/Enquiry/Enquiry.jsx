@@ -10,6 +10,8 @@ import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/Loader/Loader";
 
 import { states } from "../../assets/state";
+import useFullUrl from "../../utils/useFullUrl";
+import SEO from "../../components/SEO/SEO";
 
 const fetchBanner = async () => {
   if (!navigator.onLine) {
@@ -23,6 +25,7 @@ const fetchBanner = async () => {
 };
 
 const Enquiry = () => {
+  const fullUrl = useFullUrl();
   const wordLimit = 100;
 
   const [formData, setFormData] = useState({
@@ -142,15 +145,24 @@ const Enquiry = () => {
     return (
       <div className="error">
         <div className="error-desc">
-          <h3>Failed to enquiry banner</h3>
+          <h3>Failed to load enquiry banner</h3>
           <p>Try refreshing the page or check your connection.</p>
         </div>
       </div>
     );
   }
 
+  
+
   return (
     <div className="enquiry">
+      <SEO
+        title="Enquiry | International Academy of Design – Contact & Admissions"
+        description="Have questions? Reach out to the International Academy of Design for detailed information on admissions, course offerings, campus tours, and student support. Our dedicated team is ready to assist you in shaping your design career."
+        keywords="International Academy of Design enquiry, design institute contact, admissions inquiries, design courses information, student support services, campus visit booking, design education help"
+        url={fullUrl}
+      />
+
       <div className="enquiry-banner">
         <div className="img-wrapper">
           <img src={data?.image} alt="enquiry Banner" loading="lazy" />

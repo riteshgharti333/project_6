@@ -9,13 +9,15 @@ import { RiInstagramFill } from "react-icons/ri";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
 import { baseUrl } from "../../main";
 
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/Loader/Loader";
+import useFullUrl from "../../utils/useFullUrl";
+import SEO from "../../components/SEO/SEO";
 
 const fetchBanner = async () => {
   if (!navigator.onLine) {
@@ -29,6 +31,27 @@ const fetchBanner = async () => {
 };
 
 const Contact = () => {
+  const fullUrl = useFullUrl();
+
+  const [contactDetailData, setContactDetailData] = useState({});
+
+  useEffect(() => {
+    const fetchContactDetails = async () => {
+      try {
+        const { data } = await axios.get(`${baseUrl}/contact-details/only`);
+        console.log(data);
+        if (data && data?.success) {
+          setContactDetailData(data.contact);
+        }
+      } catch (error) {
+        console.error("Error fetching contact details:", error);
+        toast.err(error.response.data.message);
+      }
+    };
+
+    fetchContactDetails();
+  }, []);
+
   const wordLimit = 150;
 
   const [formData, setFormData] = useState({
@@ -119,7 +142,7 @@ const Contact = () => {
     return (
       <div className="error">
         <div className="error-desc">
-          <h3>Failed to contact banner</h3>
+          <h3>Failed to load contact banner</h3>
           <p>Try refreshing the page or check your connection.</p>
         </div>
       </div>
@@ -152,6 +175,13 @@ const Contact = () => {
 
   return (
     <div className="contact">
+      <SEO
+        title="Contact Us | International Academy of Design – Reach Out for Admissions & Support"
+        description="Contact International Academy of Design for admissions inquiries, course information, campus visits, and student support. We're here to help you shape your creative future."
+        keywords="International Academy of Design contact, admissions support, design institute contact info, campus visit, student help, design course inquiries"
+        url={fullUrl}
+      />
+
       <div className="contact-banner">
         <div className="img-wrapper">
           <img src={data?.image} alt="" loading="lazy" />
@@ -167,20 +197,17 @@ const Contact = () => {
             <div className="contact-left-item">
               <MdOutlineEmail className="contact-icon" />
 
-              <p>Thenadskr@gmail.com</p>
+              <p>{contactDetailData.email}</p>
             </div>
 
             <div className="contact-left-item">
               <LuPhoneCall className="contact-icon" />
-              <p>08058866333</p>
+              <p>{contactDetailData.phoneNumber}</p>
             </div>
             <div className="contact-left-item">
               <MdOutlineLocationOn className="contact-icon" />
 
-              <p>
-                Railway Sta Rd, opp. Garg Hospital, near City Centre Mall, Ward
-                No 35, Sakpura Mohlla, Radha Kishanpura, Sikar, Rajasthan 332001
-              </p>
+              <p>{contactDetailData.address}</p>
             </div>
           </div>
 
@@ -188,17 +215,11 @@ const Contact = () => {
             <h3>Follow Us</h3>
 
             <div className="follow-icons">
-              <a
-                href="https://www.facebook.com/thenadskr?rdid=g32zGxNSooqDf1YH&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19bj6SHgR8%2F#"
-                target="_blank"
-              >
+              <a href={contactDetailData.facebookLink} target="_blank">
                 <FaFacebookSquare className="follow-icon facebook" />
               </a>
 
-              <a
-                href="https://www.instagram.com/thenad.in?igsh=MWU3amN0dGdlZGh2YQ=="
-                target="_blank"
-              >
+              <a href={contactDetailData.instagramLink} target="_blank">
                 <RiInstagramFill className="follow-icon insta" />
               </a>
             </div>

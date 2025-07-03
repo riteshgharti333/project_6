@@ -8,13 +8,12 @@ import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/Loader/Loader";
 
 const fetchBanner = async () => {
-
   if (!navigator.onLine) {
     throw new Error("NETWORK_ERROR");
   }
 
   const { data } = await axios.get(
-    `${baseUrl}/banner/home-banner/67e771c7f86def3cbf7ba1fd`,
+    `${baseUrl}/banner/home-banner/67e771c7f86def3cbf7ba1fd`
   );
   return data;
 };
@@ -24,7 +23,7 @@ const HomeBanner = () => {
     queryKey: ["home-banner"],
     queryFn: fetchBanner,
     staleTime: 1000 * 60 * 5,
-    retry: false,
+    retry: 2,
   });
 
   if (isError) {
@@ -51,7 +50,7 @@ const HomeBanner = () => {
     return (
       <div className="error">
         <div className="error-desc">
-          <h3>Failed to home banner</h3>
+          <h3>Failed to load home banner</h3>
           <p>Try refreshing the page or check your connection.</p>
         </div>
       </div>

@@ -7,12 +7,14 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../../components/Loader/Loader";
 import { Link } from "react-router-dom";
+import useFullUrl from "../../utils/useFullUrl";
+import SEO from "../../components/SEO/SEO";
+import { toast } from "sonner";
 
 const fetchFolders = async () => {
   if (!navigator.onLine) {
     throw new Error("NETWORK_ERROR");
   }
-
   const { data } = await axios.get(
     `${baseUrl}/gallery-folder/all-gallery-folders`
   );
@@ -30,9 +32,15 @@ const fetchBanner = async () => {
 };
 
 const Gallery = () => {
+  const fullUrl = useFullUrl();
   const [selectedImg, setSelectedImg] = useState(null);
 
-  const { data, isLoading, isError, error } = useQuery({
+  const {
+    data: folders,
+    isLoading: isFoldersLoading,
+    isError: isFoldersError,
+    error: foldersError,
+  } = useQuery({
     queryKey: ["folders"],
     queryFn: fetchFolders,
     staleTime: 1000 * 60 * 5,
@@ -50,41 +58,41 @@ const Gallery = () => {
     retry: false,
   });
 
-  if (isError) {
-    if (error.name === "AxiosError") {
+  if (isFoldersError) {
+    if (foldersError.name === "AxiosError") {
       const isNetworkError =
-        !error.response ||
-        error.message.includes("ECONNRESET") ||
-        error.response?.data?.message === "read ECONNRESET";
+        !foldersError.response ||
+        foldersError.message.includes("ECONNRESET") ||
+        foldersError.response?.data?.message === "read ECONNRESET";
 
       if (isNetworkError) {
         setTimeout(() => {
           toast.error("🚫 Network error. Please check your connection.");
         }, 100);
       } else {
-        console.error("❗ Server Error:", error.response?.status);
+        console.error("❗ Server Error:", foldersError.response?.status);
       }
     }
   }
 
-  if (isLoading || isBannerLoading) return <Loader />;
-
-  if (isError) {
-    return (
-      <div className="error">
-        <div className="error-desc">
-          <h3>Failed to load image folder.</h3>
-          <p>Try refreshing the page or check your connection.</p>
-        </div>
-      </div>
-    );
-  }
+  if (isFoldersLoading || isBannerLoading) return <Loader />;
 
   return (
     <div className="gallery">
+      <SEO
+        title="Gallery | International Academy of Design – Campus, Events & Student Life"
+        description="Explore the vibrant life at International Academy of Design through our gallery. See photos from our campus, classrooms, creative events, student projects, and cultural celebrations."
+        keywords="International Academy of Design gallery, student events, campus photos, design institute gallery, creative work, classroom snapshots, design projects"
+        url={fullUrl}
+      />
+
       <div className="gallery-banner">
         <div className="img-wrapper">
-          <img src={bannerImg} alt="" loading="lazy" />
+          <img
+            src={bannerImg || banner_img}
+            alt="Gallery Banner"
+            loading="lazy"
+          />
           <h1>Gallery</h1>
         </div>
       </div>
@@ -94,24 +102,38 @@ const Gallery = () => {
           Explore memorable moments and vibrant campus life through our gallery.
         </h2>
 
-        <div className="gallery-imgs">
-          {data.map((item, index) => (
-            <Link
-              to={`/gallery/${item._id}?title=${encodeURIComponent(
-                item.folderTitle
-              )}`}
-            >
-              <div className="gallery-card" key={index}>
-                <img
-                  src={item.folderImage}
-                  alt={item.folderTitle}
-                  loading="lazy"
-                />
-                <p>{item.folderTitle}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
+        {isFoldersError ? (
+          <div className="error">
+            <div className="error-desc">
+              <h3>Failed to load gallery folders.</h3>
+              <p>Try refreshing the page or check your connection.</p>
+            </div>
+          </div>
+        ) : folders.length === 0 ? (
+          <div className="no-data">
+            <p>No gallery folders found.</p>
+          </div>
+        ) : (
+          <div className="gallery-imgs">
+            {folders.map((item, index) => (
+              <Link
+                to={`/gallery/${item._id}?title=${encodeURIComponent(
+                  item.folderTitle
+                )}`}
+                key={index}
+              >
+                <div className="gallery-card">
+                  <img
+                    src={item.folderImage}
+                    alt={item.folderTitle}
+                    loading="lazy"
+                  />
+                  <p>{item.folderTitle}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

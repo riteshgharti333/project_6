@@ -1,15 +1,44 @@
 import "./HomeContent.scss";
 
-import cardImg1 from "../../assets/images/homeContent/hc1.jpeg";
-import cardImg2 from "../../assets/images/homeContent/hc2.jpeg";
-import cardImg3 from "../../assets/images/homeContent/hc3.jpeg";
-import cardImg4 from "../../assets/images/homeContent/hc4.jpeg";
-
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+
+import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { baseUrl } from "../../main";
+import Loader from "../../components/Loader/Loader";
+
+const fetchHomeContentImages = async () => {
+  const { data } = await axios.get(
+    `${baseUrl}/home-content/all-homeContent-images`
+  );
+  return data?.homeContent || [];
+};
 
 const HomeContent = () => {
+  
+
+  
+  const [homeContentData, setHomeContentData] = useState({});
+
+  useEffect(() => {
+    const homeContentDetails = async () => {
+      try {
+        const { data } = await axios.get(
+          `${baseUrl}/home-content-details/only`
+        );
+
+        if (data && data.success) {
+          setHomeContentData(data.content);
+        }
+      } catch (error) {
+        toast.error(error.response.data.message);
+      }
+    };
+    homeContentDetails()
+  },[]);
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -18,35 +47,75 @@ const HomeContent = () => {
     });
   }, []);
 
+  // Use React Query
+  const {
+    data: allData,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["home-content-images"],
+    queryFn: fetchHomeContentImages,
+    staleTime: 5 * 60 * 1000,
+    retry: false,
+  });
+
+  if (isLoading) return <Loader />;
+
+  if (isError) {
+    console.error("❗ Course fetch error:", error?.message);
+    return (
+      <div className="error">
+        <div className="error-desc">
+          <h3>Failed to load content</h3>
+          <p>Try refreshing the page or check your network connection.</p>
+        </div>
+      </div>
+    );
+  }
+
+
   return (
     <div className="homeContent">
       <div className="homeContent-container">
         <div className="homeContent-left">
-          <h1>Welcome to InterNational Academy of Design</h1>
+          <h1>{homeContentData.title}</h1>
           <p>
-            At InterNational Academy of Design, we are dedicated to fostering
-            creativity, innovation, and technical expertise in the fields of
-            design and development. Our academy offers a diverse range of
-            courses tailored to equip students with the skills necessary to
-            excel in the dynamic world of design.
+            {homeContentData.description}
           </p>
         </div>
+
         <div className="homeContent-right">
           <div className="homeContent-right-imgs">
             <div className="homeContent-imgs-left">
               <img
-                src={cardImg1}
-                alt=""
+                src={allData[0]?.image}
+                alt="Top Left"
                 className="top-img"
                 data-aos="fade-down"
                 loading="lazy"
               />
-              <img src={cardImg4} alt="" data-aos="fade-right" loading="lazy" />
+              <img
+                src={allData[1]?.image}
+                alt="Bottom Left"
+                data-aos="fade-right"
+                loading="lazy"
+              />
             </div>
 
             <div className="homeContent-imgs-right">
-              <img src={cardImg2} alt="" data-aos="fade-left" loading="lazy" />
-              <img src={cardImg3} alt="" data-aos="fade-up" loading="lazy" />
+              <img
+                src={allData[2]?.image}
+                alt="Top Right"
+                data-aos="fade-left"
+                loading="lazy"
+              />
+              <img
+                src={allData[3]?.image}
+                alt="Bottom Right"
+                data-aos="fade-up"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>

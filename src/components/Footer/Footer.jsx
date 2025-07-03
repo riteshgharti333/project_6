@@ -81,24 +81,53 @@ const Footer = () => {
     }
   };
 
+  const [contactDetailData, setContactDetailData] = useState({});
+
+  useEffect(() => {
+    const fetchContactDetails = async () => {
+      try {
+        const { data } = await axios.get(`${baseUrl}/contact-details/only`);
+
+        if (data && data?.success) {
+          setContactDetailData(data.contact);
+        }
+      } catch (error) {
+        console.error("Error fetching contact details:", error);
+        toast.err(error.response.data.message);
+      }
+    };
+
+    fetchContactDetails();
+  }, []);
+
   return (
     <div className="footer">
       <div className="footer-top">
         <div className="footer-left">
           <img src={logo} alt="" loading="lazy" />
+          <div className="footer-left-items">
+            <div className="footer-left-item">
+              <IoCallSharp className="footer-left-icon" />
+              <p>
+                <a href="tel:+917011890082">{contactDetailData.phoneNumber}</a>
+              </p>
+            </div>
+            <div className="footer-left-item">
+              <MdEmail className="footer-left-icon" />
+              <p>{contactDetailData.email}</p>
+            </div>
+            <div className="footer-left-item">
+              <FaLocationDot className="footer-left-icon" />
+              <p>{contactDetailData.address}</p>
+            </div>
+          </div>
 
           <div className="footer-icons">
-            <a
-              href="https://www.facebook.com/thenadskr?rdid=g32zGxNSooqDf1YH&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F19bj6SHgR8%2F#"
-              target="_blank"
-            >
+            <a href={contactDetailData.facebookLink} target="_blank">
               <FaFacebook className="footer-icon facebook" />
             </a>
 
-            <a
-              href="https://www.instagram.com/thenad.in?igsh=MWU3amN0dGdlZGh2YQ=="
-              target="_blank"
-            >
+            <a href={contactDetailData.instagramLink} target="_blank">
               <FaInstagram className="footer-icon insta" />
             </a>
           </div>
@@ -106,24 +135,6 @@ const Footer = () => {
 
         <div className="footer-center">
           <div className="footer-center-items">
-            <div className="footer-center-item">
-              <IoCallSharp className="footer-center-icon" />
-              <p>
-                <a href="tel:+917011890082">08058866333</a>
-              </p>
-            </div>
-            <div className="footer-center-item">
-              <MdEmail className="footer-center-icon" />
-              <p>Thenadskr@gmail.com</p>
-            </div>
-            <div className="footer-center-item">
-              <FaLocationDot className="footer-center-icon" />
-              <p>
-                Railway Sta Rd, opp. Garg Hospital, near City Centre Mall, Ward
-                No 35, Sakpura Mohlla, Radha Kishanpura, Sikar, Rajasthan 332001
-              </p>
-            </div>
-
             <div className="footer-map">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3535.4146521451316!2d75.1470817!3d27.6116717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396ca55de1463785%3A0xfb9c65d2f6a4f15!2sNational%20Academy%20of%20Design!5e0!3m2!1sen!2sin!4v1743591625124!5m2!1sen!2sin"

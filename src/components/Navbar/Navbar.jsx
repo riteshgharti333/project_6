@@ -168,10 +168,10 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/alumini"
-              className={location.pathname === "/alumini" ? "active" : ""}
+              to="/alumni"
+              className={location.pathname === "/alumni" ? "active" : ""}
             >
-              Alumini
+              Alumni
             </Link>
           </li>
           {/* <li>

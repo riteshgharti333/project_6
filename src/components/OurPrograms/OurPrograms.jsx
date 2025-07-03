@@ -1,46 +1,54 @@
 import "./OurPrograms.scss";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { baseUrl } from "../../main";
+import Loader from "../../components/Loader/Loader";
 
-import course_img from "../../assets/images/rotate.jpeg";
+// Fetch all courses
+const fetchCourses = async () => {
+  const { data } = await axios.get(`${baseUrl}/course/all-course`);
+  return data.courses || [];
+};
 
 const OurPrograms = () => {
-  const [mainCourses, setMainCourses] = useState([]);
-  const [ugCourses, setUgCourses] = useState([]);
-  const [pgCourses, setPgCourses] = useState([]);
+  const {
+    data: courses,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    queryKey: ["all-courses"],
+    queryFn: fetchCourses,
+    staleTime: 1000 * 60 * 5,
+    retry: false,
+  });
 
-  useEffect(() => {
-    const fetchCourses = async () => {
-      try {
-        const { data } = await axios.get(`${baseUrl}/course/all-course`);
-        const allCourses = data?.courses || [];
+  if (isLoading) return <Loader />;
 
-        setMainCourses(
-          allCourses.filter((course) => course.courseType === "Main Course")
-        );
-        setUgCourses(
-          allCourses.filter((course) => course.courseType === "UG Course")
-        );
-        setPgCourses(
-          allCourses.filter((course) => course.courseType === "PG Course")
-        );
-      } catch (err) {
-        console.error("Error fetching courses:", err);
-      }
-    };
+  if (isError) {
+    console.error("❗ Course fetch error:", error?.message);
+    return (
+      <div className="error">
+        <div className="error-desc">
+          <h3>Failed to load courses</h3>
+          <p>Try refreshing the page or check your network connection.</p>
+        </div>
+      </div>
+    );
+  }
 
-    fetchCourses();
-  }, []);
+  // Grouping and ordering courses by type
+  const mainCourses = courses.filter((c) => c.courseType === "Main Course");
+  const ugCourses = courses.filter((c) => c.courseType === "UG Course");
+  const pgCourses = courses.filter((c) => c.courseType === "PG Course");
 
-  // Combine and order all course types
   const allCoursesOrdered = [...mainCourses, ...ugCourses, ...pgCourses];
 
   return (
@@ -85,7 +93,7 @@ const OurPrograms = () => {
                 <div
                   className="ourPrograms-card"
                   style={{
-                    backgroundImage: `url(${course_img})`,
+                    backgroundImage: `url(${item.smCourseImage})`,
                   }}
                 >
                   <div className="ourPrograms-card-desc">

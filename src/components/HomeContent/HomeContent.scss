@@ -21,11 +21,9 @@
       h1 {
         margin-bottom: 30px;
         font-family: $heading-font;
-        white-space: nowrap;
+
         font-size: 28px;
-        @include md {
-          white-space: wrap;
-        }
+
         @include sm {
           font-size: 25px;
         }

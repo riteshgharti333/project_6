@@ -7,7 +7,7 @@ import About from "./pages/About/About";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-import { Toaster } from "sonner";
+import { toast, Toaster } from "sonner";
 
 import Staff from "./pages/Staff/Staff";
 import Service1 from "./pages/Services/Service1";
@@ -27,7 +27,7 @@ import Pg4 from "./pages/Services/pg/Pg4";
 import Placement from "./pages/Placement/Placement";
 import Enquiry from "./pages/Enquiry/Enquiry";
 import Admission from "./pages/Admission/Admission";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import Contact from "./pages/Contact/Contact";
 import Gallery from "./pages/Gallery/Gallery";
 import Service7 from "./pages/Services/Service7";
@@ -42,14 +42,29 @@ function App() {
   const ScrollToTop = () => {
     const { pathname } = useLocation();
 
-    useEffect(() => {
-      window.scrollTo(0, 0); // Scrolls to top
+    useLayoutEffect(() => {
+      document.documentElement.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "instant",
+      });
     }, [pathname]);
 
     return null;
   };
 
   const queryClient = new QueryClient();
+
+  const shown = new Set();
+  const originalToastError = toast.error;
+
+  toast.error = (message, opts = {}) => {
+    const key = typeof message === "string" ? message : JSON.stringify(message);
+    if (shown.has(key)) return;
+    shown.add(key);
+    originalToastError(message, opts);
+    setTimeout(() => shown.delete(key), 2000);
+  };
 
   return (
     <div className="app">
@@ -65,7 +80,7 @@ function App() {
 
             <Route path="/our-staff" element={<Staff />} />
             <Route path="/mentor" element={<Mentor />} />
-            <Route path="/alumini" element={<Placement />} />
+            <Route path="/alumni" element={<Placement />} />
             <Route path="/enquiry" element={<Enquiry />} />
             <Route path="/admission" element={<Admission />} />
             <Route path="/gallery" element={<Gallery />} />
@@ -73,9 +88,10 @@ function App() {
             <Route path="/gallery/:id" element={<SingleGallery />} />
 
             {/* Courses */}
-            <Route path="/course/:couseType/:id/:courseName" element={<SingleCourse />} />
-
-
+            <Route
+              path="/course/:couseType/:id/:courseName"
+              element={<SingleCourse />}
+            />
 
             {/* Services */}
             <Route path="/interior-design" element={<Service1 />} />

@@ -5,6 +5,8 @@ import Loader from "../../components/Loader/Loader";
 import { toast } from "sonner";
 
 import { baseUrl } from "../../main";
+import useFullUrl from "../../utils/useFullUrl";
+import SEO from "../../components/SEO/SEO";
 
 const fetchStaffs = async () => {
   if (!navigator.onLine) {
@@ -19,12 +21,14 @@ const fetchBanner = async () => {
     throw new Error("NETWORK_ERROR");
   }
   const { data } = await axios.get(
-    `${baseUrl}/banner/staff-banner/67e7723fc95a30104036fdc1`,
+    `${baseUrl}/banner/staff-banner/67e7723fc95a30104036fdc1`
   );
   return data?.image;
 };
 
 const Mentor = () => {
+  const fullUrl = useFullUrl();
+
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["staff"],
     queryFn: fetchStaffs,
@@ -73,8 +77,16 @@ const Mentor = () => {
     );
   }
 
+
   return (
     <div className="mentor">
+      <SEO
+        title="Meet Our Mentors | International Academy of Design – Learn from Industry Experts"
+        description="Explore the mentors at International Academy of Design—seasoned professionals from fashion, interior, architecture, web development, and digital marketing guiding students with real-world expertise."
+        keywords="design mentors, fashion design teachers, architecture faculty, interior design instructors, web development mentors, expert-led design education, IAD mentors"
+        url={fullUrl}
+      />
+
       <div className="staff-banner">
         <div className="img-wrapper">
           <img src={bannerImg} alt="Mentor Banner" loading="lazy" />
@@ -95,7 +107,6 @@ const Mentor = () => {
               </div>
             </div>
           ))}
-          
         </div>
       </div>
     </div>
